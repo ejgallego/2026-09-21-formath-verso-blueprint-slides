@@ -1,0 +1,44 @@
+Large-scale formalization projects have long needed tools to
+coordinate contributions, track dependencies, and connect mathematical
+exposition with formal proofs. A key example is Lean
+Blueprint. Introduced in 2020 for the sphere eversion project, Lean
+Blueprint extends plasTeX to provide a shared map of statements,
+dependencies, Lean declarations, and progress. Lean Blueprint's model
+has been quite influential and has helped shape how mathematicians and
+formalizers work together on large-scale formalization projects.
+
+This talk presents recent work on Verso Blueprint, a Lean-native
+implementation of the Lean Blueprint concept built on Verso, Lean's
+official markup language. Designed for close integration with Lean,
+Verso Blueprint maintains a three-layer database linking source
+material, informal statements, and their formalized counterparts. The
+database is populated from Verso documents, analysis of Lean
+declarations, and other user-provided data. Interactive HTML views
+provide navigation and previews, connecting mathematical exposition
+with the formal development. We have now largely reached our original
+goal, with functionality comparable to Lean Blueprint or Lean
+Architect.
+
+But matching that functionality is no longer enough: this is an
+extraordinary moment for formalisation. The practice is radically
+chaining even as we build its tools.
+
+When we began this project, our central use case was for humans to
+write detailed statements and dependencies to guide
+formalization. Today, coding agents are increasingly writing and
+interacting with the blueprints themselves in an autonomous
+fashion. Blueprints are taking on the reverse role: not just guiding
+the construction of formal proofs, but making AI-generated proofs
+intelligible to humans. At the same time, dependency tracking and
+organizational information remain essential for coordinating
+large-scale autoformalization. For example, Prove2Me, a theorem
+database with dependency tracking, played a key coordination role in
+the recent Fermat's Last Theorem auto-formalization milestone.
+
+What comes next for blueprints in this extraordinary moment? We are
+redesigning Verso Blueprint around the idea of "programmatic
+blueprints": human-readable, machine-actionable objects synchronized
+with formal developments. Our ambition is for blueprints to become a
+*foundational harness for AI-assisted formalization*, maintaining the
+shared state of a project and coordinating what happens next across
+mathematicians, formalizers, code repository workflows, and agents.
