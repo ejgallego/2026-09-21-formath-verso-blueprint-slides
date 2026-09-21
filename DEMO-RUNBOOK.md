@@ -46,17 +46,18 @@ The full cold workflow is `scripts/build-pages.sh`, including FLT generation.
 
 ## Demo 1: what Verso does (about 2 minutes)
 
-Start on [the complete source slide](http://127.0.0.1:8877/#/3/1).
+Start on [the source and output slide](http://127.0.0.1:8877/#/3/1).
 The actual file is [ForMathDemo/Verso.lean](ForMathDemo/Verso.lean).
 
 1. Identify Lean imports, `#doc (Manual)`, and the transition into document markup.
 2. Open [Applying a function](http://127.0.0.1:8877/demo/verso/Applying-a-function/).
 3. Follow “applying a function”: it resolves the authored document target.
 4. Hover `congrArg`: it shows the declaration type and documentation.
-5. Return to the diagnostics slide. Successful code and expected failure are
-   both enforced at build time; prose is not thereby verified.
+5. Hover `exact` to inspect the proof state. The proof is checked as part of
+   the document build; the surrounding prose remains informal.
 
-Fallback: the slide contains the whole compiled file. No live typing is required.
+Fallback: the slide shows the document body (imports omitted) and a matching
+capture of its rendered page. No live typing is required.
 
 Spoken exit: “The document can resolve a declaration and check an example.
 The surrounding exposition is still informal. Now we can add Blueprint-specific
@@ -140,5 +141,6 @@ checks use headless Chrome. Speaking time and projector readability still need
 a live rehearsal.
 
 Both small Blueprint sites pass vbp check with 11 manifest/cache entries.
-The before fixture intentionally contains sorry. The diagnostics slide
-intentionally requires an error. Dependency pins remain unchanged.
+The before fixture intentionally contains sorry. The Verso source/output slide
+shows a checked proof; the old expected-error slide is removed. Dependency pins
+remain unchanged.

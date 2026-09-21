@@ -16,7 +16,7 @@ the title; backup has 9. Horizontal sections retain vertical children.
 | --- | --- | --- |
 | Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; dated reflection on mathematical direction | Six substantive slides. The Anthropic animation, smaller plan graph, and both quote excerpts are visible. Navier–Stokes and its image are in backup. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
 | Historical context | Blueprint lineage, LeanBlueprint, and why build VBP | The comparison with LeanBlueprint now closes this section. Retain attribution and credit existing capabilities. |
-| Verso | David Thrane Christiansen's introduction; complete source/rendered document; checked proof and resolved references; two-phase build; extension points | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
+| Verso | David Thrane Christiansen's introduction; one source/output slide with a checked proof and resolved references; two-phase build; extension points | Former slides 4.2 and 4.3 are fused. The source and captured page use the same compiled example. No Lean tutorial. |
 | Verso Blueprint | Rich theorem syntax with attached Lean; its rendered node; real Frey node; FLT graph; highlighted attribute authoring; Features; Validation | Show syntax before the node. Keep the Frey example substantial. End with the four Codex-assisted LaTeX ports and the review harness. |
 | What's next | “Towards programmatic blueprints” uses a single list to frame VBP as core infrastructure for research projects; six-item Illuminate timeline | Two slides. Prove2Me, Trellis, and AutoformBot are potential beneficiaries, not claimed integrations. The September–December span is illustrative: items are equally spaced, without individual delivery dates. “1.0 release” accompanies the final item. The first item means formalizing VBP's custom database. |
 
@@ -80,7 +80,7 @@ The feature pass compiled the deck and demo modules, generated all three demo
 sites, checked both Blueprint variants with `vbp check` (11 entries each), and
 queried actual dependencies/work queues. Publication normalization passed
 without leaking local repository paths. The incomplete variant intentionally
-contains `sorry`; the diagnostics slide intentionally requires an error.
+contains `sorry`; the Verso source/output slide contains a checked proof.
 
 Headless visual and interaction checks are recorded in the demo runbook.
 The main-route visual/interaction review is in [REVIEW.md](REVIEW.md).

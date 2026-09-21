@@ -88,7 +88,7 @@ def main():
                         'Authoring And Review With AI', 'One Object, Several Consumers']:
             assert removed not in routes, removed
 
-        for name in ['A Complete Verso Document', 'Checked Code And Resolved Links',
+        for name in ['A Verso Document: Source And Output',
                      'A Theorem In Verso Blueprint', 'Code-First Authoring']:
             show_slide(name)
             page.wait_for_timeout(500)
@@ -99,6 +99,19 @@ def main():
                 assert block.evaluate('(e) => parseFloat(getComputedStyle(e).fontSize) >= 20'), name
                 assert block.evaluate('(e) => e.scrollWidth <= e.clientWidth + 2'), 'code clipping: ' + name
         print('PASS: short code examples at least 20px without horizontal clipping')
+        verso = show_slide('A Verso Document: Source And Output')
+        source = verso.locator('pre code')
+        expected = (Path(__file__).resolve().parent.parent / 'ForMathDemo/Verso.lean').read_text()
+        normalize = lambda text: [line for line in text.strip().splitlines() if line.strip()]
+        assert normalize(source.inner_text()) == normalize('#doc' + expected.split('#doc', 1)[1])
+        source.locator('.language-lean .hljs-keyword').filter(has_text='exact').wait_for()
+        assert verso.locator('h3, p, pre, img').evaluate_all('''es => es
+            .filter(e => !e.closest('aside.notes')).every(e => {
+                const r = e.getBoundingClientRect();
+                return r.left >= 0 && r.right <= innerWidth + 2 && r.bottom <= innerHeight;
+            })'''), 'Verso source/output slide overflows'
+        capture('verso-source-output')
+        print('PASS: compiled Verso source matches the slide, nested Lean highlighting and slide bounds')
         show_slide('Code-First Authoring').locator('.hljs-meta').filter(has_text='@[blueprint').wait_for()
         show_slide('A Theorem In Verso Blueprint').locator('.language-lean .hljs-keyword').filter(
             has_text='theorem').wait_for()

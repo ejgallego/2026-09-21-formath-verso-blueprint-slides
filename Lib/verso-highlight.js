@@ -54,7 +54,7 @@
       var ROLE = {
         className: "title",
         begin: /\{[A-Za-z_][A-Za-z0-9_-]*/,
-        end: /\}\[\]/,
+        end: /\}/,
         contains: [STRING]
       };
 
@@ -62,6 +62,9 @@
         name: "Verso",
         aliases: ["vbp"],
         contains: [
+          { className: "keyword", begin: /#doc\b/ },
+          { className: "section", begin: /^#{1,6}\s+.*$/m },
+          { className: "meta", begin: /^%%%$/m },
           { begin: /^```lean\b[^\n]*\n/m, end: /^```\s*$/m,
             subLanguage: "lean", excludeBegin: true, excludeEnd: true },
           DIRECTIVE,

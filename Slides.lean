@@ -298,79 +298,62 @@ The local video avoids depending on venue internet; the links remain useful for
 the full talk and project website.
 :::
 
-## A Complete Verso Document
+## A Verso Document: Source And Output
 
-:::::class "verso-complete-document"
-::::hstack
-
-:::vstack
-
-```lean -panel
-#check fun (g : Nat → Nat) (x y : Nat) (h : x = y) =>
-  congrArg g h
-```
-
-A `#doc (Manual) ... =>` command switches from Lean to document markup.
-
-[Open the rendered document](demo/verso/Applying-a-function/)
-
-:::
-
-:::class "verso-document-shot"
-{image (width := "100%") "static/webshots/verso-equality-transport.png"}[Rendered Verso Manual document showing its table of contents, heading, mathematical text, and linked Lean declaration]
-:::
-
-::::
-:::::
-
-:::notes
-The file starts in Lean. The #doc command introduces a document whose markup
-can call extensions supplied by the imports. Manual is one document kind.
-Show the rendered page on the right, follow the document reference, then hover
-congrArg. The reader sees prose, but this name still has its declaration and
-type. The source uses the Lean highlighter, rather than a generic code block.
-:::
-
-## Checked Code And Resolved Links
-
+::::::class "verso-complete-document"
 :::::hstack
 
+::::class "verso-document-source"
 :::vstack
+*Verso source* (imports omitted)
 
-*A Lean proof inside the document is elaborated during the build.*
+````code verso
+#doc (Manual) "Equality transport" =>
+# Applying a function
+%%%
+tag := "transport"
+%%%
+If $`x = y`, then $`g(x) = g(y)`.
+The Lean declaration is {name}`congrArg`.
 
-```lean -panel -stretch
+```lean
 example (g : Nat → Nat) (x y : Nat)
-    (h : x = y) : g x = g y :=
-  congrArg g h
+    (h : x = y) : g x = g y := by
+  exact congrArg g h
 ```
 
-An expected error can also be part of the document's build contract.
-
+Return to {ref "transport"}[applying a function].
+````
 :::
+::::
 
+::::class "verso-document-result"
 :::vstack
+*Generated Manual page*
 
-*Markup resolves against more than one environment.*
+{image (width := "100%") "static/webshots/verso-equality-transport.png"}[Generated Applying a function page with the matching checked proof, congrArg declaration reference, and document link]
 
-```code verso
-{name}`congrArg`
-{ref "transport"}[the proof]
-```
-
-`{name}` resolves a Lean declaration.
-
-`{ref}` resolves an authored document target.
-
+[Explore the document](demo/verso/Applying-a-function/)
 :::
-
+::::
 :::::
+::::::
+
+:::class "verso-document-takeaway"
+*Lean checks the proof.* `{name}`: Lean declaration · `{ref}`: document target.
+:::
 
 :::notes
-Keep the distinction: Lean checks the proof at build time; the two markup
-roles resolve against different structured environments. The generic document
-link follows an authored target, while the Lean name retains its declaration
-information. VBP will add a third identity: the mathematical object.
+The source is an excerpt of ForMathDemo/Verso.lean with only its imports/open
+declarations and blank lines omitted. The example is compiled in that document;
+the slide displays the source with presentation syntax highlighting. The image
+is a capture of the resulting page, including the same proof.
+Start at #doc: Manual selects the document genre and => introduces the markup.
+The section tag gives the document reference a stable target. Then show the
+Lean proof, which is checked while elaborating the document. Open the page,
+hover congrArg for its type and exact for the tactic state, and follow the
+document link. Keep the surrounding mathematical prose distinct from the
+checked code. Move directly to the two-phase build slide.
 :::
 
 ## Two Phases Of A Verso Build
