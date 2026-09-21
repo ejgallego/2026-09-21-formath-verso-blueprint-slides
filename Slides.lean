@@ -661,7 +661,7 @@ We want VBP to provide core infrastructure for mathematical research projects.
 :::class "programmatic-goals"
 - A stable record of mathematical statements, dependencies, and sources.
 - Lean evidence and project state available through queries.
-- Better tools for projects such as Prove2Me, Trellis, and AutoformBot.
+- Better tools for projects such as [Prove2Me](https://prove2.me/), [Trellis](https://www.math.cmu.edu/~wes/trellis.php), and [AutoformBot](https://github.com/facebookresearch/autoform-bot).
 :::
 
 :::notes
