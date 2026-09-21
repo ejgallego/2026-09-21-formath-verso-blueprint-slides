@@ -731,6 +731,7 @@ axis.compose stems |>.compose marks
   |>.compose (txt "Widget" 16 true |>.translate 86 (-77))
   |>.compose (item 258 77 "Side-by-Side" "analysis")
   |>.compose (item 430 (-77) "Direct agentic" "loop support")
+  |>.compose (txt "1.0 release" 16 true teal |>.translate 430 (-128))
   |>.compose (txt "Sep 2026" 14 true muted |>.translate (-430) (-165))
   |>.compose (txt "Dec 2026" 14 true muted |>.translate 430 (-165))
   |>.scale 0.9
@@ -741,7 +742,8 @@ axis.compose stems |>.compose marks
 The six priorities are evenly spaced in expected order across September to
 December 2026. Their positions do not assign delivery months or deadlines.
 The first item means formalizing VBP's custom database. The widget and direct
-agent loop are proposed work, not capabilities claimed by this timeline.
+agent loop are proposed work, not capabilities claimed by this timeline. The
+1.0 release is shown with direct agentic loop support at the end of the span.
 :::
 
 # Backup: Architecture

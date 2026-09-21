@@ -134,7 +134,8 @@ Use the speaker's priorities in this order:
 6. Direct agentic loop support
 
 The Illuminate timeline spans September–December 2026 and spaces the six items
-evenly; the positions do not assign individual delivery dates. The first item
+evenly; the positions do not assign individual delivery dates. “1.0 release”
+is aligned with the final item. The first item
 means formalizing VBP's custom database, as clarified by the speaker.
 Distinguish today's source metadata, queries, and public embedding APIs from
 the planned integrated experience.
