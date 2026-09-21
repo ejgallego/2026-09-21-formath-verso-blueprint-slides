@@ -6,7 +6,7 @@ unfamiliar with Verso. Explain the document system, not proof assistants.
 Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
-Five substantive sections, plus backup. The main route has 26 slides including
+Five substantive sections, plus backup. The main route has 25 slides including
 the title; backup has 9. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
@@ -15,7 +15,7 @@ the title; backup has 9. Horizontal sections retain vertical children.
 | Section | Current content | Remaining editorial work |
 | --- | --- | --- |
 | Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; dated reflection on mathematical direction | Six substantive slides. The Anthropic animation, smaller plan graph, and both quote excerpts are visible. Navier–Stokes and its image are in backup. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
-| Historical context | Blueprint lineage, LeanBlueprint, coordination, why VBP | The comparison with LeanBlueprint now closes this section. Retain attribution and credit existing capabilities. |
+| Historical context | Blueprint lineage, LeanBlueprint, and why build VBP | The comparison with LeanBlueprint now closes this section. Retain attribution and credit existing capabilities. |
 | Verso | Language boundary and document kinds; complete compiled document; checked code and enforced diagnostic; document/Lean references; extensions | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
 | Verso Blueprint | Rich theorem syntax with attached Lean; real Frey node; graph; highlighted attribute authoring; Features; Validation | Show syntax before the node. Keep the Frey example substantial. End with the four Codex-assisted LaTeX ports and the review harness. |
 | What's next | Shared infrastructure; speaker's five ordered roadmap items; closing | No delivery dates. The first item means formalizing VBP's custom database. |

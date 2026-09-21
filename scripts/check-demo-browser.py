@@ -80,7 +80,7 @@ def main():
         expected_core = ['A Theorem In Verso Blueprint', 'Reading A Node: The Frey Curve',
                          'The Dependency Graph', 'Code-First Authoring', 'Features', 'Validation']
         assert [name for name, (h, _) in routes.items() if h == 4] == expected_core
-        assert routes['Why Verso Blueprint?'][0] == 2
+        assert routes['Why Build Verso Blueprint?'][0] == 2
         assert routes['The Abstract Data Model'][0] == 6
         for removed in ['Anatomy Of A Node', 'Progress Is Connected To The Formal Development',
                         'Authoring And Review With AI', 'One Object, Several Consumers']:

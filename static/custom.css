@@ -136,6 +136,20 @@
   object-fit: contain;
 }
 
+.reveal .slides section ul.leanblueprint-history {
+  margin-bottom: 2vh;
+}
+
+.reveal .slides section p.leanblueprint-graph {
+  margin: 2vh 0 0;
+  text-align: center;
+}
+
+.reveal .slides section .leanblueprint-graph img {
+  max-height: 43vh;
+  max-width: 95%;
+}
+
 .reveal .sphere-images p {
   margin: 0.25em 0;
 }

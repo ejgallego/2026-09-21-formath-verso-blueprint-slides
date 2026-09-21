@@ -96,7 +96,7 @@ Present these as recommended authoring practices, not promises that every practi
 
 Show the actual node, rendered content, available Lean attachments, dependency view, and graph. The existing embedded `FreyCurve` example is a suitable anchor; preserve manifest-backed embedding and the public preview/graph route. [R1, R5, R6]
 
-The implemented sequence is **why VBP → Frey node → anatomy of a rich small node → model diagram → authoring → dependency tracks → graph → before/after formal progress and summary → sources → consumers → review/boundaries**. Keep the dense field listing and full FLT graph in backup. The comparison credits LeanBlueprint's existing coordination features and argues for Lean-native authoring, connected evidence, and programmable reuse.
+The implemented sequence is **historical motivation for VBP → theorem syntax with attached Lean → Frey node → dependency graph → code-first authoring → Features → Validation**. The abstract model and full FLT graph are in backup. The comparison credits LeanBlueprint's existing coordination features and argues for Lean-native authoring, connected evidence, and programmable reuse.
 
 Every status or feature shown needs one of three descriptions: demonstrated in this checkout, an unvalidated prototype, or a proposal. Do not infer implementation from a persuasive diagram.
 
