@@ -117,10 +117,12 @@ A small collaboration sketch may close the section: retrieve context, attempt a 
 
 ### 5.1 Towards programmatic blueprints
 
-Adapt the Madrid closing slide: a blueprint remains readable by mathematicians
-while exposing stable labels, relations, and project state to programs. This
-is the transition from the demonstrated reader and query surfaces to the
-proposed integrations.
+Adapt the Madrid closing slide to introduce VBP as core infrastructure for
+mathematical research projects. Define the programmatic blueprint through
+stable theorem identities, linked evidence, and queryable project state.
+Prove2Me, Trellis, and AutoformBot are examples of projects this could support,
+not integrations to present as already implemented. This bridges the
+demonstrated reader and query surfaces to the proposed roadmap.
 
 ### 5.2 Roadmap
 

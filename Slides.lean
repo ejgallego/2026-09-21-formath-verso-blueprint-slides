@@ -655,43 +655,45 @@ vertical := some true
 %%%
 
 :::class "whats-next-intro"
-Blueprints can be readable mathematical documents and programmatic project data.
+We want VBP to provide core infrastructure for mathematical research projects.
 :::
 
 ::::hstack
 
 :::vstack
 
-*For mathematicians*
+*Programmatic blueprint*
 
-- statements and proof ideas
-- dependencies and sources
-- formal evidence in context
+- stable theorem identities and dependencies
+- links to sources and Lean evidence
+- queryable progress and task state
 
 :::
 
 :::vstack
 
-*For programs*
+*Projects it could support*
 
-- stable labels and explicit relations
-- queries over project state
-- shared context for widgets and agents
+- Prove2Me
+- Trellis
+- AutoformBot
 
 :::
 
 ::::
 
 :::class "whats-next-close"
-The document and the data describe the same mathematics.
+A shared mathematical record can support many research workflows.
 :::
 
 :::notes
-Adapted from the final “What's Next” slide of the Madrid presentation. The
-left side describes the mathematical reading task; the right side describes
-the structured data that tools can use. Stable labels, source associations,
-queries, and derived project state are already demonstrable in this checkout.
-The integrated widget and direct agent loop remain roadmap work.
+Adapted from the final “What's Next” slide of the Madrid presentation. This
+slide introduces the goal of a programmatic blueprint as core infrastructure.
+Stable labels, source associations, queries, and derived project state are
+already demonstrable in this checkout. Prove2Me, Trellis, and AutoformBot are
+examples of research projects that such infrastructure could support; this
+slide does not claim those integrations exist. The next slide shows the work
+towards a more complete interface.
 :::
 
 ## Roadmap · September–December 2026
