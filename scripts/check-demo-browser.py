@@ -77,7 +77,8 @@ def main():
             slide.get_by_role('heading', name=name, exact=True).wait_for()
             return slide
 
-        expected_core = ['A Theorem In Verso Blueprint', 'Reading A Node: The Frey Curve',
+        expected_core = ['A Theorem In Verso Blueprint', 'The Rendered Theorem',
+                         'Reading A Node: The Frey Curve',
                          'The Dependency Graph', 'Code-First Authoring', 'Features', 'Validation']
         assert [name for name, (h, _) in routes.items() if h == 4] == expected_core
         assert routes['Why Build Verso Blueprint?'][0] == 2
@@ -101,6 +102,11 @@ def main():
         show_slide('A Theorem In Verso Blueprint').locator('.language-lean .hljs-keyword').filter(
             has_text='theorem').wait_for()
         show_slide('Reading A Node: The Frey Curve').locator('.bp_slide_node').wait_for()
+        rendered = show_slide('The Rendered Theorem').frame_locator('iframe')
+        rendered.locator('body[data-demo-ready="true"]').wait_for()
+        rendered.get_by_text('A function admitting a left inverse is injective.', exact=True).wait_for()
+        assert rendered.locator('#proof').inner_text().strip()
+        assert not rendered.locator('nav').is_visible()
         print('PASS: VBP sequence, highlighted attribute/nested Lean, and retained Frey node')
 
         # Read the current opening sequence rather than pinning editorial titles.
@@ -170,13 +176,13 @@ def main():
 
         # Graph initialization includes a deferred layout pass. Let it settle
         # before clicking, as the presenter would on arrival at this slide.
-        show_slide('The Dependency Graph')
-        graph = page.locator('[data-bp-slide-graph][data-bp-graph-status="ready"]')
+        graph_slide = show_slide('The Dependency Graph')
+        graph = graph_slide.locator('[data-bp-slide-graph][data-bp-graph-status="ready"]')
         graph.wait_for()
         page.wait_for_timeout(1000)
-        graph.locator('svg').get_by_text('left_inverse_injective', exact=True).click()
-        page.locator('.bp_graph_preview:not([hidden])').get_by_text(
-            'A function admitting a left inverse is injective.', exact=True).wait_for()
+        assert graph.locator('svg g.node').count() > 5, 'expected the full FLT graph'
+        graph.locator('svg').get_by_text('FreyCurve', exact=True).click(force=True)
+        graph_slide.locator('.bp_graph_preview:not([hidden])').wait_for()
         for math in page.locator('.bp_graph_preview:not([hidden]) .katex-display').all():
             assert math.evaluate('(e) => e.scrollWidth <= e.clientWidth + 2'), 'graph formula overflows'
         capture('graph-preview')

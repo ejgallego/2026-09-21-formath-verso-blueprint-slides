@@ -67,16 +67,17 @@ objects to this document system.”
 1. Start on [the theorem syntax](http://127.0.0.1:8877/#/4).
    Point out the stable label, authored dependencies, owner/tags, attached Lean
    block, and separate informal proof. The Lean block shares the node's label.
-2. Open [the Frey node](http://127.0.0.1:8877/#/4/1).
+2. Show [the rendered theorem](http://127.0.0.1:8877/#/4/1).
+   Its statement and informal proof come from the preceding source.
+3. Open [the Frey node](http://127.0.0.1:8877/#/4/2).
    This deliberately uses a substantial FLT example rather than the elementary
    theorem from the syntax slide. Inspect its mathematical statement and Lean
    attachment. Explain the coordinate-changed Weierstrass model if needed.
-3. Show [the dependency graph](http://127.0.0.1:8877/#/4/2).
-   This returns to the small syntax example so that all five nodes are legible.
-   Find left_inverse_injective and open one node preview.
-4. [Code-first authoring](http://127.0.0.1:8877/#/4/3) shows the highlighted
+4. Show [the FLT dependency graph](http://127.0.0.1:8877/#/4/3).
+   Zoom in and open a node preview. It uses the same project as the Frey node.
+5. [Code-first authoring](http://127.0.0.1:8877/#/4/4) shows the highlighted
    blueprint attribute. Features consolidates the capabilities.
-5. [Validation](http://127.0.0.1:8877/#/4/5) closes with the reference ports.
+6. [Validation](http://127.0.0.1:8877/#/4/6) closes with the reference ports.
 
 The checked source is ForMathDemo/After.lean. The slide excerpt omits its
 namespace, source-span record, and surrounding author/group registrations.

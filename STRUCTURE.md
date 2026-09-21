@@ -17,7 +17,7 @@ the title; backup has 9. Horizontal sections retain vertical children.
 | Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; dated reflection on mathematical direction | Six substantive slides. The Anthropic animation, smaller plan graph, and both quote excerpts are visible. Navier–Stokes and its image are in backup. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
 | Historical context | Blueprint lineage, LeanBlueprint, and why build VBP | The comparison with LeanBlueprint now closes this section. Retain attribution and credit existing capabilities. |
 | Verso | David Thrane Christiansen's introduction; complete source/rendered document; checked proof and resolved references; two-phase build; extension points | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
-| Verso Blueprint | Rich theorem syntax with attached Lean; real Frey node; graph; highlighted attribute authoring; Features; Validation | Show syntax before the node. Keep the Frey example substantial. End with the four Codex-assisted LaTeX ports and the review harness. |
+| Verso Blueprint | Rich theorem syntax with attached Lean; its rendered node; real Frey node; FLT graph; highlighted attribute authoring; Features; Validation | Show syntax before the node. Keep the Frey example substantial. End with the four Codex-assisted LaTeX ports and the review harness. |
 | What's next | “Towards programmatic blueprints” uses a single list to frame VBP as core infrastructure for research projects; six-item Illuminate timeline | Two slides. Prove2Me, Trellis, and AutoformBot are potential beneficiaries, not claimed integrations. The September–December span is illustrative: items are equally spaced, without individual delivery dates. “1.0 release” accompanies the final item. The first item means formalizing VBP's custom database. |
 
 Roadmap order: **Formal Database Model → Improved Skill → Improved Verso
@@ -37,14 +37,15 @@ See [DEMO-RUNBOOK.md](DEMO-RUNBOOK.md).
   proof readiness and the work queue.
 - The five-node graph, summary, standalone panel, and CLI consume generated
   VBP data. No hand-maintained progress colors or fabricated query output.
-- Frey remains the real-project example; the full FLT graph is in backup.
+- Frey and the full FLT graph are the real-project examples. The small graph
+  remains available in the standalone demo.
 
 The model diagram is now in the appendix. The dedicated anatomy, progress,
 source-levels, CLI, and AI-review slides are removed. Features consolidates the
 dependency, source-correspondence, project-state, and reuse capabilities. The
 standalone before/after demos remain available for optional questions.
 
-Section 5 is now: theorem syntax, Frey node, graph, code-first authoring,
+Section 5 is now: theorem syntax, rendered theorem, Frey node, FLT graph, code-first authoring,
 Features, Validation. The small theorem deliberately separates introductory
 syntax from the richer Frey example. Its attached inline Lean code compiles.
 The After fixture now authors the same statement edges explicitly with `uses`;

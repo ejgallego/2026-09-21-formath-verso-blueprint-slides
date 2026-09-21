@@ -244,28 +244,30 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 
 ## Why Build Verso Blueprint?
 
-:::class "why-vbp-lead"
-A shared mathematical plan is most useful when it tracks changes in the Lean
-development.
-:::
+*Why VBP when LeanBlueprint already exists?*
 
-Verso Blueprint gives each mathematical object a stable label connecting its
-explanation, Lean evidence, dependencies, and status.
+LeanBlueprint already provides a mathematical plan, dependency graphs,
+progress, and links to Lean. We retain that coordination model.
 
-Readers, contributors, and agents can then work from the same project state
-and checking evidence.
+- *Lean-native authoring*: prose, checked examples, and extensions in one environment.
+- *Connected evidence*: derive progress and optional dependencies from declarations.
+- *Programmable reuse*: the same objects serve readers, project views, and tools.
+
+The choice is tighter Lean integration—not a claim that TeX is obsolete.
 
 :::notes
-The historical blueprints established a way to coordinate mathematical work.
-LeanBlueprint already provides dependency graphs, progress, and links to Lean.
-The aim here is tighter Lean integration and programmable reuse, building on
-that model. This does not claim that every project should migrate from TeX.
-LeanBlueprint also checks declaration names with checkdecls.
+The reason to choose VBP is close integration with Lean and programmable reuse.
+A working TeX/LeanBlueprint project already serves a valuable purpose.
+VBP adds another implementation choice; this talk demonstrates what that enables.
+Do not claim TeX cannot carry structure or that every project should migrate.
+LeanBlueprint also checks declaration names with checkdecls; name validation is
+not a unique VBP feature. See https://github.com/PatrickMassot/leanblueprint and
+https://github.com/hanwenzhu/LeanArchitect for the existing ecosystem.
+The Verso example has shown Lean-native authoring. Next, a node connects
+mathematical content to formal evidence. Then changing that evidence changes
+project state, which the reader and tools can both inspect.
 Links and formal completion do not establish that the informal account is
 mathematically equivalent to the Lean declaration; that still needs review.
-
-LeanArchitect is another example of using a blueprint to coordinate people
-and AI tools: https://arxiv.org/abs/2601.22554.
 :::
 
 # Verso: Documentation as a Lean DSL
@@ -518,7 +520,17 @@ Lean block attaches a checked declaration to the same node. autoDeps also
 reads its elaborated type and proof. Owner and tags are project metadata.
 The prerequisite definitions and author registration come from the surrounding
 document. The namespace and source-span metadata are omitted in this excerpt.
-The rendered Frey node next shows a richer mathematical example from FLT.
+The next slide renders this same node. Frey then gives a richer example from FLT.
+:::
+
+## The Rendered Theorem
+
+{demoFrame "demo/after/panel.html?slide=1" "Rendered left-inverse theorem"}
+
+:::notes
+This is the node generated from the preceding source. The statement and informal
+proof share a label, with separate dependency lists. Open a dependency or the
+Lean link to inspect the attached mathematics and checked code.
 :::
 
 ## Reading A Node: The Frey Curve
@@ -533,16 +545,15 @@ Explain the change of Weierstrass model when opening the declaration.
 
 ## The Dependency Graph
 
-{blueprintGraph (base := "demo/after/") (view := "full") (direction := "TB") (pack := "true") (class := "flt-graph-frame demo-graph-frame")}
+{blueprintGraph (view := "full") (class := "flt-graph-frame")}
 
-[Open the progress summary](demo/after/Blueprint-Summary/)
+[Open the FLT progress summary](blueprint/Blueprint-Summary/)
 
 :::notes
-Locate `left_inverse_injective`, its prerequisites, and the downstream
-`fibre_singleton` corollary. Open one node preview to recover the mathematics.
-The same labels identify the mathematical objects in the document and graph.
-This is the small theorem from the syntax slide, not the much larger FLT graph.
-Leave the full FLT graph, layout controls, and legend tour for questions.
+This is the FLT graph, from the same project as the Frey node. Zoom in and
+open a node to inspect its statement and formal attachment. The graph uses
+the same labels as the document. The small five-node teaching graph remains
+available in the standalone demo for a closer look at dependencies.
 :::
 
 ## Code-First Authoring
@@ -567,12 +578,12 @@ identifies the declaration. They serve different purposes.
 
 ## Features
 
-- *Mathematical content*: statement, informal proof, checked Lean, and retained TeX.
-- *Dependencies*: authored or inferred, with separate statement and proof dependencies.
-- *Source correspondence*: original document and spans, informal node, formal attachments.
-- *Project information*: groups, owners, tags, effort, and priority.
-- *Progress*: formalization status and downstream readiness from the generated development.
-- *Reuse*: readers, graphs, summaries, slides, and CLI/API clients share the same nodes.
+- *Statements and proofs*: write the mathematics in prose and attach checked Lean code.
+- *Dependencies*: declare them explicitly or extract them from Lean, separately for statements and proofs.
+- *Sources*: connect the original text, the informal account, and the formal declarations.
+- *Project organization*: group nodes, assign owners, and record tags, effort, and priority.
+- *Progress*: see what is formalized and which statements or proofs are ready to work on.
+- *Tools*: display the same nodes in documents and graphs, or query them through the CLI and API.
 
 :::notes
 uses adds a mathematical dependency. bpref adds a prose link without an edge.
@@ -597,7 +608,7 @@ We ported using Codex these selected LaTeX examples of blueprints:
 The harness checks structure and Lean links, and supports comparison with
 the source and rendered output.
 
-[Review a migration](https://x80.org/flt-translation-review/)
+[Review the porting](https://x80.org/flt-translation-review/)
 
 :::notes
 The migrations exercised the authoring and rendering features on existing
