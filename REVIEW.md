@@ -1,6 +1,6 @@
 # ForMath rehearsal review
 
-21 September 2026. Main route: 32 slides including title. Backup: 8 slides.
+21 September 2026. Main route: 31 slides including title. Backup: 9 slides.
 Event: ForMath Seminar, IRIF, Université Paris Cité.
 Preview: http://127.0.0.1:8877/.
 
@@ -13,8 +13,8 @@ LeanBlueprint credits its existing capabilities and motivates Lean integration.
 
 The opening now begins with the Madrid AI slide, then sphere packing and its
 Blueprint, FLT, Navier–Stokes, and a reflection on mathematical understanding.
-The FLT and Navier–Stokes images and the selected Anthropic quote remain marked
-placeholders.
+The opening now uses Anthropic's FLT progress animation and plan graph, short
+staged excerpts from its Prove2Me account, and the supplied Navier–Stokes image.
 
 1. **Rehearse the switches, not live proof typing.** Pre-open the Manual page,
    node panel, and two summaries. Stop after one reference/hover, one graph

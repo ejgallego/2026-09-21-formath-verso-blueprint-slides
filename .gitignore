@@ -6,6 +6,7 @@ _slides/
 _demo/
 _out/
 .worktrees/
+drop/
 *.olean
 *.ilean
 *.c

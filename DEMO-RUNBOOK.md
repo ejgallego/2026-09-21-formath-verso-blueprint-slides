@@ -11,15 +11,16 @@ take about seven minutes within the Verso and VBP sections.
 | Demonstration | Budget | Audience takeaway | Stop after |
 | --- | --- | --- | --- |
 | Verso source and reader | 2 min | A document extension can resolve Lean objects and check code. | One document reference and one declaration hover. |
-| Node, model, graph | 3 min | A Blueprint object connects a mathematical account to evidence and other nodes. | One source panel, one Lean panel, one graph preview. |
+| Node, model, graph | 3 min | A Blueprint object connects a mathematical account to evidence and other nodes. | One model and one graph preview. |
 | Completion and readiness | 2 min | Completing a proof changes which downstream work is ready. | The theorem's status and the corollary's proof readiness. |
 
 Lead-in: “The mathematics is deliberately elementary. Watch what the document
 knows about it, and what changes when its formal evidence changes.”
 
-The model slide is the pause between browsing the node and exploring the graph.
-Keep ownership/tags, the full FLT graph, graph layout controls, live proof typing,
-and terminal queries optional. The CLI slide is a short coda, not a fourth demo.
+The model slide is the pause between browsing the Frey node and exploring the
+graph. Keep the anatomy panel, ownership/tags, the full FLT graph, graph layout
+controls, live proof typing, and terminal queries optional. The CLI slide is a
+short coda, not a fourth demo.
 If a live control fails once, use the source/model slide and the verified
 before/after table below instead of debugging in front of the audience.
 
@@ -70,25 +71,19 @@ Spoken exit: “The document can resolve a declaration and check an example.
 The surrounding exposition is still informal. Now we can add Blueprint-specific
 objects to this document system.”
 
-## Demo 2: anatomy, model, and graph (about 3 minutes)
+## Demo 2: model and graph (about 3 minutes)
 
-Start on [node anatomy](http://127.0.0.1:8877/#/4/2).
-For larger popovers use the
-[standalone panel](http://127.0.0.1:8877/demo/after/panel.html).
+Start on [the model diagram](http://127.0.0.1:8877/#/4/2).
 
-1. Read the statement and its separate informal proof.
-2. Open the source chip. It records a document, citation, anchor, and text span.
-   “Source note” opens the actual note authored for this demonstration.
-3. Open the Lean attachment: declaration identity and completion evidence.
-   Use the editor source below if showing the actual proof body.
-4. Pause on [the model diagram](http://127.0.0.1:8877/#/4/3). The central
-   object has its own label. Its informal statement and proof are optional
-   facets. Dashed links are associations. Arrows run from prerequisite nodes
-   towards the dependent statement or proof, as in the graph.
-5. Explain the dependency tracks. The theorem type refers to `left_inverse`
+1. After the real Frey node, state that this small example controls a later
+   before/after change. Its label is `left_inverse_injective`.
+2. The central object has optional informal statement and proof facets. Dashed
+   links are associations. Arrows run from prerequisite nodes towards the
+   dependent statement or proof, as in the graph.
+3. Explain the dependency tracks. The theorem type refers to `left_inverse`
    and `injective`; these edges are automatic. `equality_transport` is an
    explicitly authored proof dependency.
-6. Open the [five-node graph](http://127.0.0.1:8877/#/4/6). Find the same
+4. Open the [five-node graph](http://127.0.0.1:8877/#/4/3). Find the same
    theorem, its prerequisites, and the downstream `fibre_singleton` corollary.
    Open one node preview, then stop. Save the summary for the progress demo.
 
@@ -96,9 +91,10 @@ Spoken exit: “The document and graph refer to the same mathematical objects.
 The graph currently shows the completed theorem. What happens when its proof
 is unfinished?”
 
-Optional depth: owner, tags, effort, priority, and grouping are useful project
-metadata. Group membership does not create a dependency. The diagram omits
-these fields to keep the core relationships readable.
+Optional depth: the backup anatomy panel shows source, Lean, retained TeX,
+ownership, tags, effort, priority, and grouping. Group membership does not
+create a dependency. The model omits these fields to keep the core
+relationships readable.
 
 Retained TeX is an informal representation, separate from original-source
 provenance. Neither proves informal/formal correspondence. The Frey example
@@ -112,7 +108,7 @@ node, but the rich dependency panels otherwise remain at “Loading preview.”
 
 ## Demo 3: a real state change (about 2 minutes)
 
-Start on [formal progress](http://127.0.0.1:8877/#/4/7).
+Start on [formal progress](http://127.0.0.1:8877/#/4/4).
 
 Use Before / After. The Blueprint label and informal content stay the same;
 the two fixtures attach declarations in Draft and Complete namespaces.

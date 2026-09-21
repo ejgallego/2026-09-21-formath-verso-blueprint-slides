@@ -6,18 +6,18 @@ unfamiliar with Verso. Explain the document system, not proof assistants.
 Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
-Five substantive sections, plus backup. The main route has 32 slides including
-the title; backup has 8. Horizontal sections retain vertical children.
+Five substantive sections, plus backup. The main route has 31 slides including
+the title; backup has 9. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
 ## Main route
 
 | Section | Current content | Remaining editorial work |
 | --- | --- | --- |
-| Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; smooth-forced Navier–Stokes, Clay C/D; mathematical understanding and research direction | Seven substantive slides. Add the speaker's FLT and Navier–Stokes images and Anthropic quotation to the marked placeholders. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
+| Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; smooth-forced Navier–Stokes, Clay C/D; mathematical understanding and research direction | Seven substantive slides. The Anthropic animation, plan graph, selected quote excerpts, and Navier–Stokes image are in place. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
 | Historical context | Blueprint lineage, LeanBlueprint, coordination | Retain attribution and the distinction between sphere eversion origins and later Liquid Tensor use. |
 | Verso | Language boundary and document kinds; complete compiled document; checked code and enforced diagnostic; document/Lean references; extensions | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
-| Verso Blueprint | Why another implementation; real Frey node; rich node anatomy; model diagram; prose/code authoring; dependency tracks; small graph; proof progress and summary; sources; public queries; AI review; boundaries | Rehearse the three timed demonstrations in the runbook. A recorded migration defect/correction remains optional future detail work. |
+| Verso Blueprint | Why another implementation; real Frey node; model diagram; small graph; proof progress and summary; prose/code authoring; dependency tracks; sources; public queries; AI review; boundaries | Rehearse the three timed demonstrations in the runbook. The rich node anatomy panel is backup detail. A recorded migration defect/correction remains optional future detail work. |
 | What's next | Shared infrastructure; speaker's five ordered roadmap items; closing | No delivery dates. The first item means formalizing VBP's custom database. |
 
 Roadmap order: **Formalizing VBP's custom database → improved skill → side-by-side
@@ -40,11 +40,11 @@ See [DEMO-RUNBOOK.md](DEMO-RUNBOOK.md).
   VBP data. No hand-maintained progress colors or fabricated query output.
 - Frey remains the real-project example; the full FLT graph is in backup.
 
-The model slide uses an editable native Verso/Illuminate diagram grounded in
-the same demonstration node. It separates optional informal facets, source
-and declaration associations, and dependencies on other nodes. The graph now
-precedes the proof-progress demo, so the downstream readiness change has an
-explicit mathematical context. The runbook supplies target timings, spoken
+The model slide uses an editable native Verso/Illuminate diagram grounded in a
+small controlled example. It separates optional informal facets, source and
+declaration associations, and dependencies on other nodes. The main sequence
+is Frey node, model, graph, then proof progress. The rich anatomy panel is
+backup material for questions. The runbook supplies target timings, spoken
 transitions, stopping points, optional material, and fallbacks.
 
 The “why VBP?” slide argues for Lean-native authoring, connected evidence, and

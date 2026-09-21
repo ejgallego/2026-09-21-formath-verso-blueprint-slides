@@ -29,7 +29,7 @@ Preserve the existing horizontal/vertical navigation convention. The section's f
 
 ## 1. Actual context — timing to rehearse
 
-The implemented opening now has seven substantive slides. It starts with the Madrid slide on AI and mathematics, then moves through the sphere packing formalization and its Blueprint. Two FLT slides show the reported scale and the role of Prove2Me; the second reserves space for the speaker's Anthropic quotation. Navier–Stokes follows, with an image placeholder. The section closes with the question of mathematical understanding and links to the Math and AI declaration, the Leiden Declaration, and SAIR's open mathematics initiative. The FLT and Navier–Stokes image placeholders await the speaker's assets.
+The implemented opening has seven substantive slides. It starts with the Madrid slide on AI and mathematics, then moves through the sphere packing formalization and its Blueprint. The first FLT slide shows the reported scale with Anthropic's progress animation. The second shows the Prove2Me plan graph and reveals two short excerpts from Anthropic's account in sequence. Navier–Stokes follows with the supplied inward-spiral illustration. The section closes with the question of mathematical understanding and links to the Math and AI declaration, the Leiden Declaration, and SAIR's open mathematics initiative.
 
 The slide notes link dated primary announcements, released artifacts, Buzzard's FLT checking report, and Clay's official scope and evaluation statement. The September 21 review inspected those sources, not independent builds or checker runs. Artifact revision pinning and a pre-talk status recheck remain useful follow-ups. [M1–M5]
 

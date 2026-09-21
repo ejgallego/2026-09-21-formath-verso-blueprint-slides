@@ -28,10 +28,10 @@ vertical := some true
 
 :::hstack
 
-- AI systems are producing mathematics that specialists take *seriously*.
+- AI systems are producing *serious mathematics*.
 - Mathematicians need ways to _inspect_, _guide_, and _trust_ the process.
-- _Mathematical output_ is no longer just a paper or a Lean file.
-- A great challenge to mathematics and computer science.
+- _Mathematical output_ now includes complex artifacts that are hard to digest.
+- This challenges mathematicians and computer scientists.
 
 {image "static/images/slide_1.1_erdos.png"}[Erdos' Unit Problem Solution Tweet by Timothy Gowers]
 
@@ -103,9 +103,9 @@ in coordinating a large formalization.
 Anthropic reports a complete Lean formalization of FLT, following the
 Darmon–Diamond–Taylor exposition. Lean checked the proof.
 
-:::class "intro-image-placeholder"
-FLT image placeholder
-:::
+```html
+<video class="flt-progress-video" src="flt-progress.mp4" poster="flt-progress-poster.png" muted loop playsinline controls preload="metadata" aria-label="Time progression of Anthropic's FLT formalization"></video>
+```
 
 *How does a mathematician read a proof of this size?*
 
@@ -122,34 +122,51 @@ reusable library contributions and an explorable mathematical document.
 
 [Anthropic announcement, 4 September 2026](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 
+The animation is Anthropic's “Time progression of FLT formalization” from that
+announcement. The slide opens on a late frame; play the muted clip when ready.
+
 [Released Lean artifact](https://github.com/anthropics/fermats-last-theorem)
 
 [Buzzard's checking report and assessment, 4 September 2026](https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/)
 :::
 
-## FLT: A Shared Plan For Agents
+## FLT: The Plan Behind The Proof
 
-Anthropic credits *Prove2Me* with maintaining theorem statements, dependencies,
-and natural language descriptions during the formalization.
-
-:::class "intro-quote-placeholder"
-Anthropic quote on Prove2Me — placeholder for supplied text
+:::class "flt-plan-image"
+{image (width := "100%") "static/images/flt-plan.png"}[Anthropic's Prove2Me plan showing the Mazur, Ribet, and Wiles branches leading to FLT]
 :::
 
-The plan helped coordinate proof search. We still need a mathematical account
-that people can inspect and discuss.
+::::class "flt-quote"
+:::fragment currentVisible (index := 1)
+Anthropic: “they quickly lost track of the project’s state and stopped collaborating effectively.”
+:::
+::::
+
+::::class "flt-quote"
+:::fragment currentVisible (index := 2)
+Anthropic: “The effort succeeded when we switched to using Prove2Me”
+The plan kept a theorem DAG, separate statement and proof files, and natural-language descriptions.
+:::
+::::
 
 :::notes
-Replace the visible placeholder with the user's selected Anthropic quotation.
-Do not present this paraphrase as a direct quotation. Anthropic describes
-earlier attempts losing project state and a successful run using Prove2Me.
-This is the team's account of its workflow, not a controlled comparison or a
-claim that Verso Blueprint powered the result.
+Reveal the failure first. Anthropic reports that unsuccessful attempts left
+about 7% of the final non-boilerplate lines. Then reveal the change to
+Prove2Me and its three functions: a theorem dependency graph for task choice,
+separation of statements and proofs to improve compilation, and natural-language
+descriptions for search and reuse. The slide quotes only short excerpts from
+the supplied passage; the final line paraphrases its list. This is the team's
+account of its workflow, not a controlled comparison or a claim that Verso
+Blueprint powered the result.
 
 [Anthropic announcement](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 :::
 
 ## Navier–Stokes: A Different Scale
+
+::::hstack
+
+:::vstack
 
 OpenAI announced breakdown results on 8 September 2026 for *three-dimensional
 incompressible Navier–Stokes with smooth forcing*.
@@ -157,12 +174,16 @@ incompressible Navier–Stokes with smooth forcing*.
 The mathematical manuscript and Lean artifact are far shorter than the FLT
 formalization. Understanding the construction still takes mathematical work.
 
-:::class "intro-image-placeholder"
-Navier–Stokes image placeholder
-:::
-
 The result addresses Clay alternatives *C and D*, for the whole-space and
 periodic cases.
+
+:::
+
+:::class "ns-visual"
+{image (width := "100%") "static/images/navier-stokes.webp"}[Visualization of inward spiral and axial stretching in the Navier–Stokes construction]
+:::
+
+::::
 
 :::notes
 The announced result concerns positive viscosity, smooth initial data, and
@@ -177,6 +198,9 @@ The released repository includes comparator challenges and instructions.
 The exposition and formal artifact serve different reading needs.
 
 [OpenAI announcement, 8 September 2026](https://openai.com/index/navier-stokes-solution/)
+
+The image was supplied for this talk and illustrates the inward spiral and
+axial stretching described in OpenAI's announcement.
 
 [Released Lean artifact and checking instructions](https://github.com/openai/NavierStokesAndEuler)
 
@@ -441,24 +465,6 @@ project example; switch to the small authored example for controlled changes.
 Explain the change of Weierstrass model when opening the declaration.
 :::
 
-## Anatomy Of A Node
-
-{demoFrame "demo/after/panel.html" "Anatomy of a Blueprint theorem"}
-
-:::class "anatomy-key"
-The label `left_inverse_injective` connects the mathematical account
-to formal evidence and dependencies.
-:::
-
-:::notes
-Read the statement and its separate informal proof. Open the Lean chip:
-it associates a declaration with this mathematical object. Open the source
-chip: it identifies a passage of the demonstration note.
-Stop after these two panels. Dependencies come next, and ownership metadata
-can wait for questions. The theorem's label stays fixed across these views.
-Transition: which parts belong to the node, and which are relationships?
-:::
-
 ## The Abstract Data Model
 
 ```diagram (background := "#ffffff")
@@ -507,6 +513,8 @@ node.compose source |>.compose lean |>.compose statementDeps |>.compose proofDep
 ```
 
 :::class "model-key"
+Small controlled example: `left_inverse_injective`.
+
 Dashed links: associations. Arrows: prerequisite to dependent.
 
 Progress and readiness derive from formal evidence and dependencies.
@@ -525,46 +533,6 @@ Owner, tags, priority, effort, grouping, and retained markup are additional
 metadata, omitted from the picture. Group membership is not a dependency.
 Progress is computed from the evidence and graph; it is not an authored badge.
 Recording an association does not establish mathematical equivalence.
-:::
-
-## Authoring: Prose, Code, Or Both
-
-```code verso
-:::theorem "left_inverse_injective"
-A function admitting a left inverse is injective.
-:::
-```
-
-Attach a labeled Lean block, name existing declarations with `lean :=`,
-or introduce an object from a declaration carrying `@[blueprint]`.
-
-```code lean
-@[blueprint "equality_transport"]
-theorem transportEq (g : Nat → Nat) {a b : Nat} (h : a = b) :
-    g a = g b := congrArg g h
-```
-
-:::notes
-The lower example is from ForMathDemo/Common.lean. Demonstrate code-first use
-by opening Prerequisites in the generated site. Metadata and prose-first
-authoring remain available when code alone cannot express the intended account.
-:::
-
-## Mathematical And Formal Dependencies
-
-- `uses` records an authored mathematical dependency.
-- `bpref` adds a prose reference without an edge.
-- `autoDeps` can derive edges from elaborated Lean declarations.
-
-Types and proof bodies contribute to different dependency tracks.
-Inferred edges retain their automatic origin.
-
-:::notes
-In this demo, left_inverse and injective are inferred from the theorem's type.
-equality_transport is an explicit proof dependency. Inference can follow
-unassociated helpers to associated declarations, but does not reconstruct
-the author's intended mathematical explanation.
-These are the arrows in the model diagram. Now follow one of them into the graph.
 :::
 
 ## From Dependencies To A Project View
@@ -603,6 +571,48 @@ the next available work. The subsequent CLI example accesses the same state.
 The source-edit/rebuild path is optional; use the prepared variants in the talk.
 :::
 
+## Authoring: Prose, Code, Or Both
+
+```code verso
+:::theorem "left_inverse_injective"
+A function admitting a left inverse is injective.
+:::
+```
+
+Attach a labeled Lean block, name existing declarations with `lean :=`,
+or introduce an object from a declaration carrying `@[blueprint]`.
+
+```code lean
+@[blueprint "equality_transport"]
+theorem transportEq (g : Nat → Nat) {a b : Nat} (h : a = b) :
+    g a = g b := congrArg g h
+```
+
+:::notes
+The lower example is from ForMathDemo/Common.lean. The Blueprint label gives
+the mathematical object a stable identity; the Lean declaration has its own
+name. Demonstrate code-first use by opening Prerequisites in the generated
+site. Metadata and prose-first authoring remain available when code alone
+cannot express the intended account.
+:::
+
+## Mathematical And Formal Dependencies
+
+- `uses` records an authored mathematical dependency.
+- `bpref` adds a prose reference without an edge.
+- `autoDeps` can derive edges from elaborated Lean declarations.
+
+Types and proof bodies contribute to different dependency tracks.
+Inferred edges retain their automatic origin.
+
+:::notes
+In this demo, left_inverse and injective are inferred from the theorem's type.
+equality_transport is an explicit proof dependency. Inference can follow
+unassociated helpers to associated declarations, but does not reconstruct
+the author's intended mathematical explanation.
+These are the arrows in the model diagram and graph.
+:::
+
 ## Sources And Mathematical Correspondence
 
 *Original source*: a document and a precise source span.
@@ -614,7 +624,7 @@ The source-edit/rebuild path is optional; use the prepared variants in the talk.
 [Inspect the demonstration source note](demo/after/demo-notes.md)
 
 :::notes
-Open the source chip on the anatomy node. Retained TeX is also available,
+The backup anatomy node exposes the source chip. Retained TeX is also available,
 but is a separate informal representation. A resolved attachment and successful
 compilation do not certify equivalence to the original mathematics.
 The Frey curve's coordinate change gives a substantial example of this issue.
@@ -630,7 +640,7 @@ lake exe vbp query --site _demo/after work-queue
 
 The reader, graph, summary, slide, and query refer to the same labels.
 
-The anatomy panel itself is a small client of VBP's public preview API.
+The backup anatomy panel is a small client of VBP's public preview API.
 
 :::notes
 Run bash scripts/demo-query.sh after to obtain real query output. Show the
@@ -723,6 +733,22 @@ vertical := some true
 
 {image (width := "96%") "static/images/vbp-architecture.svg"}[Verso Blueprints architecture diagram]
 
+:::
+
+## Anatomy Of A Node
+
+{demoFrame "demo/after/panel.html" "Anatomy of a Blueprint theorem"}
+
+:::class "anatomy-key"
+The label `left_inverse_injective` connects the mathematical account
+to formal evidence and dependencies.
+:::
+
+:::notes
+Read the statement and its separate informal proof. Open the Lean chip:
+it associates a declaration with this mathematical object. Open the source
+chip: it identifies a passage of the demonstration note. The theorem's label
+stays fixed across these views.
 :::
 
 ## Blueprint Data Model

@@ -1,5 +1,9 @@
 # First-session prompt for Codex
 
+Current repository workflow is in `AGENTS.md`. Request or make a local commit
+after each verified group of changes so completed slide work does not accumulate
+uncommitted. The instructions below record the original bootstrap context.
+
 Update, 21 September: the baseline exists and the speaker has prioritized
 fixing the structure, then adding slide details. Read `STRUCTURE.md` first.
 The active deck is `Slides.lean` in the ForMath repository root; its five-part

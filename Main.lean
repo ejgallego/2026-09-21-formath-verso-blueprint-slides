@@ -190,6 +190,10 @@ def main : IO UInt32 := do
   IO.FS.writeBinFile (outputDir / "lean-logo.png") logoBytes
   let logoLargeBytes ← IO.FS.readBinFile "static/lean-logo-large.png"
   IO.FS.writeBinFile (outputDir / "lean-logo-large.png") logoLargeBytes
+  let fltVideoBytes ← IO.FS.readBinFile "static/videos/flt-progress.mp4"
+  IO.FS.writeBinFile (outputDir / "flt-progress.mp4") fltVideoBytes
+  let fltPosterBytes ← IO.FS.readBinFile "static/images/flt-progress-poster.png"
+  IO.FS.writeBinFile (outputDir / "flt-progress-poster.png") fltPosterBytes
 
   let htmlPath := outputDir / "index.html"
   let html ← IO.FS.readFile htmlPath
