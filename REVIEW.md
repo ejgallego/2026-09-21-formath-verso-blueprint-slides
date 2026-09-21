@@ -1,6 +1,6 @@
 # ForMath rehearsal review
 
-21 September 2026. Main route: 23 slides including title. Backup: 9 slides.
+21 September 2026. Main route: 24 slides including title. Backup: 8 slides.
 Event: ForMath Seminar, IRIF, Université Paris Cité.
 Preview: http://127.0.0.1:8877/.
 
@@ -8,9 +8,10 @@ Preview: http://127.0.0.1:8877/.
 
 The main narrative now gives this expert Rocq audience a concrete reason to
 care and explains Verso before introducing VBP. The core now starts with a
-theorem and attached Lean syntax, followed by the Frey node and an actual
-graph. Code-first authoring and Features lead into Validation. The comparison
-with LeanBlueprint is in the historical section. The abstract model is backup.
+architecture diagram, then theorem and attached Lean syntax, its rendered
+node, the Frey node, and an actual graph. Code-first authoring and Features
+lead into Validation. The comparison with LeanBlueprint is in the historical
+section. The abstract model is backup.
 
 The opening begins with the Madrid AI slide, then sphere packing and its
 Blueprint, FLT, and a dated reflection on mathematical direction. Anthropic's
@@ -21,10 +22,10 @@ available in backup.
 1. **Rehearse the switches, not live proof typing.** Pre-open the Manual page,
    Frey node, and graph. Stop after one reference/hover and one graph preview.
    The before/after panels and readiness demonstration are now optional.
-2. **Check readability on the actual projector.** The overview, diagnostics,
-   theorem, and attribute examples now use at least 20px text at 1280×720, without
-   horizontal clipping. The complete source remains on one slide. A browser
-   screenshot cannot establish back-row readability in the room.
+2. **Check readability on the actual projector.** The theorem and attribute
+   examples use at least 20px text at 1280×720, without horizontal clipping.
+   The complete Verso source remains on one slide. A browser screenshot cannot
+   establish back-row readability in the room.
 3. **Keep the whole generated directory together.** The rehearsed local demo
    route now works with external requests blocked, including the graph. Serve
    `_slides/` over HTTP. External reference links still need internet access.
@@ -53,9 +54,9 @@ migration-review navigation, and all backup material.
 
 ## Evidence and limits
 
-- The core VBP revision has six slides: theorem syntax, Frey node, graph,
-  code-first authoring, Features, Validation. The graph and highlighted
-  attribute/nested Lean examples passed the interaction checks.
+- The core VBP revision has eight slides: architecture, theorem syntax,
+  rendered theorem, Frey node, graph, code-first authoring, Features, Validation.
+  The graph and highlighted attribute/nested Lean examples passed the checks.
 - The richer theorem's attached Lean block compiles in ForMathDemo/After.lean.
   The same labels and dependency targets remain. Its statement edges now have
   manual origin, because the example explicitly illustrates `uses`.

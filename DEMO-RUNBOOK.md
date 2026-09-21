@@ -29,8 +29,8 @@ lake exe vbp check --site _slides/demo/after
 ```
 
 The before variant intentionally warns about `sorry`. The after proof is complete.
-The deck's expected-error example is also intentional. Existing VBP universe
-linter warnings are unrelated. Neither warning is a reason to change dependency pins.
+The former expected-error slide has been removed. Existing VBP universe
+linter warnings are unrelated and are not a reason to change dependency pins.
 
 Reuse http://127.0.0.1:8877/ while its existing server is running. Otherwise:
 

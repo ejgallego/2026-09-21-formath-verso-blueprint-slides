@@ -6,8 +6,8 @@ unfamiliar with Verso. Explain the document system, not proof assistants.
 Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
-Five substantive sections, plus backup. The main route has 23 slides including
-the title; backup has 9. Horizontal sections retain vertical children.
+Five substantive sections, plus backup. The main route has 24 slides including
+the title; backup has 8. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
 ## Main route
