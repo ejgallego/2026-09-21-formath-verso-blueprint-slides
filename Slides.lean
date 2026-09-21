@@ -485,11 +485,26 @@ Blueprint is our next example: its theorem directive records a mathematical
 object that later slides, graphs, and tools can consume.
 :::
 
-# A Theorem In Verso Blueprint
+# Verso Blueprint Architecture
 
 %%%
 vertical := some true
 %%%
+
+[https://github.com/leanprover/verso-blueprint](https://github.com/leanprover/verso-blueprint)
+
+:::hstack
+
+- Directly inspired by LeanBlueprint, LeanArchitect, and Side to Side
+- *Core model in Lean*: labels, nodes, metadata, code links, status
+- *Document layer in Verso*: rich, extensible markup and interactive output
+- Same data feeds graphs, summaries, previews, slides, and tools
+
+{image (width := "96%") "static/images/vbp-architecture.svg"}[Verso Blueprints architecture diagram]
+
+:::
+
+## A Theorem In Verso Blueprint
 
 :::class "theorem-source"
 ````code verso
@@ -695,26 +710,11 @@ agent loop are proposed work, not capabilities claimed by this timeline. The
 1.0 release is shown with direct agentic loop support at the end of the span.
 :::
 
-# Backup: Architecture
+# Navier–Stokes: A Different Scale
 
 %%%
 vertical := some true
 %%%
-
-[https://github.com/leanprover/verso-blueprint](https://github.com/leanprover/verso-blueprint)
-
-:::hstack
-
-- Directly inspired by LeanBlueprint, LeanArchitect, and Side to Side
-- *Core model in Lean*: labels, nodes, metadata, code links, status
-- *Document layer in Verso*: rich, extensible markup and interactive output
-- Same data feeds graphs, summaries, previews, slides, and tools
-
-{image (width := "96%") "static/images/vbp-architecture.svg"}[Verso Blueprints architecture diagram]
-
-:::
-
-## Navier–Stokes: A Different Scale
 
 ::::hstack
 

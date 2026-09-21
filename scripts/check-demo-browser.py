@@ -77,7 +77,8 @@ def main():
             slide.get_by_role('heading', name=name, exact=True).wait_for()
             return slide
 
-        expected_core = ['A Theorem In Verso Blueprint', 'The Rendered Theorem',
+        expected_core = ['Verso Blueprint Architecture',
+                         'A Theorem In Verso Blueprint', 'The Rendered Theorem',
                          'Reading A Node: The Frey Curve',
                          'The Dependency Graph', 'Code-First Authoring', 'Features', 'Validation']
         assert [name for name, (h, _) in routes.items() if h == 4] == expected_core

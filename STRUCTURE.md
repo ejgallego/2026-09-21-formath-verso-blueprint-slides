@@ -45,7 +45,7 @@ source-levels, CLI, and AI-review slides are removed. Features consolidates the
 dependency, source-correspondence, project-state, and reuse capabilities. The
 standalone before/after demos remain available for optional questions.
 
-Section 5 is now: theorem syntax, rendered theorem, Frey node, FLT graph, code-first authoring,
+Section 5 is now: architecture, theorem syntax, rendered theorem, Frey node, FLT graph, code-first authoring,
 Features, Validation. The small theorem deliberately separates introductory
 syntax from the richer Frey example. Its attached inline Lean code compiles.
 The After fixture now authors the same statement edges explicitly with `uses`;
