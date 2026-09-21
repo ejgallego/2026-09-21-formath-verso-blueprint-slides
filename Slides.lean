@@ -244,15 +244,16 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 
 ## Why Build Verso Blueprint?
 
-LeanBlueprint gives formalization projects a shared mathematical plan.
-It is our starting point.
+:::class "why-vbp-lead"
+A shared mathematical plan is most useful when it tracks changes in the Lean
+development.
+:::
 
-We want that plan to stay connected to the Lean development as it changes,
-and to serve readers and tools through the same labeled mathematical objects.
+Verso Blueprint gives each mathematical object a stable label connecting its
+explanation, Lean evidence, dependencies, and status.
 
-- Author prose, checked examples, and extensions in one environment.
-- Derive progress and dependencies from formal evidence.
-- Reuse the objects in pages, graphs, project views, and queries.
+Readers, contributors, and agents can then work from the same project state
+and checking evidence.
 
 :::notes
 The historical blueprints established a way to coordinate mathematical work.
@@ -260,6 +261,8 @@ LeanBlueprint already provides dependency graphs, progress, and links to Lean.
 The aim here is tighter Lean integration and programmable reuse, building on
 that model. This does not claim that every project should migrate from TeX.
 LeanBlueprint also checks declaration names with checkdecls.
+Links and formal completion do not establish that the informal account is
+mathematically equivalent to the Lean declaration; that still needs review.
 
 LeanArchitect is another example of using a blueprint to coordinate people
 and AI tools: https://arxiv.org/abs/2601.22554.

@@ -150,6 +150,14 @@
   max-width: 95%;
 }
 
+.reveal .slides section p.why-vbp-lead {
+  color: var(--text-dark);
+  font-size: 1.2em;
+  font-weight: 500;
+  margin: 1.2em 0 1.4em;
+  max-width: 38em;
+}
+
 .reveal .sphere-images p {
   margin: 0.25em 0;
 }
