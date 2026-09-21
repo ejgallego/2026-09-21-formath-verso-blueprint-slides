@@ -86,7 +86,7 @@ def main():
                         'Authoring And Review With AI', 'One Object, Several Consumers']:
             assert removed not in routes, removed
 
-        for name in ['What Is Verso?', 'Elaboration And Diagnostics',
+        for name in ['A Complete Verso Document', 'Checked Code And Resolved Links',
                      'A Theorem In Verso Blueprint', 'Code-First Authoring']:
             show_slide(name)
             page.wait_for_timeout(500)

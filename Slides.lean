@@ -338,8 +338,9 @@ type. The source uses the Lean highlighter, rather than a generic code block.
 *A Lean proof inside the document is elaborated during the build.*
 
 ```lean -panel -stretch
-example (g : Nat → Nat) (x y : Nat) (h : x = y) :
-    g x = g y := congrArg g h
+example (g : Nat → Nat) (x y : Nat)
+    (h : x = y) : g x = g y :=
+  congrArg g h
 ```
 
 An expected error can also be part of the document's build contract.
@@ -351,8 +352,8 @@ An expected error can also be part of the document's build contract.
 *Markup resolves against more than one environment.*
 
 ```code verso
-The Lean declaration is {name}`congrArg`.
-Return to {ref "transport"}[applying a function].
+{name}`congrArg`
+{ref "transport"}[the proof]
 ```
 
 `{name}` resolves a Lean declaration.
