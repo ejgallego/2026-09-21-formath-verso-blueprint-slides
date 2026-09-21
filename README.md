@@ -28,6 +28,14 @@ scripts/build-pages.sh
 The result is written to `_slides/`. Local slide extensions are documented in
 [`Lib/README.md`](Lib/README.md).
 
+## ForMath working version
+
+The inherited event information above describes the source deck. The current
+ForMath work is organized in [the authoring map](../../STRUCTURE.md), with
+an expert Rocq/formal-proof audience and a dedicated Verso explanation.
+See [DEMO-RUNBOOK.md](DEMO-RUNBOOK.md) for the small local demonstrations,
+incremental build commands, and rehearsal sequence.
+
 ## License
 
 Original source and slide content are available under Apache License 2.0.

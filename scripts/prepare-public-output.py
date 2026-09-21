@@ -36,15 +36,19 @@ def main() -> int:
     if not source_root.is_dir():
         raise SystemExit(f"missing Blueprint source root: {source_root}")
 
-    source_prefix = (str(source_root) + "/").encode()
     changed_files = 0
     replacements = 0
-    for path in files_containing(output, source_prefix):
-        data = path.read_bytes()
-        count = data.count(source_prefix)
-        path.write_bytes(data.replace(source_prefix, b""))
-        changed_files += 1
-        replacements += count
+    prefixes = (
+        ((str(source_root) + "/").encode(), b""),
+        ((str(repository_root / "ForMathDemo") + "/").encode(), b"ForMathDemo/"),
+    )
+    for source_prefix, replacement in prefixes:
+        for path in files_containing(output, source_prefix):
+            data = path.read_bytes()
+            count = data.count(source_prefix)
+            path.write_bytes(data.replace(source_prefix, replacement))
+            changed_files += 1
+            replacements += count
 
     for name in ("LICENSE", "NOTICE", "ASSETS.md"):
         source = repository_root / name

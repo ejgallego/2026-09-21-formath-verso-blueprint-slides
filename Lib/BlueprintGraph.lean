@@ -14,6 +14,7 @@ public meta structure BlueprintGraphArgs where
   direction : Option String := none
   pack : Option String := none
   «class» : Option String := none
+  base : Option String := none
 
 public meta instance : FromArgs BlueprintGraphArgs DocElabM where
   fromArgs :=
@@ -22,7 +23,8 @@ public meta instance : FromArgs BlueprintGraphArgs DocElabM where
       .named `view .string true <*>
       .named `direction .string true <*>
       .named `pack .string true <*>
-      .named `class .string true
+      .named `class .string true <*>
+      .named `base .string true
 
 private abbrev SlidesBlock := Block Slides
 
@@ -52,16 +54,20 @@ private def graphHostHtml (args : BlueprintGraphArgs) : String :=
     dataAttr "view" args.view ++
     dataAttr "direction" args.direction ++
     dataAttr "pack" args.pack ++
+    (match cleanOpt args.base with
+     | some base => " data-bp-blueprint-base=\"" ++ escapeHtmlAttr base ++ "\""
+     | none => "") ++
     "></div>"
 
 public def blueprintGraphBlock
-    (key view direction pack cssClass : Option String) : SlidesBlock :=
+    (key view direction pack cssClass base : Option String) : SlidesBlock :=
   let args : BlueprintGraphArgs := {
     key := key
     view := view
     direction := direction
     pack := pack
     «class» := cssClass
+    base := base
   }
   Block.other (BlockExt.diagram (graphHostHtml args) "100%" none) #[]
 
@@ -80,6 +86,7 @@ public meta def blueprintGraph : BlockCommandOf BlueprintGraphArgs
         $(quote args.view)
         $(quote args.direction)
         $(quote args.pack)
-        $(quote args.«class»))
+        $(quote args.«class»)
+        $(quote args.base))
 
 end VersoSlides

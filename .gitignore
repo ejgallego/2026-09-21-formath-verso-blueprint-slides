@@ -3,6 +3,7 @@
 .agents/
 .codex/
 _slides/
+_demo/
 _out/
 .worktrees/
 *.olean

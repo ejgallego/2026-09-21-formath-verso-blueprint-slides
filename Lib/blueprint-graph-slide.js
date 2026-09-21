@@ -2,7 +2,6 @@
   "use strict";
 
   var DEFAULT_BLUEPRINT_BASE = "blueprint/";
-  var DEFAULT_PREVIEW_API = "blueprint/-verso-data/api/preview.mjs";
 
   function absoluteUrl(raw, base) {
     return new URL(raw, base || document.baseURI).href;
@@ -82,7 +81,9 @@
     return {
       blueprintBase: blueprintBase,
       dataBaseUrl: absoluteUrl("-verso-data/", blueprintBase),
-      previewApiUrl: absoluteUrl(host.dataset.bpPreviewApi || DEFAULT_PREVIEW_API),
+      previewApiUrl: host.dataset.bpPreviewApi
+        ? absoluteUrl(host.dataset.bpPreviewApi)
+        : absoluteUrl("-verso-data/api/preview.mjs", blueprintBase),
       key: (host.dataset.bpGraphKey || "").trim(),
       view: (host.dataset.bpGraphView || "").trim(),
       direction: (host.dataset.bpGraphDirection || "").trim(),

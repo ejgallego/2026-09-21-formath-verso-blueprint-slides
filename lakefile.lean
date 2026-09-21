@@ -8,11 +8,15 @@ package «vbp-ucm-slides» where
   precompileModules := false
   leanOptions := #[⟨`experimental.module, true⟩]
 
+lean_lib ForMathDemo where
+  roots := #[`ForMathDemo.Common, `ForMathDemo.Before, `ForMathDemo.After, `ForMathDemo.Verso]
+
 lean_lib Slides where
   roots := #[
     `Slides,
     `Lib.Arxiv,
     `Lib.BlueprintGraph,
+    `Lib.Demo,
     `Lib.Hal,
     `Lib.Layout,
     `Lib.WebShot,

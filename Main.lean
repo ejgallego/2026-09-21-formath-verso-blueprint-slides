@@ -4,9 +4,9 @@ import Slides
 
 open VersoSlides
 
-def deckCss : CssFile where
-  filename := "custom.css"
-  contents := ⟨include_str "static/custom.css"⟩
+def deckCss : IO CssFile := do
+  let css ← IO.FS.readFile "static/custom.css"
+  return { filename := "custom.css", contents := ⟨css⟩ }
 
 def versoHighlightJsFilename : String :=
   "verso-highlight.js"
@@ -158,6 +158,7 @@ private def removeLegacyBlueprintPreviewManifests (outputDir : System.FilePath) 
   removePathIfExists (outputDir / fltBlueprintSlideBase / "-verso-data" / legacyManifest)
 
 def main : IO UInt32 := do
+  let css ← deckCss
   let config : Config := {
     theme := "white",
     transition := "fade",
@@ -166,7 +167,7 @@ def main : IO UInt32 := do
     margin := 0,
     width := 1280,
     height := 720,
-    extraCss := #[deckCss],
+    extraCss := #[css],
     extraJs := #[versoHighlightJsFilename, blueprintGraphSlideJsFilename]
   }
   let rc ← Informal.Slides.slidesMainWithBlueprintPreviews
@@ -181,6 +182,9 @@ def main : IO UInt32 := do
   let blueprintGraphSlideJs ← IO.FS.readFile "Lib/blueprint-graph-slide.js"
   IO.FS.writeFile (outputDir / blueprintGraphSlideJsFilename) blueprintGraphSlideJs
   copyDirFresh fltBlueprintHtmlSource (outputDir / fltBlueprintSlideBase)
+  for state in ["verso", "before", "after"] do
+    copyDirFresh (System.FilePath.mk "_demo" / state / "html-multi")
+      (outputDir / "demo" / state)
   removeLegacyBlueprintPreviewManifests outputDir
   let logoBytes ← IO.FS.readBinFile "static/lean-logo.png"
   IO.FS.writeBinFile (outputDir / "lean-logo.png") logoBytes

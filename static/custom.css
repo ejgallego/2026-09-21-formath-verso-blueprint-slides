@@ -682,6 +682,46 @@
 }
 
 /* Deck-specific presentation treatment for manifest-backed Blueprint nodes. */
+.reveal .demo-frame {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 58vh;
+  border: 1px solid #cbd5e1;
+  background: white;
+}
+
+.reveal .slides section pre.feature-source,
+.reveal .slides section .feature-source pre {
+  font-size: 0.8em;
+  line-height: 1.25;
+  margin: 0.4em 0;
+}
+
+.reveal pre.feature-source code,
+.reveal .feature-source pre code {
+  max-height: 66vh;
+}
+
+.reveal .anatomy-key {
+  font-size: 0.75em;
+  line-height: 1.4;
+}
+
+.reveal .model-key {
+  font-size: 0.8em;
+  line-height: 1.4;
+}
+
+.reveal .model-key p {
+  margin: 0.35em 0;
+}
+
+/* The small demo's formula should fit the graph's docked preview. */
+.reveal .demo-graph-frame .bp_graph_preview_body {
+  font-size: 18px;
+}
+
 .reveal .bp_slide_node {
   font-size: 0.82em;
   margin-top: 0.55em;

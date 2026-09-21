@@ -1,5 +1,6 @@
 import Lib.Arxiv
 import Lib.BlueprintGraph
+import Lib.Demo
 import Lib.Hal
 import Lib.Layout
 import Lib.WebShot

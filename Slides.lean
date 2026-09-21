@@ -20,87 +20,86 @@ MadLean Seminar @ UCM Mathematics Department
 
 Wednesday, May 27, 2026
 
-# AI Is Making A Huge Impact On Mathematics
+# FLT: A Shared Mathematical Plan
 
 %%%
 vertical := some true
 %%%
 
-:::hstack
+Anthropic announced a complete Lean formalization of FLT on 4 September 2026,
+following the Darmon–Diamond–Taylor exposition.
 
-- AI systems are producing mathematics that specialists take *seriously*.
-- Mathematicians need ways to _inspect_, _guide_, and _trust_ the process.
-- _Mathematical output_ is no longer just a paper or a Lean file.
-- A great challenge to mathematics and computer science.
+- The team credits *Prove2Me* with shared statements, dependencies, and project state.
+- Kevin Buzzard reports successfully compiling the artifact and running comparator.
 
-{image "static/images/slide_1.1_erdos.png"}[Erdos' Unit Problem Solution Tweet by Timothy Gowers]
+A checked formalization and an explorable mathematical account remain
+different deliverables.
 
+:::notes
+Anthropic describes earlier attempts losing project state and collaboration,
+then a successful run using Prove2Me. This is the team's explanation of its
+workflow, not a controlled comparison or a claim that VBP powered the result.
+
+The theorem was already known. This achievement formalizes the
+Darmon–Diamond–Taylor account of the Wiles–Taylor–Wiles argument. Buzzard's
+community project follows a different, modern route and also aims to supply
+reusable library contributions and an explorable mathematical document.
+The community FLT Blueprint in the later demo is distinct from this artifact.
+
+[Anthropic announcement, 4 September 2026](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+
+[Released Lean artifact](https://github.com/anthropics/fermats-last-theorem)
+
+[Buzzard's checking report and assessment, 4 September 2026](https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/)
 :::
 
-*Timothy Gowers*:
+## Navier–Stokes: Scope And Understanding
 
-> "If you are a mathematician, then you may want to make sure you are sitting down before reading further."
+OpenAI announced breakdown results on 8 September 2026 for *three-dimensional
+incompressible Navier–Stokes with smooth forcing*.
 
-## DeepMind: 9 Erdos Problems Solved In Collaboration With Lean
+- Whole-space and periodic cases: Clay alternatives *C and D*.
+- A mathematical manuscript and Lean artifact are available.
 
-:::::vstack
+Understanding the construction and its dependencies remains a mathematical task.
 
-::::hstack
+:::notes
+The announced result concerns positive viscosity, smooth initial data, and
+smooth external forcing. C concerns the whole space and D the periodic case.
+Both are explicitly accepted alternatives in Clay's problem statement.
+This does not establish breakdown for the unforced Navier–Stokes problem.
+Keep the accompanying unforced Euler result separate.
 
-:::arxiv "2605.22763v1" (title := "Advancing Mathematics Research with AI-Driven Formal Proof Search") (authors := "Tsoukalas et al.") (published := "Submitted May 21, 2026")
-The paper reports AI-driven formal proof search over open Erdos problems and
-OEIS conjectures, using Lean verification as the guardrail.
+Clay's 11 September statement describes an apparent settlement and an ongoing,
+deliberately unhurried evaluation process. It is not a prize adjudication.
+The released repository includes comparator challenges and instructions.
+The exposition and formal artifact serve different reading needs.
+
+[OpenAI announcement, 8 September 2026](https://openai.com/index/navier-stokes-solution/)
+
+[Released Lean artifact and checking instructions](https://github.com/openai/NavierStokesAndEuler)
+
+[Clay's official problem statement](https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf)
+
+[Clay statement, 11 September 2026](https://www.claymath.org/news/navier-stokes-announcement/)
 :::
 
-{image "static/images/slide_2.2_deepmind.png"}[DeepMind Erdos solution]
-::::
+## Blueprints Before And After Formalization
 
-*Days-old* DeepMind formal-proof-search result makes *Lean* and *Mathlib* central to the proving loop.
-:::::
+- *Before*: a mathematical plan that humans and agents can execute.
+- *After*: a mathematical account that humans can explore.
 
-## Sphere Packing Milestone
+Both need explicit links between exposition, statements, dependencies,
+and formal artifacts.
 
-::::vstack
+:::notes
+This is the motivation for the talk, not a claim that either milestone used VBP.
+A Blueprint records links and evidence. It does not itself certify that prose
+faithfully represents a formal statement or proof.
 
-{arxiv "2604.23468" (title := "A Milestone in Formalization: The Sphere Packing Problem in Dimension 8") (authors := "Hariharan, Birkbeck, Lee, Ma, Mehta, Poiroux, Viazovska") (published := "Submitted Apr 25, 2026; v2 Apr 28, 2026") (summary := "The dimension-8 sphere-packing result was formally verified in February 2026, with final stages carried out by Math Inc.'s Gauss model.")}
-
-:::center
-{image "static/images/math_inc_2.png"}[Math Inc Announcement]
+Transition: coordination and mathematical reading already mattered in large
+formalization projects before the current wave of AI tools.
 :::
-
-::::
-
-## Sphere Packing Blueprint
-
-::::vstack
-
-- The project had a detailed mathematical plan.
-- The plan exposed statements, dependencies, and progress.
-- Humans and agents needed to know where a proof belonged.
-- Systems such as Gauss, Aristotle, Numina, and others need project structure.
-
-::: hstack
-
-{image (width := "95%") "static/images/sp_index.png"}[Sphere-packing blueprint start page]
-
-{image (width := "95%") "static/images/sp_graph.png"}[Sphere-packing blueprint graph]
-
-:::
-::::
-
-## What These Milestones Reveal
-
-*The bottleneck has moved.*
-
-It is not only:
-
-- can a theorem be proved in Lean?
-
-It is also:
-
-- can we use AI to jointly build a detailed formalization plan?
-- can humans understand the proofs produced by agents?
-- can project state be *reviewed*, *maintained*, and *trusted*?
 
 # Blueprint: Historical Context
 
@@ -128,8 +127,8 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 
 ::::hstack
 
-- Introduced for the Liquid Tensor Experiment by Patrick Massot and
-  collaborators (~2020)
+- Created by Patrick Massot for sphere eversion (2020), then used for
+  the Liquid Tensor Experiment
 - A LaTeX/plasTeX extension for formalization projects.
 - Adds *dependency information*, *graph rendering*, and *formalization status*.
 - Widely reused across Lean projects.
@@ -144,7 +143,7 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 
 ::::
 
-## LeanBlueprint: Success And Limits
+## Blueprints As Coordination Infrastructure
 
 :::::vstack
 ::::hstack
@@ -161,11 +160,9 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 :::vstack
 *LeanBlueprint is very successful, but the requirements are changing*:
 
-- plasTeX is hard to extend and maintain
-- synchronization with Lean is manual
-- the stack depends on Python and TeX tooling
-- TeX is not ideal for machine-to-machine project state
-- agents need structured, checked inputs and outputs
+- connect exposition to the evolving formal development
+- expose project state to readers and tools
+- give agents explicit tasks and checking evidence
 :::
 ::::
 
@@ -173,7 +170,431 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 
 :::::
 
+# What Is Verso?
+
+%%%
+vertical := some true
+%%%
+
+Verso is an extensible document system implemented in Lean.
+
+```code lean
+import VersoManual
+open Verso.Genre
+#doc (Manual) "A mathematical document" =>
+```
+
+Above `#doc`: Lean imports and declarations.
+After `=>`: document markup, with extensions supplied by those imports.
+
+The document kind, here `Manual`, determines its structure and rendering.
+
+:::notes
+The audience knows Rocq and formal proof. Explain the language boundary, not
+proof assistants. Blueprint extends Manual; this presentation uses Slides.
+:::
+
+## A Complete Verso Document
+
+:::class "feature-source"
+````code lean
+import VersoManual
+open Verso.Genre Verso.Genre.Manual
+open Verso.Genre.Manual.InlineLean
+
+#doc (Manual) "Equality transport" =>
+# Applying a function
+%%%
+tag := "transport"
+%%%
+If $`x = y`, then $`g(x) = g(y)`.
+The Lean declaration is {name}`congrArg`.
+
+```lean
+#check congrArg
+```
+Return to {ref "transport"}[applying a function].
+````
+:::
+
+[Open the rendered document](demo/verso/Applying-a-function/)
+
+:::notes
+The file starts in Lean. The #doc command introduces a document whose markup
+can call extensions supplied by the imports. Manual is one document kind.
+Open the rendered page, follow the document reference, then hover congrArg.
+The reader sees prose, but this name still has its declaration and type.
+Return to the next slide: what does the build check?
+:::
+
+## Elaboration And Diagnostics
+
+The embedded code is elaborated during the document build.
+
+```lean -panel -stretch
+example (g : Nat → Nat) (x y : Nat) (h : x = y) :
+    g x = g y := congrArg g h
+```
+
+This block requires an error; an unexpected success fails the document build.
+
+```lean +error -panel -stretch
+example (x y : Nat) : x = y := rfl
+```
+
+:::notes
+The first example elaborates. The second is deliberately false in general,
+and its error is expected. Both belong to the document's build contract.
+The mathematical prose remains informal. This is the boundary between a
+checked document extension and verification of the surrounding exposition.
+:::
+
+## Links With Mathematical Context
+
+A Lean name resolves in the elaboration environment: {name}`congrArg`.
+
+```code verso
+The Lean declaration is {name}`congrArg`.
+Return to {ref "transport"}[applying a function].
+```
+
+A document reference resolves an authored target.
+A Lean reference carries information about a declaration.
+
+[Rendered reference and declaration](demo/verso/Applying-a-function/)
+
+:::notes
+Recall the reference and hover just shown. A document target belongs to the
+document structure; congrArg resolves in Lean's elaboration environment.
+VBP will add a third kind of identity: the mathematical object in a blueprint.
+:::
+
+## From Document Extensions To Blueprint Objects
+
+Imports supply roles, directives, elaboration, and rendering.
+
+```code verso
+:::theorem "left_inverse_injective"
+A function admitting a left inverse is injective.
+:::
+```
+
+The Blueprint extension registers a mathematical object under this label.
+
+Its statement, proof, attachments, and relationships can contribute from
+different parts of the document or imported modules.
+
+:::notes
+Verso provides the document framework. VBP extends the Manual genre with the
+Blueprint model. The slide genre can reuse the resulting Blueprint objects.
+:::
+
 # Verso Blueprint
+
+%%%
+vertical := some true
+%%%
+
+*Why VBP when LeanBlueprint already exists?*
+
+LeanBlueprint already provides a mathematical plan, dependency graphs,
+progress, and links to Lean. We retain that coordination model.
+
+- *Lean-native authoring*: prose, checked examples, and extensions in one environment.
+- *Connected evidence*: derive progress and optional dependencies from declarations.
+- *Programmable reuse*: the same objects serve readers, project views, and tools.
+
+The choice is tighter Lean integration—not a claim that TeX is obsolete.
+
+:::notes
+The reason to choose VBP is close integration with Lean and programmable reuse.
+A working TeX/LeanBlueprint project already serves a valuable purpose.
+VBP adds another implementation choice; this talk demonstrates what that enables.
+Do not claim TeX cannot carry structure or that every project should migrate.
+LeanBlueprint also checks declaration names with checkdecls; name validation is
+not a unique VBP feature. See https://github.com/PatrickMassot/leanblueprint and
+https://github.com/hanwenzhu/LeanArchitect for the existing ecosystem.
+The Verso example has shown Lean-native authoring. Next, a node connects
+mathematical content to formal evidence. Then changing that evidence changes
+project state, which the reader and tools can both inspect.
+:::
+
+## Reading A Node: The Frey Curve
+
+{blueprint_node "FreyCurve" (siteBase := "blueprint")}
+
+:::notes
+Start with the mathematics and the actual formal attachment. Frey is the real
+project example; switch to the small authored example for controlled changes.
+Explain the change of Weierstrass model when opening the declaration.
+:::
+
+## Anatomy Of A Node
+
+{demoFrame "demo/after/panel.html" "Anatomy of a Blueprint theorem"}
+
+:::class "anatomy-key"
+The label `left_inverse_injective` connects the mathematical account
+to formal evidence and dependencies.
+:::
+
+:::notes
+Read the statement and its separate informal proof. Open the Lean chip:
+it associates a declaration with this mathematical object. Open the source
+chip: it identifies a passage of the demonstration note.
+Stop after these two panels. Dependencies come next, and ownership metadata
+can wait for questions. The theorem's label stays fixed across these views.
+Transition: which parts belong to the node, and which are relationships?
+:::
+
+## The Abstract Data Model
+
+```diagram (background := "#ffffff")
+open Illuminate Lean in
+let ink := rgb!"#1e293b"
+let teal := rgb!"#007da5"
+let txt (s : String) (size : Float := 15) (bold := false) : Diagram SVG :=
+  Diagram.text s { fontSize := size, fontFamily := "sans-serif", color := ink, bold }
+let item (name : Name) (title body : String) : Diagram SVG :=
+  Diagram.vsep 7 [txt title 16 true, txt body]
+    |>.padXY 8 7
+    |>.namedWithAnchors name
+let identity :=
+  Diagram.vsep 7 [txt "Blueprint node" 17 true,
+    Diagram.text "left_inverse_injective"
+      { fontSize := 15, fontFamily := "monospace", color := teal }]
+    |>.padXY 8 7
+    |>.namedWithAnchors `identity
+    |>.translate 0 105
+let statement := item `statement "Informal statement" "Left inverse implies injectivity"
+    |>.translate 0 20
+let proof := item `proof "Informal proof" "Apply g to the equality"
+    |>.translate 0 (-65)
+let node := identity.compose statement |>.compose proof
+    |>.padXY 16 16
+    |>.filledFrame (fill := rgb!"#f0f9fc")
+      (stroke := { color := teal, width := 1.5 })
+let source := item `source "Source reference" "demo-notes\nProposition 1, lines 3–7"
+    |>.translate (-315) 105
+let lean := item `lean "Lean association" "leftInverseInjective"
+    |>.translate 315 105
+let statementDeps := item `statementDeps "Statement dependencies" "left_inverse\ninjective"
+    |>.translate (-315) 20
+let proofDeps := item `proofDeps "Proof dependency" "equality_transport"
+    |>.translate 315 (-65)
+let ah : Arrowhead := { type := .stealth }
+node.compose source |>.compose lean |>.compose statementDeps |>.compose proofDeps
+  |>.connect `identity.west `source.east
+    (stroke := { color := rgb!"#64748b", width := 1.2, dash := .dashed })
+  |>.connect `identity.east `lean.west
+    (stroke := { color := rgb!"#64748b", width := 1.2, dash := .dashed })
+  |>.connect `statementDeps.east `statement.west (arrowhead := ah)
+    (stroke := { color := teal, width := 1.5 })
+  |>.connect `proofDeps.west `proof.east (arrowhead := ah)
+    (stroke := { color := teal, width := 1.5 })
+```
+
+:::class "model-key"
+Dashed links: associations. Arrows: prerequisite to dependent.
+
+Progress and readiness derive from formal evidence and dependencies.
+:::
+
+:::notes
+The center is one mathematical object with its own stable label. Statement and
+proof are optional facets; their contributions may come from separate places.
+The dashed links connect it to source passages and Lean declarations. In
+general there may be several, and declaration associations are many-to-many.
+Each solid edge relates this node to another Blueprint node, not a raw
+declaration name. Arrows point from prerequisite towards the dependent facet,
+matching the graph convention.
+Here the statement edges are automatic and the proof edge is authored.
+Owner, tags, priority, effort, grouping, and retained markup are additional
+metadata, omitted from the picture. Group membership is not a dependency.
+Progress is computed from the evidence and graph; it is not an authored badge.
+Recording an association does not establish mathematical equivalence.
+:::
+
+## Authoring: Prose, Code, Or Both
+
+```code verso
+:::theorem "left_inverse_injective"
+A function admitting a left inverse is injective.
+:::
+```
+
+Attach a labeled Lean block, name existing declarations with `lean :=`,
+or introduce an object from a declaration carrying `@[blueprint]`.
+
+```code lean
+@[blueprint "equality_transport"]
+theorem transportEq (g : Nat → Nat) {a b : Nat} (h : a = b) :
+    g a = g b := congrArg g h
+```
+
+:::notes
+The lower example is from ForMathDemo/Common.lean. Demonstrate code-first use
+by opening Prerequisites in the generated site. Metadata and prose-first
+authoring remain available when code alone cannot express the intended account.
+:::
+
+## Mathematical And Formal Dependencies
+
+- `uses` records an authored mathematical dependency.
+- `bpref` adds a prose reference without an edge.
+- `autoDeps` can derive edges from elaborated Lean declarations.
+
+Types and proof bodies contribute to different dependency tracks.
+Inferred edges retain their automatic origin.
+
+:::notes
+In this demo, left_inverse and injective are inferred from the theorem's type.
+equality_transport is an explicit proof dependency. Inference can follow
+unassociated helpers to associated declarations, but does not reconstruct
+the author's intended mathematical explanation.
+These are the arrows in the model diagram. Now follow one of them into the graph.
+:::
+
+## From Dependencies To A Project View
+
+{blueprintGraph (base := "demo/after/") (view := "full") (direction := "TB") (pack := "true") (class := "flt-graph-frame demo-graph-frame")}
+
+[Open the progress summary](demo/after/Blueprint-Summary/)
+
+:::notes
+Locate `left_inverse_injective`, its prerequisites, and the downstream
+`fibre_singleton` corollary. Open one node preview to recover the mathematics.
+The same labels identify the mathematical objects in the document and graph.
+The graph shows the completed theorem. What changes if its proof is unfinished?
+Leave the full FLT graph, layout controls, and legend tour for questions.
+:::
+
+## Progress Is Connected To The Formal Development
+
+{demoFrame "demo/before/panel.html" "Before and after completing the Lean proof"}
+
+:::class "anatomy-key"
+Before / After: completing this theorem makes the downstream corollary's
+proof ready to formalize. The corollary still needs its own formalization.
+:::
+
+:::notes
+Start with the unfinished state. Its statement is formalized, but its Lean
+proof contains sorry. Switch to After: the associated proof is complete.
+In Summary, expand Metadata then Quick wins to find `fibre_singleton`.
+Its proof badge changes from not ready to
+ready to formalize; it has not magically acquired a proof.
+Both variants retain the Blueprint label and informal account. Their attached
+declarations are in separate Draft and Complete namespaces.
+This is the payoff of connected formal evidence: a local completion changes
+the next available work. The subsequent CLI example accesses the same state.
+The source-edit/rebuild path is optional; use the prepared variants in the talk.
+:::
+
+## Sources And Mathematical Correspondence
+
+*Original source*: a document and a precise source span.
+
+*Informal node*: the statement and proof as the Blueprint presents them.
+
+*Formal attachments*: the declarations used as evidence.
+
+[Inspect the demonstration source note](demo/after/demo-notes.md)
+
+:::notes
+Open the source chip on the anatomy node. Retained TeX is also available,
+but is a separate informal representation. A resolved attachment and successful
+compilation do not certify equivalence to the original mathematics.
+The Frey curve's coordinate change gives a substantial example of this issue.
+:::
+
+## One Object, Several Consumers
+
+```code bash
+lake exe vbp query --site _demo/after node left_inverse_injective
+lake exe vbp query --site _demo/after uses left_inverse_injective
+lake exe vbp query --site _demo/after work-queue
+```
+
+The reader, graph, summary, slide, and query refer to the same labels.
+
+The anatomy panel itself is a small client of VBP's public preview API.
+
+:::notes
+Run bash scripts/demo-query.sh after to obtain real query output. Show the
+label, statementUses and proofUses, then the work queue. The CLI's JSON is
+currently unstable. The source of the small browser client is
+static/demo-panel.js; it requests the node by label.
+Use this as a short coda, not a fourth live demo. If time is tight, point to
+the commands: the graph and progress demonstration have already shown the data.
+:::
+
+## Authoring And Review With AI
+
+- Give the task explicit mathematical scope and source context.
+- Check declarations, references, and structural consistency.
+- Compare the resulting exposition with its sources.
+- Review the mathematical correspondence before integration.
+
+[Migration review example](https://x80.org/flt-translation-review/)
+
+:::notes
+The migration harness is a separate client/workflow, not an automatic guarantee
+provided by VBP. Keep the existing harness diagram in backup. Direct agentic
+loop support belongs to the roadmap.
+:::
+
+## Current Boundaries
+
+- Informal/formal correspondence remains a mathematical review task.
+- Derived state describes a generated snapshot of the development.
+- Custom clients pin the current APIs and data formats.
+- Rich source comparison and direct agent loops have further roadmap work.
+
+:::notes
+Transition to the expected roadmap sequence. Today's source metadata and
+node reuse provide useful building blocks for those later integrations.
+:::
+
+# What's Next?
+
+%%%
+vertical := some true
+%%%
+
+Develop VBP as shared infrastructure for mathematical reading,
+formalization, and AI-assisted work.
+
+The next steps connect its data model, authoring tools, review interfaces,
+and project workflows.
+
+## Expected Roadmap Sequence
+
+1. *Formalizing VBP's custom database*
+2. *Improved skill*
+3. *Side-by-side views*
+4. *GitHub, Prove2Me, and Trellis integrations*
+5. *Direct agentic loop support*
+
+Expected order, with timing to be determined.
+
+:::notes
+These are the speaker's priorities in temporal order. No delivery dates are
+assigned. Present the already available source metadata, CLI, and embedding
+APIs as foundations; distinguish those from the planned integrated experience.
+:::
+
+## Shared Mathematical Context
+
+A blueprint gives readers and tools a common account of the mathematics.
+
+Formal evidence, source correspondence, and project state stay inspectable.
+
+Let us know how Verso Blueprint could help with your work.
+
+Thanks! Questions?
+
+# Backup: Architecture
 
 %%%
 vertical := some true
@@ -242,74 +663,69 @@ Node(label)
 
 :::::
 
-## Verso Primer
+## AI And Mathematics: Earlier Examples
 
-Verso is the *official Lean documentation and markup system*:
+:::hstack
 
-1. *Markdown-like syntax*: headings, lists, links, code, math.
+- AI systems are producing mathematics that specialists take *seriously*.
+- Mathematicians need ways to _inspect_, _guide_, and _trust_ the process.
+- _Mathematical output_ is no longer just a paper or a Lean file.
+- A great challenge to mathematics and computer science.
 
-2. *Custom directives*: block-level extensions.
+{image "static/images/slide_1.1_erdos.png"}[Erdos' Unit Problem Solution Tweet by Timothy Gowers]
 
-```code verso
-:::definition "FreyCurve" (parent := "first_reductions")
-...
 :::
-```
 
-3. *Custom roles*: inline extensions such as `{uses "FreyPackage"}[]`.
+*Timothy Gowers*:
 
-4. *Extensible*: directives, roles, traversals, and renderers are Lean code.
+> "If you are a mathematician, then you may want to make sure you are sitting down before reading further."
 
-## Verso Blueprint Example
+## DeepMind: 9 Erdos Problems Solved In Collaboration With Lean
 
-::::class "vbp-example-source"
-```code verso
-:::definition "FreyCurve" (parent := "first_reductions")
-    (lean := "FreyPackage.freyCurve")
-Uses {uses "FreyPackage"}[].
-Given a Frey package $`(a,b,c,p)`, the corresponding Frey curve is the
-elliptic curve over $`\Q` defined by $`Y^2 = X(X-a^p)(X+b^p)`.
+:::::vstack
+
+::::hstack
+
+:::arxiv "2605.22763v1" (title := "Advancing Mathematics Research with AI-Driven Formal Proof Search") (authors := "Tsoukalas et al.") (published := "Submitted May 21, 2026")
+The paper reports AI-driven formal proof search over open Erdos problems and
+OEIS conjectures, using Lean verification as the guardrail.
 :::
-```
+
+{image "static/images/slide_2.2_deepmind.png"}[DeepMind Erdos solution]
 ::::
 
-{blueprint_node "FreyCurve" (siteBase := "blueprint")}
+The May 2026 DeepMind formal-proof-search result makes *Lean* and *Mathlib* central to the proving loop.
+:::::
 
-## Connecting To Lean
+## Sphere Packing Milestone
 
-A mathematical object can be *connected to Lean* in several ways:
+::::vstack
 
-- labeled Verso inline Lean code
-- compiled declarations tagged with `@[blueprint "..."]`
-- existing declarations referenced by `(lean := "...")`
+{arxiv "2604.23468" (title := "A Milestone in Formalization: The Sphere Packing Problem in Dimension 8") (authors := "Hariharan, Birkbeck, Lee, Ma, Mehta, Poiroux, Viazovska") (published := "Submitted Apr 25, 2026; v2 Apr 28, 2026") (summary := "The dimension-8 sphere-packing result was formally verified in February 2026, with final stages carried out by Math Inc.'s Gauss model.")}
 
-Example of local inline Lean code attached to a Blueprint label:
+:::center
+{image "static/images/math_inc_2.png"}[Math Inc Announcement]
+:::
 
-````
-```lean "FreyCurve"
-def FreyPackage.freyCurve (P : FreyPackage) : WeierstrassCurve ℚ := ...
-```
-````
+::::
 
-Flexible model trying to be supportive of different authors' needs.
+## Sphere Packing Blueprint
 
-## The Graph
+::::vstack
 
-{blueprintGraph (view := "full") (class := "flt-graph-frame")}
+- The project had a detailed mathematical plan.
+- The plan exposed statements, dependencies, and progress.
+- Humans and agents needed to know where a proof belonged.
+- Systems such as Gauss, Aristotle, Numina, and others need project structure.
 
-# leanblueprint-to-verso
+::: hstack
 
-%%%
-vertical := some true
-%%%
+{image (width := "95%") "static/images/sp_index.png"}[Sphere-packing blueprint start page]
 
-*Ports existing LaTeX-based LeanBlueprint projects to Verso Blueprint.*
+{image (width := "95%") "static/images/sp_graph.png"}[Sphere-packing blueprint graph]
 
-*Crucially relies on AI*
-
-[https://github.com/ejgallego/leanblueprint-to-verso](https://github.com/ejgallego/leanblueprint-to-verso)
-
-In principle, *a good fit for LLMs'* capabilities.
+:::
+::::
 
 ## leanblueprint-to-verso: Reference Blueprints
 
@@ -322,9 +738,89 @@ The harness was tested against four reference projects:
 
 The goal was a faithful port.
 
-## leanblueprint-to-verso: Results And Review Harness
+## Formal Frontiers: Side-By-Side Demo
 
-The naive LLM port failed in a way that *is typical* of LLMs:
+[Mathlib Initiative](https://mathlib-initiative.org/) supports the scaling
+infrastructure around Mathlib and research formalization.
+
+[Formal Frontiers](https://github.com/FormalFrontier/Etingof-RepresentationTheory-draft1)
+is a new project for responsible AI-based autoformalization.
+
+::::hstack
+
+:::vstack
+
+- Source document, generated VBP nodes, and Lean files become one review problem.
+- The review surface is a projection of the structured output.
+- Demo: [https://x80.org/vbp-etingof/blueprint/source-compare.html](https://x80.org/vbp-etingof/blueprint/source-compare.html)
+:::
+
+::::
+
+## A Proposed Human-AI Workflow
+
+::::hstack
+
+:::vstack
+
+Proposed workflow: use a blueprint node to organize a bounded formalization task.
+
+- *select*: ready, blocked, next
+- *ground*: statement, dependencies, source witnesses
+- *attempt*: human or agent produces Lean work
+- *verify*: compiler, links, structure checks
+- *review*: explain the result against the node
+
+Checking and human review remain separate responsibilities.
+
+:::
+
+:::vstack
+
+```diagram (background := "#ffffff")
+open Illuminate Lean in
+let ah : Arrowhead := { type := .stealth }
+let txt (s : String) (size : Float := 8) : Diagram SVG :=
+  Diagram.text s { fontSize := size, fontFamily := "sans-serif" }
+let box (name : Name) (label : String) (fill : Color) : Diagram SVG :=
+  txt label
+    |>.padXY 8 5
+    |>.filledFrame
+      (fill := fill)
+      (stroke := { color := rgb!"#64748b", width := 1 })
+      (cornerRadius := 4)
+    |>.namedWithAnchors name
+let source := box `source "mathematical\nsource" (rgb!"#f8fafc")
+let node := box `node "blueprint node" (rgb!"#dcfce7")
+let review := box `review "human\nreview" (rgb!"#fff7ed")
+let queue := box `queue "human / agent\nwork queue" (rgb!"#fef9c3")
+let lean := box `lean "Lean\ndeclaration" (rgb!"#dbeafe")
+let compiler := box `compiler "compiler\nfeedback" (rgb!"#e0f2fe")
+Diagram.grid (hSpacing := 30) (vSpacing := 15) #[
+  #[none, some source, none],
+  #[none, some node, some review],
+  #[none, some queue, some lean],
+  #[none, some compiler, none]
+]
+  |>.connect `source.south `node.north (arrowhead := ah)
+  |>.connect `review.west `node.east (arrowhead := ah)
+  |>.connect `node.south `queue.north (arrowhead := ah)
+  |>.connect `queue.east `lean.west (arrowhead := ah)
+  |>.connect `lean.south `compiler.east (arrowhead := ah)
+  |>.connect `compiler.north `queue.south (arrowhead := ah)
+  |>.connect `lean.north `review.south (arrowhead := ah)
+  |>.scale 1.25
+```
+
+:::
+
+::::
+
+## Migration Review Harness
+
+The leanblueprint-to-verso project ports LaTeX blueprints with AI assistance.
+
+The migration experience motivates a review loop:
 
 ::::hstack
 
@@ -399,130 +895,7 @@ Thanks to David Christiansen and Kim Morrison for suggesting this direction.
 
 ::::
 
-## Formal Frontiers: Side-By-Side Demo
 
-[Mathlib Initiative](https://mathlib-initiative.org/) supports the scaling
-infrastructure around Mathlib and research formalization.
+## Full FLT Graph
 
-[Formal Frontiers](https://github.com/FormalFrontier/Etingof-RepresentationTheory-draft1)
-is a new project for responsible AI-based autoformalization.
-
-::::hstack
-
-:::vstack
-
-- Source document, generated VBP nodes, and Lean files become one review problem.
-- The review surface is a projection of the structured output.
-- Demo: [https://x80.org/vbp-etingof/blueprint/source-compare.html](https://x80.org/vbp-etingof/blueprint/source-compare.html)
-:::
-
-::::
-
-# Blueprint Nodes As Human-AI Harnesses
-
-%%%
-vertical := some true
-%%%
-
-::::hstack
-
-:::vstack
-
-A blueprint node is a checked work item shared by mathematicians, agents, and Lean.
-
-- *select*: ready, blocked, next
-- *ground*: statement, dependencies, source witnesses
-- *attempt*: human or agent produces Lean work
-- *verify*: compiler, links, structure checks
-- *review*: explain the result against the node
-
-The node is the contract between source, proof, and review.
-
-:::
-
-:::vstack
-
-```diagram (background := "#ffffff")
-open Illuminate Lean in
-let ah : Arrowhead := { type := .stealth }
-let txt (s : String) (size : Float := 8) : Diagram SVG :=
-  Diagram.text s { fontSize := size, fontFamily := "sans-serif" }
-let box (name : Name) (label : String) (fill : Color) : Diagram SVG :=
-  txt label
-    |>.padXY 8 5
-    |>.filledFrame
-      (fill := fill)
-      (stroke := { color := rgb!"#64748b", width := 1 })
-      (cornerRadius := 4)
-    |>.namedWithAnchors name
-let source := box `source "mathematical\nsource" (rgb!"#f8fafc")
-let node := box `node "checked\nblueprint node" (rgb!"#dcfce7")
-let review := box `review "human\nreview" (rgb!"#fff7ed")
-let queue := box `queue "human / agent\nwork queue" (rgb!"#fef9c3")
-let lean := box `lean "Lean\ndeclaration" (rgb!"#dbeafe")
-let compiler := box `compiler "compiler\nfeedback" (rgb!"#e0f2fe")
-Diagram.grid (hSpacing := 30) (vSpacing := 15) #[
-  #[none, some source, none],
-  #[none, some node, some review],
-  #[none, some queue, some lean],
-  #[none, some compiler, none]
-]
-  |>.connect `source.south `node.north (arrowhead := ah)
-  |>.connect `review.west `node.east (arrowhead := ah)
-  |>.connect `node.south `queue.north (arrowhead := ah)
-  |>.connect `queue.east `lean.west (arrowhead := ah)
-  |>.connect `lean.south `compiler.east (arrowhead := ah)
-  |>.connect `compiler.north `queue.south (arrowhead := ah)
-  |>.connect `lean.north `review.south (arrowhead := ah)
-  |>.scale 1.25
-```
-
-:::
-
-::::
-
-## What's Next
-
-:::class "whats-next-intro"
-Blueprints will help humans coordinate AI-based formalization.
-:::
-
-::::hstack
-
-:::vstack
-
-*Semantic interface*
-
-In the AI era, they need to become semantic interfaces:
-
-- readable by mathematicians
-- synchronized with Lean
-- structured enough for tools and agents
-- reviewable after AI work
-
-:::
-
-:::vstack
-
-*Engineering focus*
-
-Near-term engineering will focus on that vision:
-
-- stronger status semantics shared by graph, summary, and badges
-- preview and metadata APIs for tools
-- reliable templates and GitHub Pages workflows
-- work queues and maintainer audit views
-- source-compare workflows for PDF/TeX/Verso/Lean
-- agent integration experiments
-
-:::
-
-::::
-
-:::class "whats-next-close"
-Let us know how we can help you use Verso Blueprint for *your work*!
-:::
-
-:::class "fragment fade-in thanks-overlay"
-Thanks! Any Questions?
-:::
+{blueprintGraph (view := "full") (class := "flt-graph-frame")}
