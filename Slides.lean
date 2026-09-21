@@ -167,20 +167,20 @@ Mathematical practice in the age of AI agents.
 
 :::class "math-direction-event"
 *4 September 2026 · [Anthropic's FLT formalization](https://www.anthropic.com/research/formalizing-fermats-last-theorem)*
-Claude formalized FLT largely autonomously.
+Pushed the frontier on what's possible autonomously.
 :::
 
 :::class "math-direction-event"
 *11 September 2026 · [A Severe Misalignment of AI in Mathematics](https://mathandai.org/)*
-Do AI companies' incentives harm mathematical practice?
+Do AI startups' incentives harm mathematical practice?
 :::
 
 :::class "math-direction-response"
-[SAIR's open models initiative](https://sair.foundation/open-math-model/) argues for tools the community can inspect and shape, guided by mathematical priorities.
+[SAIR's open models initiative](https://sair.foundation/open-math-model/) argues for tools the community can inspect and shape, independent of market constraints.
 :::
 
 :::class "math-direction-conclusion"
-We must provide tools to address these issues and support human–agent collaboration.
+We must provide tools to help address these issues and smooth human/agent interaction.
 :::
 
 :::notes
