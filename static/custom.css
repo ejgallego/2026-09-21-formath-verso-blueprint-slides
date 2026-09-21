@@ -108,6 +108,20 @@
   font-weight: 500;
 }
 
+.reveal .title-slide .meta a,
+.reveal .title-slide .meta a:hover {
+  color: #ffffff;
+}
+
+.reveal .history-images p {
+  margin: 0.3em 0;
+}
+
+.reveal .history-images img {
+  max-height: 25vh;
+  object-fit: contain;
+}
+
 .title-slide .date {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.85em;

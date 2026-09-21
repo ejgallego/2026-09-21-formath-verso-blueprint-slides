@@ -3,7 +3,7 @@
 ForMath Seminar, IRIF, Université Paris Cité. Monday, 21 September 2026.
 Emilio Jesús Gallego Arias, Senior Research Engineer — Lean FRO.
 
-The local preview is at http://127.0.0.1:8876/ when the server is running.
+The local preview is at http://127.0.0.1:8877/ when the server is running.
 This ForMath deck has not been published.
 
 Blueprints give mathematicians and formalizers a shared map of statements,

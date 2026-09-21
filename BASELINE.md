@@ -60,5 +60,11 @@ publication script. This was not a cold rebuild of FLT or its dependencies.
 Nothing in this integration publishes the deck. The ForMath repository has
 no remote configured yet.
 
+The clean bootstrap worktree and its port-8876 preview server were retired
+after integration. Its branch and source history remain recoverable. The
+deck also builds after removal. The active preview uses port 8877.
+See [REVIEW.md](REVIEW.md) for main-route rehearsal evidence and the known
+offline graph limitation.
+
 See [the authoring map](STRUCTURE.md) for the five-section structure,
 audience, ordered roadmap, and remaining editorial work.

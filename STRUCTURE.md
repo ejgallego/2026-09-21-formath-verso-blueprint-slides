@@ -66,8 +66,8 @@ Ordinary slide-only edits do not require regenerating unchanged demos.
 The full cold workflow remains `scripts/build-pages.sh`.
 No dependency pins were changed.
 
-Serve with `python3 -m http.server 8876 --bind 127.0.0.1 --directory _slides`.
-A server is already running at http://127.0.0.1:8876/; reuse it.
+Serve with `python3 -m http.server 8877 --bind 127.0.0.1 --directory _slides`.
+A server is already running at http://127.0.0.1:8877/; reuse it.
 
 ## Validation and boundaries
 
@@ -78,7 +78,9 @@ without leaking local repository paths. The incomplete variant intentionally
 contains `sorry`; the diagnostics slide intentionally requires an error.
 
 Headless visual and interaction checks are recorded in the demo runbook.
-These do not constitute full offline, deployment-prefix, or whole-deck acceptance.
+The main-route visual/interaction review is in [REVIEW.md](REVIEW.md).
+Offline testing found that the embedded graph requires external CDN assets.
+Deployment-prefix and backup-deck acceptance remain outstanding.
 Opening claims were reviewed against the authors' announcements and released
 repositories, Buzzard's FLT checking report, and Clay's problem statement and
 11 September announcement. Neither milestone artifact was independently rebuilt
@@ -100,3 +102,8 @@ Git metadata and keeps its original revision and canonical upstream URL.
 Build caches and generated artifacts are local conveniences, not tracked source.
 Publication configuration, external demo source links, and full offline/prefix
 testing remain separate finishing work.
+
+Integration is committed as `6438117`. After validation, the clean bootstrap
+worktree and its old preview server were removed. Its branch remains available
+in the MadLean repository, and its commits are also ancestors of ForMath main.
+The working preview now serves this repository at port 8877.

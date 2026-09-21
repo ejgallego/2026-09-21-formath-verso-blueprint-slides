@@ -10,7 +10,7 @@ from playwright.sync_api import sync_playwright
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--url', default='http://127.0.0.1:8876/')
+    parser.add_argument('--url', default='http://127.0.0.1:8877/')
     parser.add_argument('--browser', default=shutil.which('google-chrome'))
     parser.add_argument('--screenshots', type=Path)
     args = parser.parse_args()
@@ -29,6 +29,18 @@ def main():
         def capture(name):
             if args.screenshots:
                 page.screenshot(path=str(args.screenshots / (name + '.png')))
+
+        page.goto(base + '#/0')
+        title = page.locator('section.title-slide.present')
+        title.wait_for()
+        metadata = title.locator('.meta').inner_text()
+        assert 'ForMath Seminar, IRIF, Université Paris Cité' in metadata
+        assert 'Monday, 21 September 2026' in metadata
+        speaker = title.get_by_role('link', name='Emilio Jesús Gallego Arias', exact=True)
+        assert speaker.evaluate('(e) => getComputedStyle(e).color') == 'rgb(255, 255, 255)'
+        page.wait_for_timeout(1000)
+        capture('title')
+        print('PASS: confirmed event metadata and speaker-link contrast')
 
         # Opening: three substantive slides, sources in notes, no text overflow.
         for route, title, evidence in [

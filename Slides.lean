@@ -125,7 +125,7 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 
 ## LeanBlueprint
 
-::::hstack
+:::::hstack
 
 - Created by Patrick Massot for sphere eversion (2020), then used for
   the Liquid Tensor Experiment
@@ -133,6 +133,7 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 - Adds *dependency information*, *graph rendering*, and *formalization status*.
 - Widely reused across Lean projects.
 
+::::class "history-images"
 :::vstack
 
 {image "static/images/lte1.png"}[Liquid Tensor blueprint screenshot]
@@ -140,8 +141,9 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 {image "static/images/lte2.png"}[Liquid Tensor blueprint screenshot]
 
 :::
-
 ::::
+
+:::::
 
 ## Blueprints As Coordination Infrastructure
 

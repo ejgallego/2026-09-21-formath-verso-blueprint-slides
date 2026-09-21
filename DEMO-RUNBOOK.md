@@ -40,10 +40,10 @@ The before variant intentionally warns about `sorry`. The after proof is complet
 The deck's expected-error example is also intentional. Existing VBP universe
 linter warnings are unrelated. Neither warning is a reason to change dependency pins.
 
-Reuse http://127.0.0.1:8876/ while its existing server is running. Otherwise:
+Reuse http://127.0.0.1:8877/ while its existing server is running. Otherwise:
 
 ```bash
-python3 -m http.server 8876 --bind 127.0.0.1 --directory _slides
+python3 -m http.server 8877 --bind 127.0.0.1 --directory _slides
 ```
 
 Do not double-click HTML files: module/data loading needs HTTP.
@@ -54,11 +54,11 @@ The full cold workflow is `scripts/build-pages.sh`, including FLT generation.
 
 ## Demo 1: what Verso does (about 2 minutes)
 
-Start on [the complete source slide](http://127.0.0.1:8876/#/3/1).
+Start on [the complete source slide](http://127.0.0.1:8877/#/3/1).
 The actual file is [ForMathDemo/Verso.lean](ForMathDemo/Verso.lean).
 
 1. Identify Lean imports, `#doc (Manual)`, and the transition into document markup.
-2. Open [Applying a function](http://127.0.0.1:8876/demo/verso/Applying-a-function/).
+2. Open [Applying a function](http://127.0.0.1:8877/demo/verso/Applying-a-function/).
 3. Follow “applying a function”: it resolves the authored document target.
 4. Hover `congrArg`: it shows the declaration type and documentation.
 5. Return to the diagnostics slide. Successful code and expected failure are
@@ -72,23 +72,23 @@ objects to this document system.”
 
 ## Demo 2: anatomy, model, and graph (about 3 minutes)
 
-Start on [node anatomy](http://127.0.0.1:8876/#/4/2).
+Start on [node anatomy](http://127.0.0.1:8877/#/4/2).
 For larger popovers use the
-[standalone panel](http://127.0.0.1:8876/demo/after/panel.html).
+[standalone panel](http://127.0.0.1:8877/demo/after/panel.html).
 
 1. Read the statement and its separate informal proof.
 2. Open the source chip. It records a document, citation, anchor, and text span.
    “Source note” opens the actual note authored for this demonstration.
 3. Open the Lean attachment: declaration identity and completion evidence.
    Use the editor source below if showing the actual proof body.
-4. Pause on [the model diagram](http://127.0.0.1:8876/#/4/3). The central
+4. Pause on [the model diagram](http://127.0.0.1:8877/#/4/3). The central
    object has its own label. Its informal statement and proof are optional
    facets. Dashed links are associations. Arrows run from prerequisite nodes
    towards the dependent statement or proof, as in the graph.
 5. Explain the dependency tracks. The theorem type refers to `left_inverse`
    and `injective`; these edges are automatic. `equality_transport` is an
    explicitly authored proof dependency.
-6. Open the [five-node graph](http://127.0.0.1:8876/#/4/6). Find the same
+6. Open the [five-node graph](http://127.0.0.1:8877/#/4/6). Find the same
    theorem, its prerequisites, and the downstream `fibre_singleton` corollary.
    Open one node preview, then stop. Save the summary for the progress demo.
 
@@ -112,14 +112,14 @@ node, but the rich dependency panels otherwise remain at “Loading preview.”
 
 ## Demo 3: a real state change (about 2 minutes)
 
-Start on [formal progress](http://127.0.0.1:8876/#/4/7).
+Start on [formal progress](http://127.0.0.1:8877/#/4/7).
 
 Use Before / After. The Blueprint label and informal content stay the same;
 the two fixtures attach declarations in Draft and Complete namespaces.
 The Lean attachment changes from “sorry in proof” to “complete.”
 
-Pre-open the [Before summary](http://127.0.0.1:8876/demo/before/Blueprint-Summary/)
-and [After summary](http://127.0.0.1:8876/demo/after/Blueprint-Summary/).
+Pre-open the [Before summary](http://127.0.0.1:8877/demo/before/Blueprint-Summary/)
+and [After summary](http://127.0.0.1:8877/demo/after/Blueprint-Summary/).
 In each, expand **Metadata**, then **Quick wins**, and locate `fibre_singleton`.
 Its row carries the explicit `proof:` readiness badge. The ordinary entry index
 does not display this detail, so prepare these expanded views before speaking.
@@ -160,11 +160,11 @@ the entire file/worktree. Prefer the prebuilt snapshots for a short live talk.
 Click outside the iframe to return keyboard focus to the slides.
 Graph/Summary links open another tab; Before/After stays in the panel.
 
-The new demo modules have not been published. Their generated external
-declaration source links currently use the inherited repository location,
-where these files do not exist. A local commit alone does not make those links
-resolvable. Show the local editor files for Lean source, not those GitHub
-links. The separate mathematical source-note link is local and works.
+The new demo modules have not been published. In this repository, which has
+no remote configured, the regenerated declaration previews display local
+source paths rather than links to the inherited MadLean repository. Show the
+local editor files for Lean source. The separate mathematical source-note
+link is local and works.
 
 ## Validation record and limits
 
@@ -197,8 +197,11 @@ This checks the intended clicks and visible results, not speaking time.
   repeated the reference, graph-preview, snapshot, and readiness interactions.
 
 The in-app browser connection was unavailable; these checks used local headless
-Chrome. Full offline, deployment-prefix, all graph controls, and whole-deck acceptance
-remain outstanding. Upstream pages and inherited styling may use remote assets.
+Chrome. The integration rehearsal checked the full main route and confirmed a
+specific offline failure: the graph loads D3/Graphviz from a CDN. Keep network
+access for this demo or use the model/readiness fallback. Deployment-prefix,
+all graph controls, and backup-deck acceptance remain outstanding.
+See [REVIEW.md](REVIEW.md) for pacing and remaining presentation risks.
 The opening now includes dated primary sources and qualifications in speaker
 notes. Neither milestone artifact was independently rebuilt or checked here.
 Event metadata is confirmed: ForMath Seminar, IRIF, Université Paris Cité,
