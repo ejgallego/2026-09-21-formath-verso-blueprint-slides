@@ -85,6 +85,7 @@ def main():
     (args.output / 'review.json').write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report, indent=2))
     return int(bool(report['errors'] or report['httpErrors'] or
+                    (args.offline and report['externalRequests']) or
                     any(slide['overflow'] or any(graph['status'] != 'ready'
                         for graph in slide['graphs']) for slide in report['slides'])))
 

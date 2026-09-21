@@ -1,0 +1,46 @@
+{
+  "marked-11.1.1.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js",
+    "sha256": "f33a2d78362bde001670e3a29b01fd0dc16a7f9194d042a775af89270ab38b74"
+  },
+  "marked-LICENSE.md": {
+    "url": "https://cdn.jsdelivr.net/npm/marked@11.1.1/LICENSE.md",
+    "sha256": "8e3a3f82f59a60958f56ca08f445647c32a4733dc7ca6c2c46f6eb898471ab9c"
+  },
+  "d3-7.9.0.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js",
+    "sha256": "f2094bbf6141b359722c4fe454eb6c4b0f0e42cc10cc7af921fc158fceb86539"
+  },
+  "d3-graphviz-5.6.0.min.js": {
+    "url": "https://cdn.jsdelivr.net/npm/d3-graphviz@5.6.0/build/d3-graphviz.min.js",
+    "sha256": "9c1ecd146ca7f2ff57c849cee4398f58cee7a7a8c7d79c24b817bbaf4dd4e05c"
+  },
+  "SourceSans3VF-Upright.woff2": {
+    "url": "https://raw.githubusercontent.com/adobe-fonts/source-sans/3.052R/WOFF2/VF/SourceSans3VF-Upright.ttf.woff2",
+    "sha256": "5f16566f7a40d39b339ad26be151fa5a1ab1f0c2574c7a2e619765584a1acbd8"
+  },
+  "SourceSans3VF-Italic.woff2": {
+    "url": "https://raw.githubusercontent.com/adobe-fonts/source-sans/3.052R/WOFF2/VF/SourceSans3VF-Italic.ttf.woff2",
+    "sha256": "b4959abc0569392f87c6c6ac612f90e3fe0104d283724189b7d8b6f61af347d3"
+  },
+  "d3-LICENSE": {
+    "url": "https://cdn.jsdelivr.net/npm/d3@7.9.0/LICENSE",
+    "sha256": "3e6849627f74ff73c257a3ae1efb574015d94fc1035c05ec3c15805165efcbc4"
+  },
+  "d3-graphviz-LICENSE": {
+    "url": "https://cdn.jsdelivr.net/npm/d3-graphviz@5.6.0/LICENSE",
+    "sha256": "a947ac7373ed178e084036e186132eb919f740760db74f0944eb08285f78578f"
+  },
+  "SourceSans3-LICENSE.md": {
+    "url": "https://raw.githubusercontent.com/adobe-fonts/source-sans/3.052R/LICENSE.md",
+    "sha256": "89ad2c4f66dd29127527493e729c31e731f111cf10faf5774c3db9275ed0c22c"
+  },
+  "Graphviz-LICENSE": {
+    "url": "https://gitlab.com/graphviz/graphviz/-/raw/12.2.1/epl-v10.txt",
+    "sha256": "77d36f258d2abcc3b2fd03db32ca0abfeb71226e9160873bed066f05906b82dd"
+  },
+  "hpcc-js-wasm-LICENSE": {
+    "url": "https://cdn.jsdelivr.net/npm/@hpcc-js/wasm@2.20.0/LICENSE",
+    "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+  }
+}

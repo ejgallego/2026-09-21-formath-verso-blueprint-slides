@@ -7,6 +7,8 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from public_assets import package_assets
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
@@ -35,6 +37,9 @@ def main() -> int:
         raise SystemExit(f"missing generated deck: {output / 'index.html'}")
     if not source_root.is_dir():
         raise SystemExit(f"missing Blueprint source root: {source_root}")
+
+    modules = package_assets(output, repository_root / "static/vendor")
+    print(f"Bundled verified local assets for {modules} Blueprint graph modules.")
 
     changed_files = 0
     replacements = 0

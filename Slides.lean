@@ -8,9 +8,9 @@ open VersoSlides
 
 set_option verso.code.warnLineLength 100
 
-#doc (Slides) "Verso Blueprints" =>
+#doc (Slides) "Verso Blueprint: Reimagining Blueprints for the AI Era" =>
 
-# Verso Blueprints
+# Verso Blueprint: Reimagining Blueprints for the AI Era
 
 [Emilio Jesús Gallego Arias](https://x80.org/emilio)
 

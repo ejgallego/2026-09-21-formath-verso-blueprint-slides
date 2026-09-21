@@ -30,6 +30,14 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: Build public artifact
         run: scripts/build-pages.sh
+      - name: Check asset packaging
+        run: python3 -m unittest discover -s scripts -p 'test_*.py'
+      - name: Install browser test dependencies
+        run: |
+          python3 -m venv /tmp/formath-browser-tests
+          /tmp/formath-browser-tests/bin/pip install playwright
+      - name: Rehearse offline under a deployment prefix
+        run: /tmp/formath-browser-tests/bin/python scripts/rehearse-offline.py --output /tmp/formath-review
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:

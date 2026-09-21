@@ -1,4 +1,4 @@
-# Verso Blueprints
+# Verso Blueprint: Reimagining Blueprints for the AI Era
 
 ForMath Seminar, IRIF, Université Paris Cité. Monday, 21 September 2026.
 Emilio Jesús Gallego Arias, Senior Research Engineer — Lean FRO.
@@ -29,6 +29,32 @@ scripts/build-pages.sh
 
 The result is written to `_slides/`. Local slide extensions are documented in
 [`Lib/README.md`](Lib/README.md).
+
+## Offline preview and checks
+
+Publication preparation bundles the graph libraries, WebAssembly runtime, and
+Source Sans 3 font locally. Keep the entire `_slides/` directory together and
+serve it over HTTP; opening `index.html` as a file does not support module loads.
+External reference links still require internet access.
+
+```bash
+python3 -m http.server 8877 --bind 127.0.0.1 --directory _slides
+```
+
+The following checks use system Chrome. The rehearsal starts and stops its own
+temporary server, tests a `/formath/` deployment prefix with external requests
+blocked, and saves screenshots and a JSON layout report:
+
+```bash
+python3 -m unittest discover -s scripts -p 'test_*.py'
+uv run --with playwright python scripts/rehearse-offline.py --output /tmp/formath-review
+```
+
+Pinned browser assets and their licenses are tracked under `static/vendor/`.
+`prepare-public-output.py` verifies their SHA-256 digests and localizes generated
+graph loaders, without editing dependency sources or requiring network access.
+Run it after every slide generation, including incremental builds. A changed
+upstream loader or corrupted asset fails publication preparation explicitly.
 
 ## ForMath working version
 

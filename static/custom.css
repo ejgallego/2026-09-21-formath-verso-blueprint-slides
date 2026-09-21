@@ -1,6 +1,20 @@
 /* Lean-style slides adapted from Leo de Moura's ETAPS Tutorial 2026 deck. */
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("vendor/SourceSans3VF-Upright.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("vendor/SourceSans3VF-Italic.woff2") format("woff2");
+}
 
 :root {
   --lean-teal: #0891b2;
@@ -170,12 +184,15 @@
   font-weight: 600;
 }
 
-.reveal pre {
+/* The slide framework loads highlighting CSS after custom.css. Include the
+   slide container so these projector-sized blocks win the cascade. */
+.reveal .slides section pre,
+.reveal .slides section pre.code-wrapper {
   background: var(--bg-code);
   border: 1px solid var(--border-code);
   border-radius: 6px;
   box-shadow: none;
-  font-size: 0.68em;
+  font-size: 0.9em;
   margin: 0.4em 0;
   width: 100%;
 }
@@ -186,8 +203,8 @@
   padding: 0.8em 1em;
 }
 
-.reveal pre.vbp-example-source,
-.reveal .vbp-example-source pre {
+.reveal .slides section pre.vbp-example-source,
+.reveal .slides section .vbp-example-source pre {
   font-size: 0.5em;
   margin: 0.25em 0 0.35em;
 }
@@ -202,6 +219,11 @@
   border-radius: 3px;
   font-size: 0.9em;
   padding: 0.1em 0.3em;
+}
+
+/* Do not shrink block text a second time through the inline-code rule. */
+.reveal pre code {
+  font-size: inherit;
 }
 
 .accent {
@@ -541,12 +563,12 @@
   --verso-info-indicator-color: var(--lean-teal);
 }
 
-.reveal code.hl.lean.block {
+.reveal .slides code.hl.lean.block {
   background: var(--bg-code);
   border: 1px solid var(--border-code);
   border-radius: 6px;
   box-shadow: none;
-  font-size: 0.5em;
+  font-size: 0.85em;
   line-height: 1.55;
   max-width: 95%;
   padding: 0.8em 1em;

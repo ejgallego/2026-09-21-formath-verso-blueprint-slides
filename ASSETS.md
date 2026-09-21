@@ -18,3 +18,23 @@ scholarly presentation; the repository license does not relicense them.
 
 The `examples/verso-flt`, `deps/verso-blueprint`, and nested submodules retain
 their own licenses and copyright notices.
+
+## Offline browser bundle
+
+`static/vendor/manifest.json` records exact download URLs and SHA-256 digests.
+Publication verifies these tracked files and copies them to `_slides/vendor/`;
+ordinary builds do not download browser assets.
+
+| Asset | Version / license |
+| --- | --- |
+| D3 | 7.9.0, ISC; `d3-LICENSE` |
+| D3-Graphviz | 5.6.0, BSD-3-Clause; `d3-graphviz-LICENSE` |
+| Marked (Verso reader-page Markdown parser) | 11.1.1, MIT; `marked-LICENSE.md` |
+| Source Sans 3 variable fonts, upright and italic | Adobe release 3.052R, SIL Open Font License 1.1; `SourceSans3-LICENSE.md` |
+
+The D3-Graphviz distribution includes the HPCC WebAssembly Graphviz runtime.
+The HPCC Apache-2.0 and Graphviz EPL-1.0 license texts are included as
+`hpcc-js-wasm-LICENSE` and `Graphviz-LICENSE`. The bundle is retained byte-for-byte;
+its checksum, not a guessed transitive dependency version, identifies it.
+Generated graph-loader and reader-page URLs are rewritten to local assets;
+upstream bundles and dependency sources remain unchanged.
