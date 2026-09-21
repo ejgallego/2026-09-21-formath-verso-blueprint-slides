@@ -32,7 +32,8 @@ it must not be “fixed” without updating the demonstration.
 
 The in-app browser connection was unavailable. Headless Chrome provides the
 visual/interaction checks documented in [DEMO-RUNBOOK.md](DEMO-RUNBOOK.md).
-Full offline and deployment-prefix checks remain outstanding.
+The original baseline did not include offline or deployment-prefix acceptance;
+the later readability/infrastructure pass below closes that gap for the demo route.
 
 The opening pass replaced generic context with three sourced slides: FLT and
 Prove2Me coordination, the smooth-forced Navier–Stokes announcement targeting
@@ -63,8 +64,17 @@ no remote configured yet.
 The clean bootstrap worktree and its port-8876 preview server were retired
 after integration. Its branch and source history remain recoverable. The
 deck also builds after removal. The active preview uses port 8877.
-See [REVIEW.md](REVIEW.md) for main-route rehearsal evidence and the known
-offline graph limitation.
+See [REVIEW.md](REVIEW.md) for main-route rehearsal evidence.
+
+## Readability and offline infrastructure, 21 September 2026
+
+The requested title is “Verso Blueprint: Reimagining Blueprints for the AI Era”.
+The short code examples are enlarged; the separate closing question slide is
+retained, bringing the main route to 28 slides. A checksum-verified local browser
+bundle removes the graph, reader-page parser, and font CDN requirements.
+Offline interaction checks pass under a deployment prefix. Eight packaging
+regressions cover nested modules, HTML base URLs, idempotence, corrupt assets,
+and rejection of unsupported input. Dependency pins remain unchanged.
 
 See [the authoring map](STRUCTURE.md) for the five-section structure,
 audience, ordered roadmap, and remaining editorial work.

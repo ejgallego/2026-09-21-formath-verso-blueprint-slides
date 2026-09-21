@@ -136,6 +136,65 @@
   object-fit: contain;
 }
 
+.reveal .sphere-images p {
+  margin: 0.25em 0;
+}
+
+.reveal .sphere-images img {
+  max-height: 38vh;
+  object-fit: contain;
+}
+
+.reveal .milestone-stat {
+  border-top: 4px solid var(--lean-teal);
+  flex: 1;
+  padding: 0.25em 0.1em;
+}
+
+.reveal .milestone-stat strong {
+  color: var(--lean-blue);
+  display: block;
+  font-size: 1.7em;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.reveal .milestone-stat {
+  color: var(--text-muted);
+  font-size: 0.82em;
+}
+
+.reveal .intro-image-placeholder,
+.reveal .intro-quote-placeholder {
+  align-items: center;
+  background: #f8fafc;
+  border: 2px dashed #9bd0da;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: center;
+  margin: 0.5em 0;
+  padding: 0.4em 0.8em;
+}
+
+.reveal .intro-image-placeholder {
+  min-height: 17vh;
+}
+
+.reveal .intro-quote-placeholder {
+  min-height: 25vh;
+}
+
+.reveal .intro-image-placeholder p,
+.reveal .intro-quote-placeholder p {
+  color: inherit;
+  font-size: 0.68em;
+  font-weight: 500;
+}
+
+.reveal .review-loop-diagram svg {
+  height: 40vh;
+}
+
 .title-slide .date {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.85em;

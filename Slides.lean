@@ -20,31 +20,105 @@ ForMath Seminar, IRIF, Université Paris Cité
 
 Monday, 21 September 2026
 
-# FLT: A Shared Mathematical Plan
+# AI Is Changing Mathematics
 
 %%%
 vertical := some true
 %%%
 
-Anthropic announced a complete Lean formalization of FLT on 4 September 2026,
-following the Darmon–Diamond–Taylor exposition.
+:::hstack
 
-- The team credits *Prove2Me* with shared statements, dependencies, and project state.
-- Kevin Buzzard reports successfully compiling the artifact and running comparator.
+- AI systems are producing mathematics that specialists take *seriously*.
+- Mathematicians need ways to _inspect_, _guide_, and _trust_ the process.
+- _Mathematical output_ is no longer just a paper or a Lean file.
+- A great challenge to mathematics and computer science.
 
-A checked formalization and an explorable mathematical account remain
-different deliverables.
+{image "static/images/slide_1.1_erdos.png"}[Erdos' Unit Problem Solution Tweet by Timothy Gowers]
+
+:::
+
+*Timothy Gowers*:
+
+> "If you are a mathematician, then you may want to make sure you are sitting down before reading further."
 
 :::notes
-Anthropic describes earlier attempts losing project state and collaboration,
-then a successful run using Prove2Me. This is the team's explanation of its
-workflow, not a controlled comparison or a claim that VBP powered the result.
+Adapted from the opening slide of the Madrid presentation. The Gowers image and
+quotation introduce the change in pace; the next examples make the question of
+human inspection concrete.
+:::
+
+## Sphere Packing In Dimension Eight
+
+::::vstack
+
+{arxiv "2604.23468" (title := "A Milestone in Formalization: The Sphere Packing Problem in Dimension 8") (authors := "Hariharan, Birkbeck, Lee, Ma, Mehta, Poiroux, Viazovska") (published := "Submitted Apr 25, 2026; v2 Apr 28, 2026") (summary := "The dimension-8 sphere-packing result was formally verified in February 2026, with final stages carried out by Math Inc.'s Gauss model.")}
+
+:::center
+{image "static/images/math_inc_2.png"}[Math Inc announcement of the formalization]
+:::
+
+::::
+
+## The Sphere Packing Blueprint
+
+:::::vstack
+
+The formalization followed a mathematical plan: statements, dependencies, and
+progress were visible to collaborators.
+
+::::class "sphere-images"
+:::hstack
+
+{image (width := "95%") "static/images/sp_index.png"}[Sphere-packing blueprint start page]
+
+{image (width := "95%") "static/images/sp_graph.png"}[Sphere-packing blueprint graph]
+
+:::
+::::
+
+*The Blueprint told people and agents where each proof belonged.*
+
+:::::
+
+:::notes
+These are the sphere packing slides from the Madrid deck, moved into the
+opening. The Blueprint is the project map, not the checker. Emphasize its role
+in coordinating a large formalization.
+:::
+
+## Fermat's Last Theorem: Scale
+
+::::hstack
+
+:::class "milestone-stat"
+*13 million* Lean lines
+:::
+
+:::class "milestone-stat"
+*30,300* theorems proved
+:::
+
+::::
+
+Anthropic reports a complete Lean formalization of FLT, following the
+Darmon–Diamond–Taylor exposition. Lean checked the proof.
+
+:::class "intro-image-placeholder"
+FLT image placeholder
+:::
+
+*How does a mathematician read a proof of this size?*
+
+:::notes
+The 13 million lines and 30,300 theorems are Anthropic's reported figures;
+29,500 theorems occur in the final proof. Kevin Buzzard reports compiling the
+released artifact and running the statement comparator. His community FLT
+project and its Blueprint are distinct from Anthropic's artifact.
 
 The theorem was already known. This achievement formalizes the
 Darmon–Diamond–Taylor account of the Wiles–Taylor–Wiles argument. Buzzard's
 community project follows a different, modern route and also aims to supply
 reusable library contributions and an explorable mathematical document.
-The community FLT Blueprint in the later demo is distinct from this artifact.
 
 [Anthropic announcement, 4 September 2026](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 
@@ -53,15 +127,42 @@ The community FLT Blueprint in the later demo is distinct from this artifact.
 [Buzzard's checking report and assessment, 4 September 2026](https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/)
 :::
 
-## Navier–Stokes: Scope And Understanding
+## FLT: A Shared Plan For Agents
+
+Anthropic credits *Prove2Me* with maintaining theorem statements, dependencies,
+and natural language descriptions during the formalization.
+
+:::class "intro-quote-placeholder"
+Anthropic quote on Prove2Me — placeholder for supplied text
+:::
+
+The plan helped coordinate proof search. We still need a mathematical account
+that people can inspect and discuss.
+
+:::notes
+Replace the visible placeholder with the user's selected Anthropic quotation.
+Do not present this paraphrase as a direct quotation. Anthropic describes
+earlier attempts losing project state and a successful run using Prove2Me.
+This is the team's account of its workflow, not a controlled comparison or a
+claim that Verso Blueprint powered the result.
+
+[Anthropic announcement](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+:::
+
+## Navier–Stokes: A Different Scale
 
 OpenAI announced breakdown results on 8 September 2026 for *three-dimensional
 incompressible Navier–Stokes with smooth forcing*.
 
-- Whole-space and periodic cases: Clay alternatives *C and D*.
-- A mathematical manuscript and Lean artifact are available.
+The mathematical manuscript and Lean artifact are far shorter than the FLT
+formalization. Understanding the construction still takes mathematical work.
 
-Understanding the construction and its dependencies remains a mathematical task.
+:::class "intro-image-placeholder"
+Navier–Stokes image placeholder
+:::
+
+The result addresses Clay alternatives *C and D*, for the whole-space and
+periodic cases.
 
 :::notes
 The announced result concerns positive viscosity, smooth initial data, and
@@ -84,18 +185,27 @@ The exposition and formal artifact serve different reading needs.
 [Clay statement, 11 September 2026](https://www.claymath.org/news/navier-stokes-announcement/)
 :::
 
-## Blueprints Before And After Formalization
+## What Kind Of Mathematics Do We Want?
 
-- *Before*: a mathematical plan that humans and agents can execute.
-- *After*: a mathematical account that humans can explore.
+Checked proofs give strong evidence of correctness. Mathematicians also need
+to understand the ideas, credit the work, and decide which questions matter.
 
-Both need explicit links between exposition, statements, dependencies,
-and formal artifacts.
+[A Severe Misalignment of AI in Mathematics](https://mathandai.org/) asks who
+sets the agenda. The [Leiden Declaration](https://leidendeclaration.ai/) calls
+for clear attribution and independent verification. [SAIR's open mathematics
+initiative](https://sair.foundation/open-math-model/) emphasizes work that
+others can examine and build on.
+
+*Blueprints can connect a checked result to the mathematics around it.*
 
 :::notes
-This is the motivation for the talk, not a claim that either milestone used VBP.
+The user called the third reference “SIAR”; the organization is SAIR. These
+statements differ in emphasis. The slide extracts the concerns most relevant
+to this talk and does not imply endorsement of every position in them.
+
 A Blueprint records links and evidence. It does not itself certify that prose
-faithfully represents a formal statement or proof.
+faithfully represents a formal statement or proof. Nor did the FLT or NS
+milestones use Verso Blueprint.
 
 Transition: coordination and mathematical reading already mattered in large
 formalization projects before the current wave of AI tools.
@@ -594,7 +704,7 @@ Formal evidence, source correspondence, and project state stay inspectable.
 
 Let us know how Verso Blueprint could help with your work.
 
-Thanks! Questions?
+## Thanks, Questions?
 
 # Backup: Architecture
 
@@ -665,23 +775,6 @@ Node(label)
 
 :::::
 
-## AI And Mathematics: Earlier Examples
-
-:::hstack
-
-- AI systems are producing mathematics that specialists take *seriously*.
-- Mathematicians need ways to _inspect_, _guide_, and _trust_ the process.
-- _Mathematical output_ is no longer just a paper or a Lean file.
-- A great challenge to mathematics and computer science.
-
-{image "static/images/slide_1.1_erdos.png"}[Erdos' Unit Problem Solution Tweet by Timothy Gowers]
-
-:::
-
-*Timothy Gowers*:
-
-> "If you are a mathematician, then you may want to make sure you are sitting down before reading further."
-
 ## DeepMind: 9 Erdos Problems Solved In Collaboration With Lean
 
 :::::vstack
@@ -698,36 +791,6 @@ OEIS conjectures, using Lean verification as the guardrail.
 
 The May 2026 DeepMind formal-proof-search result makes *Lean* and *Mathlib* central to the proving loop.
 :::::
-
-## Sphere Packing Milestone
-
-::::vstack
-
-{arxiv "2604.23468" (title := "A Milestone in Formalization: The Sphere Packing Problem in Dimension 8") (authors := "Hariharan, Birkbeck, Lee, Ma, Mehta, Poiroux, Viazovska") (published := "Submitted Apr 25, 2026; v2 Apr 28, 2026") (summary := "The dimension-8 sphere-packing result was formally verified in February 2026, with final stages carried out by Math Inc.'s Gauss model.")}
-
-:::center
-{image "static/images/math_inc_2.png"}[Math Inc Announcement]
-:::
-
-::::
-
-## Sphere Packing Blueprint
-
-::::vstack
-
-- The project had a detailed mathematical plan.
-- The plan exposed statements, dependencies, and progress.
-- Humans and agents needed to know where a proof belonged.
-- Systems such as Gauss, Aristotle, Numina, and others need project structure.
-
-::: hstack
-
-{image (width := "95%") "static/images/sp_index.png"}[Sphere-packing blueprint start page]
-
-{image (width := "95%") "static/images/sp_graph.png"}[Sphere-packing blueprint graph]
-
-:::
-::::
 
 ## leanblueprint-to-verso: Reference Blueprints
 
@@ -824,9 +887,9 @@ The leanblueprint-to-verso project ports LaTeX blueprints with AI assistance.
 
 The migration experience motivates a review loop:
 
-::::hstack
+:::::hstack
 
-:::vstack
+::::vstack
 
 - it looked plausible
 - it was not faithful
@@ -840,12 +903,13 @@ The fix was a deterministic harness plus a review surface.
 
 Review demo: [https://x80.org/flt-translation-review/](https://x80.org/flt-translation-review/)
 
-:::
+::::
 
-:::vstack
+::::vstack
 
 The harness makes translation failures visible.
 
+:::class "review-loop-diagram"
 ```diagram (background := "#ffffff")
 open Illuminate Lean in
 let ah : Arrowhead := { type := .stealth }
@@ -890,12 +954,13 @@ Diagram.grid (hSpacing := 34) (vSpacing := 14) #[
   |>.connect `lean.south `audit.north (arrowhead := ah)
   |>.scale 1.35
 ```
+:::
 
 Thanks to David Christiansen and Kim Morrison for suggesting this direction.
 
-:::
-
 ::::
+
+:::::
 
 
 ## Full FLT Graph

@@ -1,6 +1,6 @@
 # ForMath rehearsal review
 
-21 September 2026. Main route: 27 slides including title. Backup: 11 slides.
+21 September 2026. Main route: 32 slides including title. Backup: 8 slides.
 Event: ForMath Seminar, IRIF, Université Paris Cité.
 Preview: http://127.0.0.1:8877/.
 
@@ -11,22 +11,23 @@ care, explains Verso before introducing VBP, and connects the abstract model
 to the same node, graph, and proof-progress demonstration. The comparison with
 LeanBlueprint credits its existing capabilities and motivates Lean integration.
 
-1. **Offline graph support remains a real presentation risk.** Blocking external
-   HTTP requests makes the embedded graph display “Unable to load Blueprint
-   graph.” The runtime fetches D3 7.9.0 and D3-Graphviz 5.6.0 from jsDelivr.
-   Google Fonts is also external, though the deck has font fallbacks. For now,
-   verify connectivity and use the model slide and before/after table as the
-   fallback. Do not promise a fully offline demo. A reproducible local asset
-   bundle is the next infrastructure task.
-2. **Rehearse the switches, not live proof typing.** Pre-open the Manual page,
+The opening now begins with the Madrid AI slide, then sphere packing and its
+Blueprint, FLT, Navier–Stokes, and a reflection on mathematical understanding.
+The FLT and Navier–Stokes images and the selected Anthropic quote remain marked
+placeholders.
+
+1. **Rehearse the switches, not live proof typing.** Pre-open the Manual page,
    node panel, and two summaries. Stop after one reference/hover, one graph
    preview, and the corollary's readiness change. The corollary remains unproved.
-3. **Check the smaller code blocks on the actual projector.** The complete
-   source slide is the main reading surface. The shorter overview, diagnostic,
-   and code-first snippets occupy less screen space and may need enlargement
-   for a large room. Prefer the local editor if someone wants implementation
-   details. No publication remote exists, so new declaration previews display
-   local source paths rather than public source links.
+2. **Check readability on the actual projector.** The overview, diagnostics,
+   authoring, and CLI examples now use at least 20px text at 1280×720, without
+   horizontal clipping. The complete source remains on one slide. A browser
+   screenshot cannot establish back-row readability in the room.
+3. **Keep the whole generated directory together.** The rehearsed local demo
+   route now works with external requests blocked, including the graph. Serve
+   `_slides/` over HTTP. External reference links still need internet access.
+   No publication remote exists, so new declaration previews display local
+   source paths rather than public source links.
 
 ## Suggested pacing
 
@@ -55,22 +56,31 @@ migration-review navigation, and all backup material.
 - `vbp check` passes for Before/After (11 entries each) and the copied FLT
   artifact (597 entries). No labels, dependency edges, or dependency pins changed.
 - Headless Chrome at 1280×720 exercises the Manual reference and declaration
-  hover, graph preview, proof snapshots, and downstream readiness badges.
+  hover, source provenance and local note, native and embedded graph previews,
+  proof snapshots, and downstream readiness badges.
 - The main-route visual audit reports no page exceptions, HTTP error responses,
   or tested element-boundary overflows online. Visual inspection found and fixed
   the title-name contrast and the LeanBlueprint screenshot layout.
-- The external-network-blocked pass exposes the graph failure above. That pass
-  is a diagnostic failure, not offline acceptance. It does not test every popup
-  or external link. Deployment-prefix behavior and the backup deck are not
-  included in main-route acceptance.
+- The original offline graph failure is resolved by a checked-in bundle of
+  D3, D3-Graphviz (including its WebAssembly runtime), Marked, and Source Sans 3.
+  Packaging verifies SHA-256 digests, respects Verso's HTML base URLs, and
+  rewrites generated loaders without changing dependency sources.
+- Offline interaction acceptance also passes under a `/formath/` deployment
+  prefix: zero external asset requests, page exceptions, or HTTP error responses.
+  This does not test every popup, graph control, or external link.
+- The exact title is now “Verso Blueprint: Reimagining Blueprints for the AI Era”.
+  The separate “Thanks, Questions?” slide is retained.
 
-Repeat the checks from the repository root while the preview server runs:
+Repeat the checks from the repository root. The first browser command manages
+its own temporary server and tests the deployment prefix; the second uses the
+existing preview:
 
 ```bash
-uv run --with playwright python scripts/check-demo-browser.py
-uv run --with playwright python scripts/review-deck-browser.py --output /tmp/formath-review
-uv run --with playwright python scripts/review-deck-browser.py --offline --output /tmp/formath-offline
+python3 -m unittest discover -s scripts -p 'test_*.py'
+uv run --with playwright python scripts/rehearse-offline.py --output /tmp/formath-review
+uv run --with playwright python scripts/check-demo-browser.py --offline
 ```
 
-The last command should remain nonzero until the offline graph dependency is
-resolved. These checks exercise the interface, not the speaker's pacing.
+The Pages workflow runs packaging tests and the prefixed offline rehearsal
+before uploading an artifact. It has not been run remotely for this repository.
+These checks exercise the interface, not the speaker's pacing.

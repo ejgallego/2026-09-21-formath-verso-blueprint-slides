@@ -2,7 +2,7 @@
 
 Updated 21 September 2026 with the speaker's audience and roadmap priorities. This is the longer editorial brief; `STRUCTURE.md` describes the implemented deck and demo runbook.
 
-Keep the title “Verso Blueprints.” The confirmed event is ForMath Seminar, IRIF, Université Paris Cité, Monday, 21 September 2026. The 40-minute allocation below remains a working assumption inherited from the old deck; duration remains to be confirmed. The audience is expert in formal proof and Rocq, but unfamiliar with Verso: explain the document language and data model, not Lean basics.
+The title is “Verso Blueprint: Reimagining Blueprints for the AI Era.” The confirmed event is ForMath Seminar, IRIF, Université Paris Cité, Monday, 21 September 2026. The 40-minute allocation below remains a working assumption inherited from the old deck; duration remains to be confirmed. The audience is expert in formal proof and Rocq, but unfamiliar with Verso: explain the document language and data model, not Lean basics.
 
 ## The requested structure
 
@@ -27,15 +27,15 @@ The second theme is an architectural direction, not a claim that a complete infe
 
 Preserve the existing horizontal/vertical navigation convention. The section's first substantive slide should carry its opening message; avoid empty section dividers. Put optional depth in vertical children or backup slides. [R8]
 
-## 1. Actual context — 7 minutes
+## 1. Actual context — timing to rehearse
 
-The implemented opening has three substantive slides: FLT and Prove2Me coordination; the smooth-forced Navier–Stokes announcement targeting Clay alternatives C/D; and blueprints before and after formalization. The opening explains a change in the work of doing, formalizing, and reading mathematics.
+The implemented opening now has seven substantive slides. It starts with the Madrid slide on AI and mathematics, then moves through the sphere packing formalization and its Blueprint. Two FLT slides show the reported scale and the role of Prove2Me; the second reserves space for the speaker's Anthropic quotation. Navier–Stokes follows, with an image placeholder. The section closes with the question of mathematical understanding and links to the Math and AI declaration, the Leiden Declaration, and SAIR's open mathematics initiative. The FLT and Navier–Stokes image placeholders await the speaker's assets.
 
 The slide notes link dated primary announcements, released artifacts, Buzzard's FLT checking report, and Clay's official scope and evaluation statement. The September 21 review inspected those sources, not independent builds or checker runs. Artifact revision pinning and a pre-talk status recheck remain useful follow-ups. [M1–M5]
 
 Keep the existing pinned FLT Blueprint demonstration separate from the newer FLT artifact discussed in the context section. For Navier–Stokes, specify hypotheses and problem variant rather than treating the name of the problem as a sufficient statement.
 
-The closing opening slide presents blueprints as plans before formalization and explorable mathematical accounts after it. Both need links between exposition, statements, dependencies, and formal artifacts. Keep checking and correspondence qualifications in speaker notes rather than teaching this expert audience proof-assistant basics.
+The closing opening slide connects checked results to understanding, attribution, research direction, and reusable work. Keep checking and correspondence qualifications in speaker notes rather than teaching this expert audience proof-assistant basics.
 
 **Transition:** More output makes shared context and reviewable structure more important. The need for coordination is not new.
 

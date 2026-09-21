@@ -6,15 +6,15 @@ unfamiliar with Verso. Explain the document system, not proof assistants.
 Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
-Five substantive sections, plus backup. The main route has 27 slides including
-the title; backup has 11. Horizontal sections retain vertical children.
+Five substantive sections, plus backup. The main route has 32 slides including
+the title; backup has 8. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
 ## Main route
 
 | Section | Current content | Remaining editorial work |
 | --- | --- | --- |
-| Actual context | FLT and Prove2Me coordination; smooth-forced Navier–Stokes, Clay C/D; blueprints before and after formalization | Three substantive slides with dated primary sources and reported checking evidence in notes. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
+| Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; smooth-forced Navier–Stokes, Clay C/D; mathematical understanding and research direction | Seven substantive slides. Add the speaker's FLT and Navier–Stokes images and Anthropic quotation to the marked placeholders. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
 | Historical context | Blueprint lineage, LeanBlueprint, coordination | Retain attribution and the distinction between sphere eversion origins and later Liquid Tensor use. |
 | Verso | Language boundary and document kinds; complete compiled document; checked code and enforced diagnostic; document/Lean references; extensions | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
 | Verso Blueprint | Why another implementation; real Frey node; rich node anatomy; model diagram; prose/code authoring; dependency tracks; small graph; proof progress and summary; sources; public queries; AI review; boundaries | Rehearse the three timed demonstrations in the runbook. A recorded migration defect/correction remains optional future detail work. |
@@ -79,8 +79,9 @@ contains `sorry`; the diagnostics slide intentionally requires an error.
 
 Headless visual and interaction checks are recorded in the demo runbook.
 The main-route visual/interaction review is in [REVIEW.md](REVIEW.md).
-Offline testing found that the embedded graph requires external CDN assets.
-Deployment-prefix and backup-deck acceptance remain outstanding.
+The browser assets are now bundled locally with verified checksums. Offline
+interaction acceptance passes under a `/formath/` deployment prefix, including
+native/embedded graphs, source provenance, Lean panels, and readiness badges.
 Opening claims were reviewed against the authors' announcements and released
 repositories, Buzzard's FLT checking report, and Clay's problem statement and
 11 September announcement. Neither milestone artifact was independently rebuilt
@@ -100,8 +101,9 @@ Event metadata was finalized in `f56390f`. Integration merges that history with
 the ForMath abstract and planning history. Each submodule has independent local
 Git metadata and keeps its original revision and canonical upstream URL.
 Build caches and generated artifacts are local conveniences, not tracked source.
-Publication configuration, external demo source links, and full offline/prefix
-testing remain separate finishing work.
+Publication configuration and external demo source links remain separate
+finishing work. The local offline/prefix rehearsal is automated in
+`scripts/rehearse-offline.py` and is also wired into the Pages workflow.
 
 Integration is committed as `6438117`. After validation, the clean bootstrap
 worktree and its old preview server were removed. Its branch remains available

@@ -184,7 +184,9 @@ This checks the intended clicks and visible results, not speaking time.
 - Both original and published small Blueprint variants passed `vbp check`
   with 11 manifest/cache entries each.
 - Real queries confirmed the dependency and work-queue changes above.
-- Generated HTML contains 27 main slides including title, plus 11 backup.
+- At this rehearsal checkpoint, generated HTML contained 28 main slides
+  including title, plus 11 backup. The current opening adds four main slides
+  and moves three backup slides into the main route.
 - Publication normalization removed 2,526 local source-path occurrences.
 - Headless Chrome checked the source-file, diagnostics, comparison, model,
   authoring, roadmap, anatomy, and five-node graph layouts at 1280×720.
@@ -193,14 +195,25 @@ This checks the intended clicks and visible results, not speaking time.
   document reference and declaration hover. No page errors were recorded.
 - The narrative pass also exercised the graph's theorem preview and the
   Before/After summary readiness badges under Metadata / Quick wins.
-- The opening pass checked all three revised slides for text overflow and
+- The earlier opening pass checked its three revised slides for text overflow and
   repeated the reference, graph-preview, snapshot, and readiness interactions.
 
 The in-app browser connection was unavailable; these checks used local headless
-Chrome. The integration rehearsal checked the full main route and confirmed a
-specific offline failure: the graph loads D3/Graphviz from a CDN. Keep network
-access for this demo or use the model/readiness fallback. Deployment-prefix,
-all graph controls, and backup-deck acceptance remain outstanding.
+Chrome. The original CDN graph failure is now resolved: publication preparation
+bundles D3/Graphviz, the reader-page Markdown parser, and the font. The offline
+interaction rehearsal passes under a `/formath/` deployment prefix with zero
+external asset requests. It includes source provenance, native and embedded
+graph previews, Lean status panels, and readiness changes. External links and
+all optional graph controls are not covered by this acceptance.
+
+Run the repeatable prefixed rehearsal (it manages its own temporary server):
+
+```bash
+uv run --with playwright python scripts/rehearse-offline.py --output /tmp/formath-review
+```
+
+Short slide code examples now use at least 20px text at 1280×720. Check the
+actual projector before delivery; the complete source remains a single slide.
 See [REVIEW.md](REVIEW.md) for pacing and remaining presentation risks.
 The opening now includes dated primary sources and qualifications in speaker
 notes. Neither milestone artifact was independently rebuilt or checked here.
