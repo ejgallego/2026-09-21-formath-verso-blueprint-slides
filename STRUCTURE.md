@@ -3,7 +3,9 @@
 Updated 21 September 2026. Audience: experts in formal proof and Rocq,
 unfamiliar with Verso. Explain the document system, not proof assistants.
 
-Active source: [.worktrees/formath-bootstrap/Slides.lean](.worktrees/formath-bootstrap/Slides.lean).
+Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
+Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
+21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
 Five substantive sections, plus backup. The main route has 27 slides including
 the title; backup has 11. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
@@ -24,7 +26,7 @@ This supersedes the earlier month-by-month proposal.
 
 ## Demonstrations
 
-See [DEMO-RUNBOOK.md](.worktrees/formath-bootstrap/DEMO-RUNBOOK.md).
+See [DEMO-RUNBOOK.md](DEMO-RUNBOOK.md).
 
 - A complete Verso Manual file uses equality transport, checked Lean,
   mathematical notation, a declaration role, and a document reference.
@@ -51,7 +53,7 @@ it is not a claim that TeX is obsolete or that every project should migrate.
 
 ## Build and preview
 
-From the active worktree, using the already-built FLT artifact:
+From the repository root, using the already-built FLT artifact:
 
 ```bash
 bash scripts/build-demo.sh
@@ -82,10 +84,9 @@ repositories, Buzzard's FLT checking report, and Clay's problem statement and
 11 September announcement. Neither milestone artifact was independently rebuilt
 or checked by the talk team. This is a source review, not a proof audit.
 
-This worktree belongs to the old MadLean repository; the top-level ForMath
-repository is separate. Integration remains outstanding. The inherited event
-metadata still needs the speaker's chosen title/date/venue. Preserve user edits,
-existing pins, and the working generator. Do not bootstrap another deck.
+The deck now belongs to this ForMath repository. Preserve user edits, the
+existing abstract and dependency pins, and the working generator. Do not
+bootstrap another deck. Event metadata is confirmed; duration is provisional.
 
 ## Checkpoint and worktree retirement
 
@@ -93,10 +94,9 @@ The deck, demos, and build changes are checkpointed on `formath-bootstrap` at
 `b93aac0` in the MadLean repository. This is a local checkpoint, not a push or
 merge into the published MadLean talk.
 
-Recommended next operation, pending approval: integrate that deck into this
-ForMath repository, preserving its existing abstract/history and the pinned
-submodules. Bring this authoring map and the runbook links into alignment with
-the new location, then verify the build and preview there. Only retire the
-source worktree after confirming that all source and required local artifacts
-are accounted for. Publication configuration, external demo source links,
-event metadata, and full offline/prefix testing remain separate finishing work.
+Event metadata was finalized in `f56390f`. Integration merges that history with
+the ForMath abstract and planning history. Each submodule has independent local
+Git metadata and keeps its original revision and canonical upstream URL.
+Build caches and generated artifacts are local conveniences, not tracked source.
+Publication configuration, external demo source links, and full offline/prefix
+testing remain separate finishing work.

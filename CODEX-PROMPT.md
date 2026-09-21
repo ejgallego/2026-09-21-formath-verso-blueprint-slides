@@ -2,13 +2,16 @@
 
 Update, 21 September: the baseline exists and the speaker has prioritized
 fixing the structure, then adding slide details. Read `STRUCTURE.md` first.
-The active deck is `.worktrees/formath-bootstrap/Slides.lean`; its five-part
-main route is now implemented. Continue there without repeating bootstrap.
+The active deck is `Slides.lean` in the ForMath repository root; its five-part
+main route is now implemented. Continue here without repeating bootstrap.
 The Verso/VBP feature pass and local demos are also implemented; consult
-`.worktrees/formath-bootstrap/DEMO-RUNBOOK.md`. The audience is expert in Rocq
+`DEMO-RUNBOOK.md`. The audience is expert in Rocq
 and formal proof, unfamiliar with Verso. The speaker's five ordered roadmap
 items in STRUCTURE.md supersede the historical monthly proposal below.
-The instructions below describe the earlier bootstrap brief.
+Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
+21 September 2026. Retain the title and speaker affiliation. Duration remains
+unconfirmed. The instructions below are historical bootstrap context, not a
+request to create another worktree, delegate work, or use external checkouts.
 
 Continue preparing this Verso Blueprint talk from the existing repository. Read `README.md`, the repository's `agents.md` / `AGENTS.md`, `Slides.lean`, `Main.lean`, `outline.md`, and this handoff bundle before changing files. Preserve existing repository instructions.
 

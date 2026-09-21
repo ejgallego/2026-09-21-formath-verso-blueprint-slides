@@ -2,7 +2,7 @@
 
 Updated 21 September 2026 with the speaker's audience and roadmap priorities. This is the longer editorial brief; `STRUCTURE.md` describes the implemented deck and demo runbook.
 
-Keep the existing title until the speaker chooses a new one. The 40-minute allocation below remains a working assumption inherited from the old deck; the event metadata and duration remain to be confirmed. The audience is expert in formal proof and Rocq, but unfamiliar with Verso: explain the document language and data model, not Lean basics.
+Keep the title “Verso Blueprints.” The confirmed event is ForMath Seminar, IRIF, Université Paris Cité, Monday, 21 September 2026. The 40-minute allocation below remains a working assumption inherited from the old deck; duration remains to be confirmed. The audience is expert in formal proof and Rocq, but unfamiliar with Verso: explain the document language and data model, not Lean basics.
 
 ## The requested structure
 
