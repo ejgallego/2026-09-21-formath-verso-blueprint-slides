@@ -16,9 +16,9 @@ set_option verso.code.warnLineLength 100
 
 Senior Research Engineer — Lean FRO
 
-MadLean Seminar @ UCM Mathematics Department
+ForMath Seminar, IRIF, Université Paris Cité
 
-Wednesday, May 27, 2026
+Monday, 21 September 2026
 
 # FLT: A Shared Mathematical Plan
 

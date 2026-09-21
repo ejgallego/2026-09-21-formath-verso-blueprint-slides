@@ -1,8 +1,10 @@
-# Verso Blueprints: Reimagining Blueprints for the AI Era
+# Verso Blueprints
 
-[View the slides](https://ejgallego.github.io/2026-05-27-madlean-verso-blueprint-slides/)
+ForMath Seminar, IRIF, Université Paris Cité. Monday, 21 September 2026.
+Emilio Jesús Gallego Arias, Senior Research Engineer — Lean FRO.
 
-Talk presented at MadLean, UCM Mathematics Department, Madrid, on May 27, 2026.
+The local preview is at http://127.0.0.1:8876/ when the server is running.
+This ForMath deck has not been published.
 
 Blueprints give mathematicians and formalizers a shared map of statements,
 dependencies, source material, Lean declarations, and project status. This talk
@@ -18,7 +20,7 @@ projects.
 
 The slides are written in Lean with
 [Verso Slides](https://github.com/leanprover/verso-slides). To build the same
-artifact deployed by GitHub Pages:
+HTML artifact:
 
 ```bash
 git submodule update --init --recursive
@@ -30,8 +32,7 @@ The result is written to `_slides/`. Local slide extensions are documented in
 
 ## ForMath working version
 
-The inherited event information above describes the source deck. The current
-ForMath work is organized in [the authoring map](../../STRUCTURE.md), with
+The ForMath work is organized in the authoring map `STRUCTURE.md`, with
 an expert Rocq/formal-proof audience and a dedicated Verso explanation.
 See [DEMO-RUNBOOK.md](DEMO-RUNBOOK.md) for the small local demonstrations,
 incremental build commands, and rehearsal sequence.
