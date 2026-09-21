@@ -658,42 +658,19 @@ vertical := some true
 We want VBP to provide core infrastructure for mathematical research projects.
 :::
 
-::::hstack
-
-:::vstack
-
-*Programmatic blueprint*
-
-- stable theorem identities and dependencies
-- links to sources and Lean evidence
-- queryable progress and task state
-
-:::
-
-:::vstack
-
-*Projects it could support*
-
-- Prove2Me
-- Trellis
-- AutoformBot
-
-:::
-
-::::
-
-:::class "whats-next-close"
-A shared mathematical record can support many research workflows.
+:::class "programmatic-goals"
+- A stable record of mathematical statements, dependencies, and sources.
+- Lean evidence and project state available through queries.
+- Better tools for projects such as Prove2Me, Trellis, and AutoformBot.
 :::
 
 :::notes
 Adapted from the final “What's Next” slide of the Madrid presentation. This
-slide introduces the goal of a programmatic blueprint as core infrastructure.
-Stable labels, source associations, queries, and derived project state are
-already demonstrable in this checkout. Prove2Me, Trellis, and AutoformBot are
-examples of research projects that such infrastructure could support; this
-slide does not claim those integrations exist. The next slide shows the work
-towards a more complete interface.
+slide introduces the goal of a programmatic blueprint as core infrastructure
+that gives research projects better tools. Stable labels, source associations,
+queries, and derived project state are already demonstrable in this checkout.
+Prove2Me, Trellis, and AutoformBot are examples of projects this could support;
+the slide does not claim those integrations exist. The roadmap follows.
 :::
 
 ## Roadmap · September–December 2026
