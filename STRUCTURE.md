@@ -6,15 +6,15 @@ unfamiliar with Verso. Explain the document system, not proof assistants.
 Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
-Five substantive sections, plus backup. The main route has 31 slides including
-the title; backup has 9. Horizontal sections retain vertical children.
+Five substantive sections, plus backup. The main route has 30 slides including
+the title; backup has 10. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
 ## Main route
 
 | Section | Current content | Remaining editorial work |
 | --- | --- | --- |
-| Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; smooth-forced Navier–Stokes, Clay C/D; mathematical understanding and research direction | Seven substantive slides. The Anthropic animation, plan graph, selected quote excerpts, and Navier–Stokes image are in place. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
+| Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; dated reflection on mathematical direction | Six substantive slides. The Anthropic animation, smaller plan graph, and both quote excerpts are visible. Navier–Stokes and its image are in backup. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
 | Historical context | Blueprint lineage, LeanBlueprint, coordination | Retain attribution and the distinction between sphere eversion origins and later Liquid Tensor use. |
 | Verso | Language boundary and document kinds; complete compiled document; checked code and enforced diagnostic; document/Lean references; extensions | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
 | Verso Blueprint | Why another implementation; real Frey node; model diagram; small graph; proof progress and summary; prose/code authoring; dependency tracks; sources; public queries; AI review; boundaries | Rehearse the three timed demonstrations in the runbook. The rich node anatomy panel is backup detail. A recorded migration defect/correction remains optional future detail work. |

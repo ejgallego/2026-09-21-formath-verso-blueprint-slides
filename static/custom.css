@@ -154,7 +154,7 @@
 .reveal .milestone-stat strong {
   color: var(--lean-blue);
   display: block;
-  font-size: 1.7em;
+  font-size: 1.48em;
   font-weight: 600;
   line-height: 1.1;
 }
@@ -178,26 +178,56 @@
 }
 
 .reveal .flt-plan-image img {
-  height: 63vh;
+  height: 38vh;
   max-width: 100%;
   object-fit: contain;
   width: auto !important;
 }
 
-.reveal .flt-quote {
-  background: rgba(255, 255, 255, 0.96);
+.reveal .flt-opening-quote,
+.reveal .flt-solution-quote {
   border-left: 4px solid var(--lean-teal);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
   color: var(--text-dark);
-  font-size: 0.78em;
-  left: 5vw;
-  line-height: 1.35;
-  margin: 0;
-  padding: 0.5em 0.7em;
-  position: absolute;
-  bottom: 6vh;
-  width: 49vw;
-  z-index: 2;
+  font-size: 0.76em;
+  line-height: 1.25;
+  margin: 0.15em 0;
+  padding: 0.05em 0.45em;
+}
+
+.reveal .flt-functions {
+  font-size: 0.68em;
+  line-height: 1.22;
+  margin: 0.1em 0 0 0.5em;
+}
+
+.reveal .flt-functions li {
+  margin: 0.06em 0;
+}
+
+.reveal .math-direction-event {
+  border-left: 4px solid var(--lean-teal);
+  line-height: 1.25;
+  margin: 0.5em 0;
+  padding: 0.05em 0 0.1em 0.5em;
+}
+
+.reveal .math-direction-event strong {
+  color: var(--lean-blue);
+  display: block;
+  margin-bottom: 0.1em;
+}
+
+.reveal .math-direction-response {
+  color: var(--text-muted);
+  font-size: 0.8em;
+  margin: 0.65em 0 0.2em;
+}
+
+.reveal .math-direction-conclusion {
+  border-top: 2px solid var(--lean-teal);
+  font-weight: 600;
+  margin-top: 0.55em;
+  padding-top: 0.2em;
 }
 
 .reveal .r-hstack:has(> p.ns-visual) > .r-vstack {

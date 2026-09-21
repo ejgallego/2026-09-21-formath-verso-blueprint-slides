@@ -1,6 +1,6 @@
 # ForMath rehearsal review
 
-21 September 2026. Main route: 31 slides including title. Backup: 9 slides.
+21 September 2026. Main route: 30 slides including title. Backup: 10 slides.
 Event: ForMath Seminar, IRIF, Université Paris Cité.
 Preview: http://127.0.0.1:8877/.
 
@@ -11,10 +11,11 @@ care, explains Verso before introducing VBP, and connects the abstract model
 to the same node, graph, and proof-progress demonstration. The comparison with
 LeanBlueprint credits its existing capabilities and motivates Lean integration.
 
-The opening now begins with the Madrid AI slide, then sphere packing and its
-Blueprint, FLT, Navier–Stokes, and a reflection on mathematical understanding.
-The opening now uses Anthropic's FLT progress animation and plan graph, short
-staged excerpts from its Prove2Me account, and the supplied Navier–Stokes image.
+The opening begins with the Madrid AI slide, then sphere packing and its
+Blueprint, FLT, and a dated reflection on mathematical direction. Anthropic's
+progress animation and smaller plan graph accompany two simultaneously visible
+excerpts from its Prove2Me account. Navier–Stokes and its supplied image remain
+available in backup.
 
 1. **Rehearse the switches, not live proof typing.** Pre-open the Manual page,
    node panel, and two summaries. Stop after one reference/hover, one graph
@@ -42,7 +43,8 @@ If the slot is 40 minutes, aim for 33 minutes of talk and 7 for discussion:
 | VBP, including node and progress demos | 15 | One object supports readers and tools |
 | Roadmap and closing | 3 | The speaker's five ordered priorities |
 
-Keep FLT/Navier–Stokes to the opening's coordination and reading motivation.
+Keep FLT to the opening's coordination and reading motivation; use the
+Navier–Stokes backup only if discussion calls for it.
 Do not let the announcements turn into an AI debate before the audience sees
 Verso. The seven-minute demo allocation in DEMO-RUNBOOK.md is included above.
 First cuts if behind: terminal queries, ownership/tag details, external

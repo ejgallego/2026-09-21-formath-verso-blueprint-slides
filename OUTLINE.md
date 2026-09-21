@@ -29,11 +29,11 @@ Preserve the existing horizontal/vertical navigation convention. The section's f
 
 ## 1. Actual context — timing to rehearse
 
-The implemented opening has seven substantive slides. It starts with the Madrid slide on AI and mathematics, then moves through the sphere packing formalization and its Blueprint. The first FLT slide shows the reported scale with Anthropic's progress animation. The second shows the Prove2Me plan graph and reveals two short excerpts from Anthropic's account in sequence. Navier–Stokes follows with the supplied inward-spiral illustration. The section closes with the question of mathematical understanding and links to the Math and AI declaration, the Leiden Declaration, and SAIR's open mathematics initiative.
+The implemented opening has six substantive slides. It starts with the Madrid slide on AI and mathematics, then moves through the sphere packing formalization and its Blueprint. The first FLT slide shows the reported scale with Anthropic's progress animation. The second shows the smaller Prove2Me plan graph between two visible excerpts, followed by a concise list of its functions. A dated sequence from the Leiden Declaration through Anthropic's FLT announcement to the Math and AI declaration closes the section, with SAIR's open models initiative presented as an undated response. Navier–Stokes and the supplied illustration are in backup.
 
 The slide notes link dated primary announcements, released artifacts, Buzzard's FLT checking report, and Clay's official scope and evaluation statement. The September 21 review inspected those sources, not independent builds or checker runs. Artifact revision pinning and a pre-talk status recheck remain useful follow-ups. [M1–M5]
 
-Keep the existing pinned FLT Blueprint demonstration separate from the newer FLT artifact discussed in the context section. For Navier–Stokes, specify hypotheses and problem variant rather than treating the name of the problem as a sufficient statement.
+Keep the existing pinned FLT Blueprint demonstration separate from the newer FLT artifact discussed in the context section. If using the backup Navier–Stokes slide, specify hypotheses and problem variant rather than treating the name of the problem as a sufficient statement.
 
 The closing opening slide connects checked results to understanding, attribution, research direction, and reusable work. Keep checking and correspondence qualifications in speaker notes rather than teaching this expert audience proof-assistant basics.
 

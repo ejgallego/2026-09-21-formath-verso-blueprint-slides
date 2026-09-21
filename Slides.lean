@@ -31,7 +31,7 @@ vertical := some true
 - AI systems are producing *serious mathematics*.
 - Mathematicians need ways to _inspect_, _guide_, and _trust_ the process.
 - _Mathematical output_ now includes complex artifacts that are hard to digest.
-- This challenges mathematicians and computer scientists.
+- Mathematics and computer science are facing a _hard_ challenge.
 
 {image "static/images/slide_1.1_erdos.png"}[Erdos' Unit Problem Solution Tweet by Timothy Gowers]
 
@@ -63,8 +63,7 @@ human inspection concrete.
 
 :::::vstack
 
-The formalization followed a mathematical plan: statements, dependencies, and
-progress were visible to collaborators.
+Auto-formalization crucially relied on a pre-existing Blueprint, and filled the gaps.
 
 ::::class "sphere-images"
 :::hstack
@@ -76,7 +75,7 @@ progress were visible to collaborators.
 :::
 ::::
 
-*The Blueprint told people and agents where each proof belonged.*
+*Blueprint was essential, but how can we measure its importance?*
 
 :::::
 
@@ -100,14 +99,13 @@ in coordinating a large formalization.
 
 ::::
 
-Anthropic reports a complete Lean formalization of FLT, following the
-Darmon–Diamond–Taylor exposition. Lean checked the proof.
+Anthropic completed a Lean formalization of FLT, following the Darmon–Diamond–Taylor exposition.
 
 ```html
 <video class="flt-progress-video" src="flt-progress.mp4" poster="flt-progress-poster.png" muted loop playsinline controls preload="metadata" aria-label="Time progression of Anthropic's FLT formalization"></video>
 ```
 
-*How does a mathematician read a proof of this size?*
+*How do we handle a proof of this size?*
 
 :::notes
 The 13 million lines and 30,300 theorems are Anthropic's reported figures;
@@ -132,100 +130,64 @@ announcement. The slide opens on a late frame; play the muted clip when ready.
 
 ## FLT: The Plan Behind The Proof
 
+:::class "flt-opening-quote"
+Anthropic: “... agents quickly lost track of the project’s state and stopped collaborating effectively.”
+:::
+
 :::class "flt-plan-image"
 {image (width := "100%") "static/images/flt-plan.png"}[Anthropic's Prove2Me plan showing the Mazur, Ribet, and Wiles branches leading to FLT]
 :::
 
-::::class "flt-quote"
-:::fragment currentVisible (index := 1)
-Anthropic: “they quickly lost track of the project’s state and stopped collaborating effectively.”
-:::
-::::
-
-::::class "flt-quote"
-:::fragment currentVisible (index := 2)
+:::class "flt-solution-quote"
 Anthropic: “The effort succeeded when we switched to using Prove2Me”
-The plan kept a theorem DAG, separate statement and proof files, and natural-language descriptions.
 :::
-::::
+
+:::class "flt-functions"
+- A theorem DAG kept tasks and dependencies visible.
+- Separate statement and proof files made compilation cheaper.
+- Natural-language descriptions made theorems easier to find and reuse.
+:::
 
 :::notes
-Reveal the failure first. Anthropic reports that unsuccessful attempts left
-about 7% of the final non-boilerplate lines. Then reveal the change to
-Prove2Me and its three functions: a theorem dependency graph for task choice,
-separation of statements and proofs to improve compilation, and natural-language
-descriptions for search and reuse. The slide quotes only short excerpts from
-the supplied passage; the final line paraphrases its list. This is the team's
-account of its workflow, not a controlled comparison or a claim that Verso
-Blueprint powered the result.
+Anthropic reports that unsuccessful attempts left about 7% of the final
+non-boilerplate lines. The two short quotations come from its account; the
+three bullets paraphrase Prove2Me's functions. This is the team's account of
+its workflow, not a controlled comparison or a claim that Verso Blueprint
+powered the result.
 
 [Anthropic announcement](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
 :::
 
-## Navier–Stokes: A Different Scale
+## Where is mathematics going?
 
-::::hstack
-
-:::vstack
-
-OpenAI announced breakdown results on 8 September 2026 for *three-dimensional
-incompressible Navier–Stokes with smooth forcing*.
-
-The mathematical manuscript and Lean artifact are far shorter than the FLT
-formalization. Understanding the construction still takes mathematical work.
-
-The result addresses Clay alternatives *C and D*, for the whole-space and
-periodic cases.
-
+:::class "math-direction-event"
+*2 June 2026 · [Leiden Declaration](https://leidendeclaration.ai/)*
+Human understanding, credit, and independent verification.
 :::
 
-:::class "ns-visual"
-{image (width := "100%") "static/images/navier-stokes.webp"}[Visualization of inward spiral and axial stretching in the Navier–Stokes construction]
+:::class "math-direction-event"
+*4 September 2026 · [Anthropic's FLT formalization](https://www.anthropic.com/research/formalizing-fermats-last-theorem)*
+Large checked proofs make mathematical navigation urgent.
 :::
 
-::::
+:::class "math-direction-event"
+*11 September 2026 · [A Severe Misalignment of AI in Mathematics](https://mathandai.org/)*
+Who decides which problems deserve attention?
+:::
+
+:::class "math-direction-response"
+[SAIR's open models initiative](https://sair.foundation/open-math-model/) argues for tools the community can inspect and shape.
+:::
+
+:::class "math-direction-conclusion"
+We must provide tools to address these issues.
+:::
 
 :::notes
-The announced result concerns positive viscosity, smooth initial data, and
-smooth external forcing. C concerns the whole space and D the periodic case.
-Both are explicitly accepted alternatives in Clay's problem statement.
-This does not establish breakdown for the unforced Navier–Stokes problem.
-Keep the accompanying unforced Euler result separate.
-
-Clay's 11 September statement describes an apparent settlement and an ongoing,
-deliberately unhurried evaluation process. It is not a prize adjudication.
-The released repository includes comparator challenges and instructions.
-The exposition and formal artifact serve different reading needs.
-
-[OpenAI announcement, 8 September 2026](https://openai.com/index/navier-stokes-solution/)
-
-The image was supplied for this talk and illustrates the inward spiral and
-axial stretching described in OpenAI's announcement.
-
-[Released Lean artifact and checking instructions](https://github.com/openai/NavierStokesAndEuler)
-
-[Clay's official problem statement](https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf)
-
-[Clay statement, 11 September 2026](https://www.claymath.org/news/navier-stokes-announcement/)
-:::
-
-## What Kind Of Mathematics Do We Want?
-
-Checked proofs give strong evidence of correctness. Mathematicians also need
-to understand the ideas, credit the work, and decide which questions matter.
-
-[A Severe Misalignment of AI in Mathematics](https://mathandai.org/) asks who
-sets the agenda. The [Leiden Declaration](https://leidendeclaration.ai/) calls
-for clear attribution and independent verification. [SAIR's open mathematics
-initiative](https://sair.foundation/open-math-model/) emphasizes work that
-others can examine and build on.
-
-*Blueprints can connect a checked result to the mathematics around it.*
-
-:::notes
-The user called the third reference “SIAR”; the organization is SAIR. These
-statements differ in emphasis. The slide extracts the concerns most relevant
-to this talk and does not imply endorsement of every position in them.
+The user called the third reference “SIAR”; the organization is SAIR. Its
+initiative page carries no publication date, so it is shown outside the dated
+sequence. These statements differ in emphasis. The slide extracts the concerns
+most relevant to this talk and does not imply endorsement of every position.
 
 A Blueprint records links and evidence. It does not itself certify that prose
 faithfully represents a formal statement or proof. Nor did the FLT or NS
@@ -233,6 +195,14 @@ milestones use Verso Blueprint.
 
 Transition: coordination and mathematical reading already mattered in large
 formalization projects before the current wave of AI tools.
+
+[Leiden Declaration, 2 June 2026](https://leidendeclaration.ai/)
+
+[Anthropic FLT announcement, 4 September 2026](https://www.anthropic.com/research/formalizing-fermats-last-theorem)
+
+[Math and AI declaration, 11 September 2026](https://mathandai.org/)
+
+[SAIR Open Models initiative](https://sair.foundation/open-math-model/)
 :::
 
 # Blueprint: Historical Context
@@ -735,6 +705,53 @@ vertical := some true
 
 :::
 
+## Navier–Stokes: A Different Scale
+
+::::hstack
+
+:::vstack
+
+OpenAI announced breakdown results on 8 September 2026 for *three-dimensional
+incompressible Navier–Stokes with smooth forcing*.
+
+The mathematical manuscript and Lean artifact are far shorter than the FLT
+formalization. Understanding the construction still takes mathematical work.
+
+The result addresses Clay alternatives *C and D*, for the whole-space and
+periodic cases.
+
+:::
+
+:::class "ns-visual"
+{image (width := "100%") "static/images/navier-stokes.webp"}[Visualization of inward spiral and axial stretching in the Navier–Stokes construction]
+:::
+
+::::
+
+:::notes
+The announced result concerns positive viscosity, smooth initial data, and
+smooth external forcing. C concerns the whole space and D the periodic case.
+Both are explicitly accepted alternatives in Clay's problem statement.
+This does not establish breakdown for the unforced Navier–Stokes problem.
+Keep the accompanying unforced Euler result separate.
+
+Clay's 11 September statement describes an apparent settlement and an ongoing,
+deliberately unhurried evaluation process. It is not a prize adjudication.
+The released repository includes comparator challenges and instructions.
+The exposition and formal artifact serve different reading needs.
+
+[OpenAI announcement, 8 September 2026](https://openai.com/index/navier-stokes-solution/)
+
+The image was supplied for this talk and illustrates the inward spiral and
+axial stretching described in OpenAI's announcement.
+
+[Released Lean artifact and checking instructions](https://github.com/openai/NavierStokesAndEuler)
+
+[Clay's official problem statement](https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf)
+
+[Clay statement, 11 September 2026](https://www.claymath.org/news/navier-stokes-announcement/)
+:::
+
 ## Anatomy Of A Node
 
 {demoFrame "demo/after/panel.html" "Anatomy of a Blueprint theorem"}
@@ -982,11 +999,13 @@ Diagram.grid (hSpacing := 34) (vSpacing := 14) #[
 ```
 :::
 
-Thanks to David Christiansen and Kim Morrison for suggesting this direction.
-
 ::::
 
 :::::
+
+:::notes
+Thanks to David Christiansen and Kim Morrison for suggesting this direction.
+:::
 
 
 ## Full FLT Graph
