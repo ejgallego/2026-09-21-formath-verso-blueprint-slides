@@ -105,7 +105,7 @@ Fallback: stop on the theorem syntax and Frey node. Do not debug the graph live.
 - Before/After summaries: Metadata, then Quick wins. The downstream corollary's
   proof readiness changes from “not ready” to “ready to formalize”; the
   corollary itself remains unformalized.
-- Full FLT graph and the abstract data model are in the appendix.
+- The abstract data model is in the appendix; the full FLT graph is in the main route.
 
 These snapshots now also illustrate two authoring styles. They are not a
 source diff containing only a proof-completion edit.

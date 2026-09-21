@@ -1,6 +1,6 @@
 # ForMath rehearsal review
 
-21 September 2026. Main route: 24 slides including title. Backup: 8 slides.
+21 September 2026. Main route: 24 slides including title. Backup: 7 slides.
 Event: ForMath Seminar, IRIF, Université Paris Cité.
 Preview: http://127.0.0.1:8877/.
 

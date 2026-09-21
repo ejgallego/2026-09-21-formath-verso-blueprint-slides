@@ -7,7 +7,7 @@ Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
 Five substantive sections, plus backup. The main route has 24 slides including
-the title; backup has 8. Horizontal sections retain vertical children.
+the title; backup has 7. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
 ## Main route
@@ -52,8 +52,8 @@ The After fixture now authors the same statement edges explicitly with `uses`;
 manual origin takes precedence over inference. No node labels or edge targets
 were changed. The Before fixture still demonstrates inferred statement edges.
 
-The “why VBP?” slide argues for Lean-native authoring, connected evidence, and
-programmable reuse. It explicitly credits LeanBlueprint's existing features;
+The “why VBP?” slide argues for Lean-native authoring, analysis of Lean evidence,
+and typed APIs. It explicitly credits LeanBlueprint's existing features;
 it is not a claim that TeX is obsolete or that every project should migrate.
 
 ## Build and preview

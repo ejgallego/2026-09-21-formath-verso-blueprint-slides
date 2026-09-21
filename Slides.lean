@@ -30,7 +30,7 @@ vertical := some true
 
 - AI systems are producing *serious mathematics*.
 - Mathematicians need ways to _inspect_, _guide_, and _trust_ the process.
-- _Mathematical output_ now includes complex artifacts that are hard to digest.
+- _Mathematical output_ now includes *complex artifacts* that are hard to digest.
 - Mathematics and computer science are facing a _hard_ challenge.
 
 {image "static/images/slide_1.1_erdos.png"}[Erdos' Unit Problem Solution Tweet by Timothy Gowers]
@@ -75,7 +75,7 @@ Auto-formalization crucially relied on a pre-existing Blueprint, and filled the 
 :::
 ::::
 
-*Blueprint was essential, but how can we measure its importance?*
+*The Blueprint seems essential, but how can we measure its importance?*
 
 :::::
 
@@ -246,14 +246,11 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 
 *Why VBP when LeanBlueprint already exists?*
 
-LeanBlueprint already provides a mathematical plan, dependency graphs,
-progress, and links to Lean. We retain that coordination model.
+We start from LeanBlueprint's model of nodes, graphs, progress, and links to Lean.
 
-- *Lean-native authoring*: prose, checked examples, and extensions in one environment.
-- *Connected evidence*: derive progress and optional dependencies from declarations.
-- *Programmable reuse*: the same objects serve readers, project views, and tools.
-
-The choice is tighter Lean integration—not a claim that TeX is obsolete.
+- *Lean-native authoring*: prose, checked examples, and extensions in one development environment.
+- *Improved data analysis*: derive progress and dependencies from Lean code, as pioneered by [LeanArchitect](https://arxiv.org/abs/2601.22554).
+- *Principled API*: an open system designed to integrate through typed Lean APIs.
 
 :::notes
 The reason to choose VBP is close integration with Lean and programmable reuse.
@@ -263,9 +260,9 @@ Do not claim TeX cannot carry structure or that every project should migrate.
 LeanBlueprint also checks declaration names with checkdecls; name validation is
 not a unique VBP feature. See https://github.com/PatrickMassot/leanblueprint and
 https://github.com/hanwenzhu/LeanArchitect for the existing ecosystem.
-The Verso example has shown Lean-native authoring. Next, a node connects
-mathematical content to formal evidence. Then changing that evidence changes
-project state, which the reader and tools can both inspect.
+The next section shows Lean-native authoring in Verso. The Blueprint section
+then connects mathematical content to formal evidence and shows how that
+evidence changes the project state available to readers and tools.
 Links and formal completion do not establish that the informal account is
 mathematically equivalent to the Lean declaration; that still needs review.
 :::
@@ -340,7 +337,7 @@ Return to {ref "transport"}[applying a function].
 ::::::
 
 :::class "verso-document-takeaway"
-*Lean checks the proof.* `{name}`: Lean declaration · `{ref}`: document target.
+*Lean checks document well-formedness* `{name}`: must be a Lean declaration · `{ref}`: must be a document target.
 :::
 
 :::notes
@@ -478,10 +475,10 @@ vertical := some true
 
 :::hstack
 
-- Directly inspired by LeanBlueprint, LeanArchitect, and Side to Side
-- *Core model in Lean*: labels, nodes, metadata, code links, status
+- Directly inspired by [LeanBlueprint](https://github.com/PatrickMassot/leanblueprint), [LeanArchitect](https://arxiv.org/abs/2601.22554), and Side to Side
+- *Core model written in Lean*: labels, nodes, metadata, code links, status
 - *Document layer in Verso*: rich, extensible markup and interactive output
-- Same data feeds graphs, summaries, previews, slides, and tools
+- Coherent data is used in graphs, summaries, previews, slides, and tools
 
 {image (width := "96%") "static/images/vbp-architecture.svg"}[Verso Blueprints architecture diagram]
 
@@ -510,7 +507,7 @@ Apply g to the equality, then use the left-inverse identity.
 ````
 :::
 
-One label connects the mathematical statement, Lean declaration, and proof.
+The label `left_inverse_injective` connects the mathematical statement, Lean declaration, and proof.
 
 :::notes
 The statement and proof have separate mathematical dependencies. The labeled
@@ -556,17 +553,20 @@ available in the standalone demo for a closer look at dependencies.
 
 ## Code-First Authoring
 
+Inspired by [LeanArchitect](https://arxiv.org/abs/2601.22554), we also support attribute-based annotations.
+
 ```code lean
+/-- Applying a function preserves equality. -/
 @[blueprint "equality_transport"]
 theorem transportEq (g : Nat → Nat) {a b : Nat} (h : a = b) :
     g a = g b := congrArg g h
 ```
 
-A declaration can introduce a Blueprint node through `@[blueprint]`.
+Here `@[blueprint]` associates `transportEq` with the `equality_transport` node.
 
-Prose elsewhere can contribute its statement and proof under the same label.
+Prose elsewhere can contribute more data (for example statement and proof text) under the same label.
 
-Use `lean := "Existing.declaration"` to associate existing compiled code.
+Use `(lean := "Existing.declaration")` to attach an existing compiled declaration to a Blueprint node.
 
 :::notes
 This declaration comes from ForMathDemo/Common.lean and supports the small
@@ -574,7 +574,7 @@ theorem example. The label identifies the mathematical node. The Lean name
 identifies the declaration. They serve different purposes.
 :::
 
-## Features
+## More Verso Blueprint Features
 
 - *Statements and proofs*: write the mathematics in prose and attach checked Lean code.
 - *Dependencies*: declare them explicitly or extract them from Lean, separately for statements and proofs.
@@ -596,17 +596,19 @@ direct agentic loops belong to the roadmap.
 
 ## Validation
 
-We ported using Codex these selected LaTeX examples of blueprints:
+A key challenge was validating large Verso-based blueprints.
+
+We built the [leanblueprint-to-verso harness](https://github.com/ejgallego/leanblueprint-to-verso) to guide AI-assisted translation from TeX to Verso.
 
 - [Kevin Buzzard’s FLT blueprint](https://github.com/ejgallego/verso-flt)
 - [Sphere Packing](https://github.com/ejgallego/verso-sphere-packing)
 - [Carleson Operators on Doubling Metric Measure Spaces](https://github.com/ejgallego/verso-carleson), by Floris van Doorn
 - [Noperthedron](https://github.com/ejgallego/verso-noperthedron), by David Renshaw and Jason Reed
 
-The harness checks structure and Lean links, and supports comparison with
-the source and rendered output.
+The harness checks document structure and Lean links. Its text similarity
+scores compare paired source and translation blocks to guide human review.
 
-[Review the porting](https://x80.org/flt-translation-review/)
+[Open the translation review interface](https://x80.org/flt-translation-review/)
 
 :::notes
 The migrations exercised the authoring and rendering features on existing
@@ -616,20 +618,20 @@ human review. They do not prove equivalence between the original text and
 the formal declarations. The harness diagram is in the appendix.
 :::
 
-# Towards programmatic blueprints
+# What's next? Towards "Programmatic blueprints"
 
 %%%
 vertical := some true
 %%%
 
 :::class "whats-next-intro"
-We want VBP to provide core infrastructure for mathematical research projects.
+Verso Blueprint's goal is to provide core document infrastructure for mathematical research projects. In particular, we want to support hybrid human-agent loops that interact with Verso documents in several ways:
 :::
 
 :::class "programmatic-goals"
-- A stable record of mathematical statements, dependencies, and sources.
-- Lean evidence and project state available through queries.
-- Better tools for projects such as [Prove2Me](https://prove2.me/), [Trellis](https://www.math.cmu.edu/~wes/trellis.php), and [AutoformBot](https://github.com/facebookresearch/autoform-bot).
+- A stable record of mathematical statements, dependencies, sources, project state, all available through queries.
+- Define tools, not *policy*: our goal is to make it easy for users and agents to organize _as they want_.
+- Hopefully helpful for projects such as [Prove2Me](https://prove2.me/), [Trellis](https://www.math.cmu.edu/~wes/trellis.php), and [AutoformBot](https://github.com/facebookresearch/autoform-bot).
 :::
 
 :::notes
@@ -1041,8 +1043,3 @@ Diagram.grid (hSpacing := 34) (vSpacing := 14) #[
 :::notes
 Thanks to David Christiansen and Kim Morrison for suggesting this direction.
 :::
-
-
-## Full FLT Graph
-
-{blueprintGraph (view := "full") (class := "flt-graph-frame")}
