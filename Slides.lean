@@ -99,7 +99,7 @@ in coordinating a large formalization.
 
 ::::
 
-Anthropic completed a Lean formalization of FLT, following the Darmon–Diamond–Taylor exposition.
+Anthropic completed a [Lean formalization of FLT](https://www.anthropic.com/research/formalizing-fermats-last-theorem), following the Darmon–Diamond–Taylor exposition.
 
 ```html
 <video class="flt-progress-video" src="flt-progress.mp4" poster="flt-progress-poster.png" muted loop playsinline controls preload="metadata" aria-label="Time progression of Anthropic's FLT formalization"></video>
@@ -162,25 +162,25 @@ powered the result.
 
 :::class "math-direction-event"
 *2 June 2026 · [Leiden Declaration](https://leidendeclaration.ai/)*
-Human understanding, credit, and independent verification.
+Mathematical practice in the age of AI agents.
 :::
 
 :::class "math-direction-event"
 *4 September 2026 · [Anthropic's FLT formalization](https://www.anthropic.com/research/formalizing-fermats-last-theorem)*
-Large checked proofs make mathematical navigation urgent.
+Claude formalized FLT largely autonomously.
 :::
 
 :::class "math-direction-event"
 *11 September 2026 · [A Severe Misalignment of AI in Mathematics](https://mathandai.org/)*
-Who decides which problems deserve attention?
+Do AI companies' incentives harm mathematical practice?
 :::
 
 :::class "math-direction-response"
-[SAIR's open models initiative](https://sair.foundation/open-math-model/) argues for tools the community can inspect and shape.
+[SAIR's open models initiative](https://sair.foundation/open-math-model/) argues for tools the community can inspect and shape, guided by mathematical priorities.
 :::
 
 :::class "math-direction-conclusion"
-We must provide tools to address these issues.
+We must provide tools to address these issues and support human–agent collaboration.
 :::
 
 :::notes
