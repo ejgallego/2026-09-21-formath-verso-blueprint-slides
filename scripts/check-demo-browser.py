@@ -59,16 +59,49 @@ def main():
         capture('title')
         print('PASS: exact title, event metadata and speaker-link contrast')
 
-        for route in ['#/3', '#/3/2', '#/4/5', '#/4/8']:
-            page.goto(base + route)
+        routes = page.evaluate('''() => {
+            const result = {};
+            [...document.querySelectorAll('.reveal .slides > section')].forEach((top, h) => {
+                const children = [...top.querySelectorAll(':scope > section')];
+                (children.length ? children : [top]).forEach((slide, v) => {
+                    result[slide.querySelector('h1,h2,h3').textContent.trim()] = [h, v];
+                });
+            });
+            return result;
+        }''')
+
+        def show_slide(name):
+            h, v = routes[name]
+            page.goto(base + f'#/{h}/{v}')
+            slide = page.locator('section.present:not(.stack)')
+            slide.get_by_role('heading', name=name, exact=True).wait_for()
+            return slide
+
+        expected_core = ['A Theorem In Verso Blueprint', 'Reading A Node: The Frey Curve',
+                         'The Dependency Graph', 'Code-First Authoring', 'Features', 'Validation']
+        assert [name for name, (h, _) in routes.items() if h == 4] == expected_core
+        assert routes['Why Verso Blueprint?'][0] == 2
+        assert routes['The Abstract Data Model'][0] == 6
+        for removed in ['Anatomy Of A Node', 'Progress Is Connected To The Formal Development',
+                        'Authoring And Review With AI', 'One Object, Several Consumers']:
+            assert removed not in routes, removed
+
+        for name in ['What Is Verso?', 'Elaboration And Diagnostics',
+                     'A Theorem In Verso Blueprint', 'Code-First Authoring']:
+            show_slide(name)
             page.wait_for_timeout(500)
             code = page.locator('section.present:not(.stack) pre code, '
                                 'section.present:not(.stack) code.hl.lean.block')
-            assert code.count(), 'missing code examples: ' + route
+            assert code.count(), 'missing code examples: ' + name
             for block in code.all():
-                assert block.evaluate('(e) => parseFloat(getComputedStyle(e).fontSize) >= 20'), route
-                assert block.evaluate('(e) => e.scrollWidth <= e.clientWidth + 2'), 'code clipping: ' + route
+                assert block.evaluate('(e) => parseFloat(getComputedStyle(e).fontSize) >= 20'), name
+                assert block.evaluate('(e) => e.scrollWidth <= e.clientWidth + 2'), 'code clipping: ' + name
         print('PASS: short code examples at least 20px without horizontal clipping')
+        show_slide('Code-First Authoring').locator('.hljs-meta').filter(has_text='@[blueprint').wait_for()
+        show_slide('A Theorem In Verso Blueprint').locator('.language-lean .hljs-keyword').filter(
+            has_text='theorem').wait_for()
+        show_slide('Reading A Node: The Frey Curve').locator('.bp_slide_node').wait_for()
+        print('PASS: VBP sequence, highlighted attribute/nested Lean, and retained Frey node')
 
         # Read the current opening sequence rather than pinning editorial titles.
         # This checks layout, not the truth of the opening's factual claims.
@@ -128,8 +161,7 @@ def main():
         print('PASS: native Blueprint graph and node preview')
 
         # The editable model must retain the same example and its relationships.
-        page.goto(base + '#/4/2')
-        model = page.locator('section.present:not(.stack)')
+        model = show_slide('The Abstract Data Model')
         model.get_by_role('heading', name='The Abstract Data Model', exact=True).wait_for()
         for label in ['left_inverse_injective', 'Informal statement', 'Informal proof',
                       'Source reference', 'Lean association', 'equality_transport']:
@@ -138,7 +170,7 @@ def main():
 
         # Graph initialization includes a deferred layout pass. Let it settle
         # before clicking, as the presenter would on arrival at this slide.
-        page.goto(base + '#/4/3')
+        show_slide('The Dependency Graph')
         graph = page.locator('[data-bp-slide-graph][data-bp-graph-status="ready"]')
         graph.wait_for()
         page.wait_for_timeout(1000)
@@ -150,17 +182,20 @@ def main():
         capture('graph-preview')
         print('PASS: model and graph node preview')
 
-        # The slide's iframe must switch snapshots and show real Lean statuses.
-        page.goto(base + '#/4/4')
-        frame = page.frame_locator('section.present:not(.stack) iframe')
+        # Keep the optional standalone demo healthy, without a progress slide.
+        page.goto(base + 'demo/before/panel.html')
+        frame = page
         frame.locator('body[data-demo-ready="true"]').wait_for()
         frame.get_by_text('L∃∀N', exact=True).click()
         frame.get_by_text('[sorry in proof]', exact=True).wait_for()
         frame.get_by_role('link', name='After', exact=True).click()
         frame.locator('body[data-demo-ready="true"]').wait_for()
         frame.get_by_text('L∃∀N', exact=True).click()
-        frame.get_by_text('[complete]', exact=True).wait_for()
-        print('PASS: incomplete/complete proof snapshots')
+        frame.get_by_text('leftInverseInjective', exact=True).first.wait_for()
+        attached_code = frame.locator('code.hl.lean.block')
+        assert attached_code.count()
+        assert all('sorry' not in text for text in attached_code.all_text_contents())
+        print('PASS: incomplete declaration and complete inline Lean attachment')
 
         # Check the downstream effect where the presenter will show it.
         for state, count, status in [('before', 2, 'not ready'),

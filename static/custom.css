@@ -882,6 +882,15 @@
   max-height: 66vh;
 }
 
+.reveal .slides section pre.theorem-source {
+  font-size: 0.85em;
+  line-height: 1.2;
+}
+
+.reveal pre.theorem-source code {
+  max-height: none;
+}
+
 .reveal .anatomy-key {
   font-size: 0.75em;
   line-height: 1.4;

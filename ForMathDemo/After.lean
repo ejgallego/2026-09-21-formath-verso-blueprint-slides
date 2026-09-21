@@ -7,18 +7,6 @@ import ForMathDemo.Common
 
 open Verso.Genre Verso.Genre.Manual Informal
 
-namespace ForMathDemo.Complete
-
-theorem leftInverseInjective (f g : Nat → Nat) (hgf : LeftInverse f g) :
-    Injective f := by
-  intro x y h
-  calc
-    x = g (f x) := (hgf x).symm
-    _ = g (f y) := transportEq g h
-    _ = y := hgf y
-
-end ForMathDemo.Complete
-
 #doc (Manual) "Left inverse implies injectivity" =>
 
 This is a small authored demonstration, with the Lean proof complete.
@@ -40,7 +28,7 @@ Functions, inverses, and cancellation.
 
 # Anatomy
 
-:::theorem "left_inverse_injective" (lean := "ForMathDemo.Complete.leftInverseInjective") (autoDeps := true) (parent := "functions") (owner := "presenter") (tags := "functions, demo") (effort := "small") (priority := "high")
+:::theorem "left_inverse_injective" (uses := "left_inverse, injective") (parent := "functions") (owner := "presenter") (tags := "functions, demo") (effort := "small") (priority := "high")
 %%%
 source := {
   document := "demo-notes"
@@ -60,6 +48,15 @@ A function admitting a left inverse is injective.
 For functions $`f,g : \mathbb{N} \to \mathbb{N}`,
 $$`(\forall x,\ g(f(x))=x) \implies (\forall x,y,\ f(x)=f(y) \implies x=y).`
 :::
+
+```lean "left_inverse_injective" (autoDeps := true)
+namespace ForMathDemo.Complete
+theorem leftInverseInjective (f g : Nat → Nat)
+    (hgf : LeftInverse f g) : Injective f := by
+  intro x y h
+  exact (hgf x).symm.trans ((transportEq g h).trans (hgf y))
+end ForMathDemo.Complete
+```
 
 :::proof "left_inverse_injective" (uses := "equality_transport")
 Apply $`g` to the equality $`f(x)=f(y)`, then use the left-inverse

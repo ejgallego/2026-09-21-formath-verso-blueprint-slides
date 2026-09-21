@@ -6,8 +6,8 @@ unfamiliar with Verso. Explain the document system, not proof assistants.
 Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
-Five substantive sections, plus backup. The main route has 30 slides including
-the title; backup has 10. Horizontal sections retain vertical children.
+Five substantive sections, plus backup. The main route has 26 slides including
+the title; backup has 9. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
 ## Main route
@@ -15,9 +15,9 @@ the title; backup has 10. Horizontal sections retain vertical children.
 | Section | Current content | Remaining editorial work |
 | --- | --- | --- |
 | Actual context | Madrid AI opener; sphere packing and its Blueprint; FLT scale and Prove2Me; dated reflection on mathematical direction | Six substantive slides. The Anthropic animation, smaller plan graph, and both quote excerpts are visible. Navier–Stokes and its image are in backup. Keep the community FLT demo distinct from Anthropic's artifact. Recheck announcement status before delivery. |
-| Historical context | Blueprint lineage, LeanBlueprint, coordination | Retain attribution and the distinction between sphere eversion origins and later Liquid Tensor use. |
+| Historical context | Blueprint lineage, LeanBlueprint, coordination, why VBP | The comparison with LeanBlueprint now closes this section. Retain attribution and credit existing capabilities. |
 | Verso | Language boundary and document kinds; complete compiled document; checked code and enforced diagnostic; document/Lean references; extensions | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
-| Verso Blueprint | Why another implementation; real Frey node; model diagram; small graph; proof progress and summary; prose/code authoring; dependency tracks; sources; public queries; AI review; boundaries | Rehearse the three timed demonstrations in the runbook. The rich node anatomy panel is backup detail. A recorded migration defect/correction remains optional future detail work. |
+| Verso Blueprint | Rich theorem syntax with attached Lean; real Frey node; graph; highlighted attribute authoring; Features; Validation | Show syntax before the node. Keep the Frey example substantial. End with the four Codex-assisted LaTeX ports and the review harness. |
 | What's next | Shared infrastructure; speaker's five ordered roadmap items; closing | No delivery dates. The first item means formalizing VBP's custom database. |
 
 Roadmap order: **Formalizing VBP's custom database → improved skill → side-by-side
@@ -40,12 +40,17 @@ See [DEMO-RUNBOOK.md](DEMO-RUNBOOK.md).
   VBP data. No hand-maintained progress colors or fabricated query output.
 - Frey remains the real-project example; the full FLT graph is in backup.
 
-The model slide uses an editable native Verso/Illuminate diagram grounded in a
-small controlled example. It separates optional informal facets, source and
-declaration associations, and dependencies on other nodes. The main sequence
-is Frey node, model, graph, then proof progress. The rich anatomy panel is
-backup material for questions. The runbook supplies target timings, spoken
-transitions, stopping points, optional material, and fallbacks.
+The model diagram is now in the appendix. The dedicated anatomy, progress,
+source-levels, CLI, and AI-review slides are removed. Features consolidates the
+dependency, source-correspondence, project-state, and reuse capabilities. The
+standalone before/after demos remain available for optional questions.
+
+Section 5 is now: theorem syntax, Frey node, graph, code-first authoring,
+Features, Validation. The small theorem deliberately separates introductory
+syntax from the richer Frey example. Its attached inline Lean code compiles.
+The After fixture now authors the same statement edges explicitly with `uses`;
+manual origin takes precedence over inference. No node labels or edge targets
+were changed. The Before fixture still demonstrates inferred statement edges.
 
 The “why VBP?” slide argues for Lean-native authoring, connected evidence, and
 programmable reuse. It explicitly credits LeanBlueprint's existing features;

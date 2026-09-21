@@ -276,6 +276,30 @@ Order Theorem in Coq/Rocq, built on the Mathematical Components library.
 
 :::::
 
+## Why Verso Blueprint?
+
+*Why VBP when LeanBlueprint already exists?*
+
+LeanBlueprint already provides a mathematical plan, dependency graphs,
+progress, and links to Lean. We retain that coordination model.
+
+- *Lean-native authoring*: prose, checked examples, and extensions in one environment.
+- *Connected evidence*: derive progress and optional dependencies from declarations.
+- *Programmable reuse*: the same objects serve readers, project views, and tools.
+
+The choice is tighter Lean integration—not a claim that TeX is obsolete.
+
+:::notes
+The reason to choose VBP is close integration with Lean and programmable reuse.
+A working TeX/LeanBlueprint project already serves a valuable purpose.
+VBP adds another implementation choice; this talk demonstrates what that enables.
+Do not claim TeX cannot carry structure or that every project should migrate.
+LeanBlueprint also checks declaration names with checkdecls; name validation is
+not a unique VBP feature. See https://github.com/PatrickMassot/leanblueprint and
+https://github.com/hanwenzhu/LeanArchitect for the existing ecosystem.
+The next section explains Verso, then the examples show how VBP uses it.
+:::
+
 # What Is Verso?
 
 %%%
@@ -395,34 +419,42 @@ Verso provides the document framework. VBP extends the Manual genre with the
 Blueprint model. The slide genre can reuse the resulting Blueprint objects.
 :::
 
-# Verso Blueprint
+# A Theorem In Verso Blueprint
 
 %%%
 vertical := some true
 %%%
 
-*Why VBP when LeanBlueprint already exists?*
+:::class "theorem-source"
+````code verso
+:::theorem "left_inverse_injective"
+    (uses := "left_inverse, injective")
+    (owner := "presenter") (tags := "functions, demo")
+A function admitting a left inverse is injective.
+:::
 
-LeanBlueprint already provides a mathematical plan, dependency graphs,
-progress, and links to Lean. We retain that coordination model.
+```lean "left_inverse_injective" (autoDeps := true)
+theorem leftInverseInjective (f g : Nat → Nat)
+    (hgf : LeftInverse f g) : Injective f := by
+  intro x y h
+  exact (hgf x).symm.trans ((transportEq g h).trans (hgf y))
+```
 
-- *Lean-native authoring*: prose, checked examples, and extensions in one environment.
-- *Connected evidence*: derive progress and optional dependencies from declarations.
-- *Programmable reuse*: the same objects serve readers, project views, and tools.
+:::proof "left_inverse_injective" (uses := "equality_transport")
+Apply g to the equality, then use the left-inverse identity.
+:::
+````
+:::
 
-The choice is tighter Lean integration—not a claim that TeX is obsolete.
+One label connects the mathematical statement, Lean declaration, and proof.
 
 :::notes
-The reason to choose VBP is close integration with Lean and programmable reuse.
-A working TeX/LeanBlueprint project already serves a valuable purpose.
-VBP adds another implementation choice; this talk demonstrates what that enables.
-Do not claim TeX cannot carry structure or that every project should migrate.
-LeanBlueprint also checks declaration names with checkdecls; name validation is
-not a unique VBP feature. See https://github.com/PatrickMassot/leanblueprint and
-https://github.com/hanwenzhu/LeanArchitect for the existing ecosystem.
-The Verso example has shown Lean-native authoring. Next, a node connects
-mathematical content to formal evidence. Then changing that evidence changes
-project state, which the reader and tools can both inspect.
+The statement and proof have separate mathematical dependencies. The labeled
+Lean block attaches a checked declaration to the same node. autoDeps also
+reads its elaborated type and proof. Owner and tags are project metadata.
+The prerequisite definitions and author registration come from the surrounding
+document. The namespace and source-span metadata are omitted in this excerpt.
+The rendered Frey node next shows a richer mathematical example from FLT.
 :::
 
 ## Reading A Node: The Frey Curve
@@ -435,77 +467,7 @@ project example; switch to the small authored example for controlled changes.
 Explain the change of Weierstrass model when opening the declaration.
 :::
 
-## The Abstract Data Model
-
-```diagram (background := "#ffffff")
-open Illuminate Lean in
-let ink := rgb!"#1e293b"
-let teal := rgb!"#007da5"
-let txt (s : String) (size : Float := 15) (bold := false) : Diagram SVG :=
-  Diagram.text s { fontSize := size, fontFamily := "sans-serif", color := ink, bold }
-let item (name : Name) (title body : String) : Diagram SVG :=
-  Diagram.vsep 7 [txt title 16 true, txt body]
-    |>.padXY 8 7
-    |>.namedWithAnchors name
-let identity :=
-  Diagram.vsep 7 [txt "Blueprint node" 17 true,
-    Diagram.text "left_inverse_injective"
-      { fontSize := 15, fontFamily := "monospace", color := teal }]
-    |>.padXY 8 7
-    |>.namedWithAnchors `identity
-    |>.translate 0 105
-let statement := item `statement "Informal statement" "Left inverse implies injectivity"
-    |>.translate 0 20
-let proof := item `proof "Informal proof" "Apply g to the equality"
-    |>.translate 0 (-65)
-let node := identity.compose statement |>.compose proof
-    |>.padXY 16 16
-    |>.filledFrame (fill := rgb!"#f0f9fc")
-      (stroke := { color := teal, width := 1.5 })
-let source := item `source "Source reference" "demo-notes\nProposition 1, lines 3–7"
-    |>.translate (-315) 105
-let lean := item `lean "Lean association" "leftInverseInjective"
-    |>.translate 315 105
-let statementDeps := item `statementDeps "Statement dependencies" "left_inverse\ninjective"
-    |>.translate (-315) 20
-let proofDeps := item `proofDeps "Proof dependency" "equality_transport"
-    |>.translate 315 (-65)
-let ah : Arrowhead := { type := .stealth }
-node.compose source |>.compose lean |>.compose statementDeps |>.compose proofDeps
-  |>.connect `identity.west `source.east
-    (stroke := { color := rgb!"#64748b", width := 1.2, dash := .dashed })
-  |>.connect `identity.east `lean.west
-    (stroke := { color := rgb!"#64748b", width := 1.2, dash := .dashed })
-  |>.connect `statementDeps.east `statement.west (arrowhead := ah)
-    (stroke := { color := teal, width := 1.5 })
-  |>.connect `proofDeps.west `proof.east (arrowhead := ah)
-    (stroke := { color := teal, width := 1.5 })
-```
-
-:::class "model-key"
-Small controlled example: `left_inverse_injective`.
-
-Dashed links: associations. Arrows: prerequisite to dependent.
-
-Progress and readiness derive from formal evidence and dependencies.
-:::
-
-:::notes
-The center is one mathematical object with its own stable label. Statement and
-proof are optional facets; their contributions may come from separate places.
-The dashed links connect it to source passages and Lean declarations. In
-general there may be several, and declaration associations are many-to-many.
-Each solid edge relates this node to another Blueprint node, not a raw
-declaration name. Arrows point from prerequisite towards the dependent facet,
-matching the graph convention.
-Here the statement edges are automatic and the proof edge is authored.
-Owner, tags, priority, effort, grouping, and retained markup are additional
-metadata, omitted from the picture. Group membership is not a dependency.
-Progress is computed from the evidence and graph; it is not an authored badge.
-Recording an association does not establish mathematical equivalence.
-:::
-
-## From Dependencies To A Project View
+## The Dependency Graph
 
 {blueprintGraph (base := "demo/after/") (view := "full") (direction := "TB") (pack := "true") (class := "flt-graph-frame demo-graph-frame")}
 
@@ -515,42 +477,11 @@ Recording an association does not establish mathematical equivalence.
 Locate `left_inverse_injective`, its prerequisites, and the downstream
 `fibre_singleton` corollary. Open one node preview to recover the mathematics.
 The same labels identify the mathematical objects in the document and graph.
-The graph shows the completed theorem. What changes if its proof is unfinished?
+This is the small theorem from the syntax slide, not the much larger FLT graph.
 Leave the full FLT graph, layout controls, and legend tour for questions.
 :::
 
-## Progress Is Connected To The Formal Development
-
-{demoFrame "demo/before/panel.html" "Before and after completing the Lean proof"}
-
-:::class "anatomy-key"
-Before / After: completing this theorem makes the downstream corollary's
-proof ready to formalize. The corollary still needs its own formalization.
-:::
-
-:::notes
-Start with the unfinished state. Its statement is formalized, but its Lean
-proof contains sorry. Switch to After: the associated proof is complete.
-In Summary, expand Metadata then Quick wins to find `fibre_singleton`.
-Its proof badge changes from not ready to
-ready to formalize; it has not magically acquired a proof.
-Both variants retain the Blueprint label and informal account. Their attached
-declarations are in separate Draft and Complete namespaces.
-This is the payoff of connected formal evidence: a local completion changes
-the next available work. The subsequent CLI example accesses the same state.
-The source-edit/rebuild path is optional; use the prepared variants in the talk.
-:::
-
-## Authoring: Prose, Code, Or Both
-
-```code verso
-:::theorem "left_inverse_injective"
-A function admitting a left inverse is injective.
-:::
-```
-
-Attach a labeled Lean block, name existing declarations with `lean :=`,
-or introduce an object from a declaration carrying `@[blueprint]`.
+## Code-First Authoring
 
 ```code lean
 @[blueprint "equality_transport"]
@@ -558,94 +489,58 @@ theorem transportEq (g : Nat → Nat) {a b : Nat} (h : a = b) :
     g a = g b := congrArg g h
 ```
 
+A declaration can introduce a Blueprint node through `@[blueprint]`.
+
+Prose elsewhere can contribute its statement and proof under the same label.
+
+Use `lean := "Existing.declaration"` to associate existing compiled code.
+
 :::notes
-The lower example is from ForMathDemo/Common.lean. The Blueprint label gives
-the mathematical object a stable identity; the Lean declaration has its own
-name. Demonstrate code-first use by opening Prerequisites in the generated
-site. Metadata and prose-first authoring remain available when code alone
-cannot express the intended account.
+This declaration comes from ForMathDemo/Common.lean and supports the small
+theorem example. The label identifies the mathematical node. The Lean name
+identifies the declaration. They serve different purposes.
 :::
 
-## Mathematical And Formal Dependencies
+## Features
 
-- `uses` records an authored mathematical dependency.
-- `bpref` adds a prose reference without an edge.
-- `autoDeps` can derive edges from elaborated Lean declarations.
-
-Types and proof bodies contribute to different dependency tracks.
-Inferred edges retain their automatic origin.
+- *Mathematical content*: statement, informal proof, checked Lean, and retained TeX.
+- *Dependencies*: authored or inferred, with separate statement and proof dependencies.
+- *Source correspondence*: original document and spans, informal node, formal attachments.
+- *Project information*: groups, owners, tags, effort, and priority.
+- *Progress*: formalization status and downstream readiness from the generated development.
+- *Reuse*: readers, graphs, summaries, slides, and CLI/API clients share the same nodes.
 
 :::notes
-In this demo, left_inverse and injective are inferred from the theorem's type.
-equality_transport is an explicit proof dependency. Inference can follow
-unassociated helpers to associated declarations, but does not reconstruct
-the author's intended mathematical explanation.
-These are the arrows in the model diagram and graph.
+uses adds a mathematical dependency. bpref adds a prose link without an edge.
+autoDeps reads elaborated declarations and retains the automatic origin.
+Source spans, informal exposition, and formal attachments are distinct levels.
+A link between them does not certify mathematical equivalence.
+The public preview API can render a node in another application. CLI JSON
+and custom-client formats are currently unstable and should be pinned.
+Readiness describes a generated snapshot. Rich side-by-side integration and
+direct agentic loops belong to the roadmap.
 :::
 
-## Sources And Mathematical Correspondence
+## Validation
 
-*Original source*: a document and a precise source span.
+We ported using Codex these selected LaTeX examples of blueprints:
 
-*Informal node*: the statement and proof as the Blueprint presents them.
+- [Kevin Buzzard’s FLT blueprint](https://github.com/ejgallego/verso-flt)
+- [Sphere Packing](https://github.com/ejgallego/verso-sphere-packing)
+- [Carleson Operators on Doubling Metric Measure Spaces](https://github.com/ejgallego/verso-carleson), by Floris van Doorn
+- [Noperthedron](https://github.com/ejgallego/verso-noperthedron), by David Renshaw and Jason Reed
 
-*Formal attachments*: the declarations used as evidence.
+The harness checks structure and Lean links, and supports comparison with
+the source and rendered output.
 
-[Inspect the demonstration source note](demo/after/demo-notes.md)
-
-:::notes
-The backup anatomy node exposes the source chip. Retained TeX is also available,
-but is a separate informal representation. A resolved attachment and successful
-compilation do not certify equivalence to the original mathematics.
-The Frey curve's coordinate change gives a substantial example of this issue.
-:::
-
-## One Object, Several Consumers
-
-```code bash
-lake exe vbp query --site _demo/after node left_inverse_injective
-lake exe vbp query --site _demo/after uses left_inverse_injective
-lake exe vbp query --site _demo/after work-queue
-```
-
-The reader, graph, summary, slide, and query refer to the same labels.
-
-The backup anatomy panel is a small client of VBP's public preview API.
+[Review a migration](https://x80.org/flt-translation-review/)
 
 :::notes
-Run bash scripts/demo-query.sh after to obtain real query output. Show the
-label, statementUses and proofUses, then the work queue. The CLI's JSON is
-currently unstable. The source of the small browser client is
-static/demo-panel.js; it requests the node by label.
-Use this as a short coda, not a fourth live demo. If time is tight, point to
-the commands: the graph and progress demonstration have already shown the data.
-:::
-
-## Authoring And Review With AI
-
-- Give the task explicit mathematical scope and source context.
-- Check declarations, references, and structural consistency.
-- Compare the resulting exposition with its sources.
-- Review the mathematical correspondence before integration.
-
-[Migration review example](https://x80.org/flt-translation-review/)
-
-:::notes
-The migration harness is a separate client/workflow, not an automatic guarantee
-provided by VBP. Keep the existing harness diagram in backup. Direct agentic
-loop support belongs to the roadmap.
-:::
-
-## Current Boundaries
-
-- Informal/formal correspondence remains a mathematical review task.
-- Derived state describes a generated snapshot of the development.
-- Custom clients pin the current APIs and data formats.
-- Rich source comparison and direct agent loops have further roadmap work.
-
-:::notes
-Transition to the expected roadmap sequence. Today's source metadata and
-node reuse provide useful building blocks for those later integrations.
+The migrations exercised the authoring and rendering features on existing
+mathematical projects. The harness exposes translation errors such as label
+drift, missing structure, or weak source correspondence. These checks support
+human review. They do not prove equivalence between the original text and
+the formal declarations. The harness diagram is in the appendix.
 :::
 
 # What's Next?
@@ -752,20 +647,74 @@ axial stretching described in OpenAI's announcement.
 [Clay statement, 11 September 2026](https://www.claymath.org/news/navier-stokes-announcement/)
 :::
 
-## Anatomy Of A Node
+## The Abstract Data Model
 
-{demoFrame "demo/after/panel.html" "Anatomy of a Blueprint theorem"}
+```diagram (background := "#ffffff")
+open Illuminate Lean in
+let ink := rgb!"#1e293b"
+let teal := rgb!"#007da5"
+let txt (s : String) (size : Float := 15) (bold := false) : Diagram SVG :=
+  Diagram.text s { fontSize := size, fontFamily := "sans-serif", color := ink, bold }
+let item (name : Name) (title body : String) : Diagram SVG :=
+  Diagram.vsep 7 [txt title 16 true, txt body]
+    |>.padXY 8 7
+    |>.namedWithAnchors name
+let identity :=
+  Diagram.vsep 7 [txt "Blueprint node" 17 true,
+    Diagram.text "left_inverse_injective"
+      { fontSize := 15, fontFamily := "monospace", color := teal }]
+    |>.padXY 8 7
+    |>.namedWithAnchors `identity
+    |>.translate 0 105
+let statement := item `statement "Informal statement" "Left inverse implies injectivity"
+    |>.translate 0 20
+let proof := item `proof "Informal proof" "Apply g to the equality"
+    |>.translate 0 (-65)
+let node := identity.compose statement |>.compose proof
+    |>.padXY 16 16
+    |>.filledFrame (fill := rgb!"#f0f9fc")
+      (stroke := { color := teal, width := 1.5 })
+let source := item `source "Source reference" "demo-notes\nProposition 1, lines 3–7"
+    |>.translate (-315) 105
+let lean := item `lean "Lean association" "leftInverseInjective"
+    |>.translate 315 105
+let statementDeps := item `statementDeps "Statement dependencies" "left_inverse\ninjective"
+    |>.translate (-315) 20
+let proofDeps := item `proofDeps "Proof dependency" "equality_transport"
+    |>.translate 315 (-65)
+let ah : Arrowhead := { type := .stealth }
+node.compose source |>.compose lean |>.compose statementDeps |>.compose proofDeps
+  |>.connect `identity.west `source.east
+    (stroke := { color := rgb!"#64748b", width := 1.2, dash := .dashed })
+  |>.connect `identity.east `lean.west
+    (stroke := { color := rgb!"#64748b", width := 1.2, dash := .dashed })
+  |>.connect `statementDeps.east `statement.west (arrowhead := ah)
+    (stroke := { color := teal, width := 1.5 })
+  |>.connect `proofDeps.west `proof.east (arrowhead := ah)
+    (stroke := { color := teal, width := 1.5 })
+```
 
-:::class "anatomy-key"
-The label `left_inverse_injective` connects the mathematical account
-to formal evidence and dependencies.
+:::class "model-key"
+Small controlled example: `left_inverse_injective`.
+
+Dashed links: associations. Arrows: prerequisite to dependent.
+
+Progress and readiness derive from formal evidence and dependencies.
 :::
 
 :::notes
-Read the statement and its separate informal proof. Open the Lean chip:
-it associates a declaration with this mathematical object. Open the source
-chip: it identifies a passage of the demonstration note. The theorem's label
-stays fixed across these views.
+The center is one mathematical object with its own stable label. Statement and
+proof are optional facets; their contributions may come from separate places.
+The dashed links connect it to source passages and Lean declarations. In
+general there may be several, and declaration associations are many-to-many.
+Each solid edge relates this node to another Blueprint node, not a raw
+declaration name. Arrows point from prerequisite towards the dependent facet,
+matching the graph convention.
+Here the statement edges are automatic and the proof edge is authored.
+Owner, tags, priority, effort, grouping, and retained markup are additional
+metadata, omitted from the picture. Group membership is not a dependency.
+Progress is computed from the evidence and graph; it is not an authored badge.
+Recording an association does not establish mathematical equivalence.
 :::
 
 ## Blueprint Data Model
@@ -834,17 +783,6 @@ OEIS conjectures, using Lean verification as the guardrail.
 
 The May 2026 DeepMind formal-proof-search result makes *Lean* and *Mathlib* central to the proving loop.
 :::::
-
-## leanblueprint-to-verso: Reference Blueprints
-
-The harness was tested against four reference projects:
-
-- [Kevin Buzzard's FLT blueprint](https://github.com/ejgallego/verso-flt)
-- [Sphere Packing](https://github.com/ejgallego/verso-sphere-packing)
-- [Carleson Operators on Doubling Metric Measure Spaces](https://github.com/ejgallego/verso-carleson), by Floris van Doorn
-- [Noperthedron](https://github.com/ejgallego/verso-noperthedron), by David Renshaw and Jason Reed
-
-The goal was a faithful port.
 
 ## Formal Frontiers: Side-By-Side Demo
 

@@ -1,28 +1,19 @@
 # ForMath demo runbook
 
-Audience: expert in formal proof and Rocq; unfamiliar with Verso.
-Show document structure and mathematical coordination, not a proof-assistant tutorial.
+Audience: experts in formal proof and Rocq, unfamiliar with Verso.
+The current core teaches authoring syntax, then shows a substantial real node.
 
-## Rehearsal route
+## Main route
 
-These are target budgets, not measured speaking times. The three demonstrations
-take about seven minutes within the Verso and VBP sections.
+- Verso: one document reference and one declaration hover, about two minutes.
+- VBP: theorem syntax, Frey node, and an interactive graph, about three minutes.
+- Code-first authoring and Features are short explanations, not extra demos.
+- Validation ends the section with the four Codex-assisted LaTeX ports and the
+  review harness. Open its external review page only if time permits.
 
-| Demonstration | Budget | Audience takeaway | Stop after |
-| --- | --- | --- | --- |
-| Verso source and reader | 2 min | A document extension can resolve Lean objects and check code. | One document reference and one declaration hover. |
-| Node, model, graph | 3 min | A Blueprint object connects a mathematical account to evidence and other nodes. | One model and one graph preview. |
-| Completion and readiness | 2 min | Completing a proof changes which downstream work is ready. | The theorem's status and the corollary's proof readiness. |
-
-Lead-in: “The mathematics is deliberately elementary. Watch what the document
-knows about it, and what changes when its formal evidence changes.”
-
-The model slide is the pause between browsing the Frey node and exploring the
-graph. Keep the anatomy panel, ownership/tags, the full FLT graph, graph layout
-controls, live proof typing, and terminal queries optional. The CLI slide is a
-short coda, not a fourth demo.
-If a live control fails once, use the source/model slide and the verified
-before/after table below instead of debugging in front of the audience.
+The data-model diagram is in the appendix. The dedicated anatomy and progress
+slides are removed. Their standalone pages remain optional resources.
+The CLI is one line in Features, not a separate presentation segment.
 
 ## Preparation
 
@@ -71,148 +62,80 @@ Spoken exit: “The document can resolve a declaration and check an example.
 The surrounding exposition is still informal. Now we can add Blueprint-specific
 objects to this document system.”
 
-## Demo 2: model and graph (about 3 minutes)
+## Demo 2: theorem, Frey node, graph
 
-Start on [the model diagram](http://127.0.0.1:8877/#/4/2).
+1. Start on [the theorem syntax](http://127.0.0.1:8877/#/4).
+   Point out the stable label, authored dependencies, owner/tags, attached Lean
+   block, and separate informal proof. The Lean block shares the node's label.
+2. Open [the Frey node](http://127.0.0.1:8877/#/4/1).
+   This deliberately uses a substantial FLT example rather than the elementary
+   theorem from the syntax slide. Inspect its mathematical statement and Lean
+   attachment. Explain the coordinate-changed Weierstrass model if needed.
+3. Show [the dependency graph](http://127.0.0.1:8877/#/4/2).
+   This returns to the small syntax example so that all five nodes are legible.
+   Find left_inverse_injective and open one node preview.
+4. [Code-first authoring](http://127.0.0.1:8877/#/4/3) shows the highlighted
+   blueprint attribute. Features consolidates the capabilities.
+5. [Validation](http://127.0.0.1:8877/#/4/5) closes with the reference ports.
 
-1. After the real Frey node, state that this small example controls a later
-   before/after change. Its label is `left_inverse_injective`.
-2. The central object has optional informal statement and proof facets. Dashed
-   links are associations. Arrows run from prerequisite nodes towards the
-   dependent statement or proof, as in the graph.
-3. Explain the dependency tracks. The theorem type refers to `left_inverse`
-   and `injective`; these edges are automatic. `equality_transport` is an
-   explicitly authored proof dependency.
-4. Open the [five-node graph](http://127.0.0.1:8877/#/4/3). Find the same
-   theorem, its prerequisites, and the downstream `fibre_singleton` corollary.
-   Open one node preview, then stop. Save the summary for the progress demo.
+The checked source is ForMathDemo/After.lean. The slide excerpt omits its
+namespace, source-span record, and surrounding author/group registrations.
+The labeled Lean block is adjacent to the theorem directive, as supported by
+the pinned VBP authoring API. It attaches to the same node.
 
-Spoken exit: “The document and graph refer to the same mathematical objects.
-The graph currently shows the completed theorem. What happens when its proof
-is unfinished?”
+The After fixture now explicitly authors statement dependencies with uses.
+autoDeps is also enabled on the inline Lean block, but manual origin takes
+precedence for those edges. The labels and edge targets are unchanged.
+The Before fixture retains its external declaration and inferred statement edges.
 
-Optional depth: the backup anatomy panel shows source, Lean, retained TeX,
-ownership, tags, effort, priority, and grouping. Group membership does not
-create a dependency. The model omits these fields to keep the core
-relationships readable.
+Fallback: stop on the theorem syntax and Frey node. Do not debug the graph live.
 
-Retained TeX is an informal representation, separate from original-source
-provenance. Neither proves informal/formal correspondence. The Frey example
-makes this distinction substantive through its coordinate-changed model.
+## Optional standalone demonstrations
 
-The panel calls the public preview API and loads the same emitted page runtime
-as the canonical site, supplying native relation/nested-preview behavior.
-It does not import private `Commands/*` implementations.
-The page-runtime import is important: the preview renderer alone inserts the
-node, but the rich dependency panels otherwise remain at “Loading preview.”
+- [After node panel](http://127.0.0.1:8877/demo/after/panel.html): source span,
+  retained TeX, project metadata, and Lean attachment.
+- [Before panel](http://127.0.0.1:8877/demo/before/panel.html): an incomplete
+  declaration. Its Lean panel shows “[sorry in proof]”.
+- The After Lean link now opens the attached inline proof code. It does not
+  use the old external-declaration “[complete]” badge.
+- Before/After summaries: Metadata, then Quick wins. The downstream corollary's
+  proof readiness changes from “not ready” to “ready to formalize”; the
+  corollary itself remains unformalized.
+- Full FLT graph and the abstract data model are in the appendix.
 
-## Demo 3: a real state change (about 2 minutes)
+These snapshots now also illustrate two authoring styles. They are not a
+source diff containing only a proof-completion edit.
 
-Start on [formal progress](http://127.0.0.1:8877/#/4/4).
-
-Use Before / After. The Blueprint label and informal content stay the same;
-the two fixtures attach declarations in Draft and Complete namespaces.
-The Lean attachment changes from “sorry in proof” to “complete.”
-
-Pre-open the [Before summary](http://127.0.0.1:8877/demo/before/Blueprint-Summary/)
-and [After summary](http://127.0.0.1:8877/demo/after/Blueprint-Summary/).
-In each, expand **Metadata**, then **Quick wins**, and locate `fibre_singleton`.
-Its row carries the explicit `proof:` readiness badge. The ordinary entry index
-does not display this detail, so prepare these expanded views before speaking.
-After switching the theorem, compare the downstream corollary's proof readiness.
-Do not narrate this as a new proof of the corollary: it still needs formalization.
-
-Spoken exit: “Completing this proof makes the corollary ready to work on.
-The mathematical plan stayed the same; its formal evidence and derived
-project state changed.”
-
-Optional terminal coda, using actual queries:
+Optional queries:
 
 ```bash
-bash scripts/demo-query.sh before
-bash scripts/demo-query.sh after
+lake exe vbp query --site _demo/after node left_inverse_injective
+lake exe vbp query --site _demo/after uses left_inverse_injective
+lake exe vbp query --site _demo/after work-queue
 ```
 
-Expected evidence:
+The three dependency targets remain left_inverse, injective, and
+equality_transport. Before has two quick wins and After has one.
+Query JSON is unstable. Source links in this unpublished repository are local.
 
-| Query | Before | After |
-| --- | --- | --- |
-| Main theorem in work queue | Present; next step proof | Absent |
-| Downstream corollary proof status | not ready | ready to formalize |
-| Downstream corollary in queue | Present | Still present; it has no formal attachment |
-| Main theorem statement uses | left_inverse, injective; automatic | Same |
-| Main theorem proof uses | equality_transport; manual | Same |
-
-Completion here is an observed status in the generated artifact, not a claim
-that the informal account has been mathematically audited. Query JSON currently
-reports `apiStability: unstable`.
-
-Optional editor demonstration: open [Before.lean](ForMathDemo/Before.lean) and
-replace its `sorry` with the proof in [After.lean](ForMathDemo/After.lean), retaining
-the Draft namespace. Run the preparation commands and reload. This changes the
-before fixture; restore only that deliberate edit after rehearsal. Do not reset
-the entire file/worktree. Prefer the prebuilt snapshots for a short live talk.
-
-Click outside the iframe to return keyboard focus to the slides.
-Graph/Summary links open another tab; Before/After stays in the panel.
-
-The new demo modules have not been published. In this repository, which has
-no remote configured, the regenerated declaration previews display local
-source paths rather than links to the inherited MadLean repository. Show the
-local editor files for Lean source. The separate mathematical source-note
-link is local and works.
-
-## Validation record and limits
-
-With the local server running, repeat the interaction rehearsal with:
+## Repeatable checks
 
 ```bash
-uv run --with playwright python scripts/check-demo-browser.py
-```
-
-Pass `--screenshots /tmp/formath-rehearsal` to retain captures, or `--url`
-and `--browser` to select another local server or system Chrome executable.
-This checks the intended clicks and visible results, not speaking time.
-
-21 September 2026:
-
-- All three demo documents and the deck compiled/generated.
-- Both original and published small Blueprint variants passed `vbp check`
-  with 11 manifest/cache entries each.
-- Real queries confirmed the dependency and work-queue changes above.
-- At this rehearsal checkpoint, generated HTML contained 28 main slides
-  including title, plus 11 backup. The current opening adds four main slides
-  and moves three backup slides into the main route.
-- Publication normalization removed 2,526 local source-path occurrences.
-- Headless Chrome checked the source-file, diagnostics, comparison, model,
-  authoring, roadmap, anatomy, and five-node graph layouts at 1280×720.
-- Browser checks exercised Before/After navigation, source and Lean attachment
-  panels, dependency previews with automatic-origin badges, and the Manual's
-  document reference and declaration hover. No page errors were recorded.
-- The narrative pass also exercised the graph's theorem preview and the
-  Before/After summary readiness badges under Metadata / Quick wins.
-- The earlier opening pass checked its three revised slides for text overflow and
-  repeated the reference, graph-preview, snapshot, and readiness interactions.
-
-The in-app browser connection was unavailable; these checks used local headless
-Chrome. The original CDN graph failure is now resolved: publication preparation
-bundles D3/Graphviz, the reader-page Markdown parser, and the font. The offline
-interaction rehearsal passes under a `/formath/` deployment prefix with zero
-external asset requests. It includes source provenance, native and embedded
-graph previews, Lean status panels, and readiness changes. External links and
-all optional graph controls are not covered by this acceptance.
-
-Run the repeatable prefixed rehearsal (it manages its own temporary server):
-
-```bash
+python3 -m unittest discover -s scripts -p 'test_*.py'
 uv run --with playwright python scripts/rehearse-offline.py --output /tmp/formath-review
 ```
 
-Short slide code examples now use at least 20px text at 1280×720. Check the
-actual projector before delivery; the complete source remains a single slide.
-See [REVIEW.md](REVIEW.md) for pacing and remaining presentation risks.
-The opening now includes dated primary sources and qualifications in speaker
-notes. Neither milestone artifact was independently rebuilt or checked here.
-Event metadata is confirmed: ForMath Seminar, IRIF, Université Paris Cité,
-Monday, 21 September 2026. Duration remains provisional. No changes were made
-to the pinned VBP dependency.
+The script serves its own deployment prefix and blocks external requests.
+It checks the revised section order, syntax highlighting, code readability,
+Frey-node rendering, graph previews, and optional standalone demos.
+Do not rebuild the shared output during a browser scan. Copy _slides and pass
+--site /path/to/copy when another agent is generating the preview.
+
+D3/Graphviz, Marked, and fonts are bundled locally. External reference links
+still require internet access. The in-app browser was unavailable, so browser
+checks use headless Chrome. Speaking time and projector readability still need
+a live rehearsal.
+
+Both small Blueprint sites pass vbp check with 11 manifest/cache entries.
+The before fixture intentionally contains sorry. The diagnostics slide
+intentionally requires an error. Dependency pins remain unchanged.

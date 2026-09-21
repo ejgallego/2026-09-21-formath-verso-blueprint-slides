@@ -77,6 +77,13 @@ Introduce the two themes here: structured documents can give AI tools better-def
 
 ## 4. Verso Blueprint — 15 minutes
 
+The speaker's latest requested sequence supersedes the detailed thematic
+outline below: theorem syntax with attached Lean, Frey node, graph, code-first
+attribute, Features, Validation. Why VBP moves to the historical section.
+The abstract data model moves to the appendix. Dedicated anatomy, progress,
+source-level, CLI, and AI-review slides are removed or folded into Features.
+Validation lists the four Codex-assisted LaTeX ports and the review harness.
+
 Cover all four requested dimensions: **general guidelines, features, examples, limitations**. Use one real node to connect them rather than four disconnected feature lists.
 
 ### 4.1 General guidelines: how to author a useful blueprint

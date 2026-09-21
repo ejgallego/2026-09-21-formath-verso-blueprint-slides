@@ -3,6 +3,28 @@
 
   function registerVerso(hljs) {
     if (!hljs || typeof hljs.registerLanguage !== "function") return;
+    if (!hljs.getLanguage("lean")) {
+      hljs.registerLanguage("lean", function (hljs) {
+        return {
+          name: "Lean",
+          keywords: {
+            keyword: "import open namespace end theorem lemma def example abbrev structure " +
+              "inductive class instance variable section by exact intro apply calc simp " +
+              "rfl have show from fun match with where let in if then else do return",
+            built_in: "Nat Int Prop Type Sort",
+            literal: "true false"
+          },
+          contains: [
+            hljs.COMMENT(/--/, /$/),
+            hljs.COMMENT(/\/-/, /-\//, { contains: ["self"] }),
+            { className: "meta", begin: /@\[/, end: /\]/,
+              contains: [hljs.QUOTE_STRING_MODE] },
+            hljs.QUOTE_STRING_MODE,
+            hljs.NUMBER_MODE
+          ]
+        };
+      });
+    }
     if (typeof hljs.getLanguage === "function" && hljs.getLanguage("verso")) return;
 
     hljs.registerLanguage("verso", function (hljs) {
@@ -40,6 +62,8 @@
         name: "Verso",
         aliases: ["vbp"],
         contains: [
+          { begin: /^```lean\b[^\n]*\n/m, end: /^```\s*$/m,
+            subLanguage: "lean", excludeBegin: true, excludeEnd: true },
           DIRECTIVE,
           DIRECTIVE_CLOSE,
           ROLE,

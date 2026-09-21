@@ -1,15 +1,16 @@
 # ForMath rehearsal review
 
-21 September 2026. Main route: 30 slides including title. Backup: 10 slides.
+21 September 2026. Main route: 26 slides including title. Backup: 9 slides.
 Event: ForMath Seminar, IRIF, Université Paris Cité.
 Preview: http://127.0.0.1:8877/.
 
 ## Readiness and priorities
 
 The main narrative now gives this expert Rocq audience a concrete reason to
-care, explains Verso before introducing VBP, and connects the abstract model
-to the same node, graph, and proof-progress demonstration. The comparison with
-LeanBlueprint credits its existing capabilities and motivates Lean integration.
+care and explains Verso before introducing VBP. The core now starts with a
+theorem and attached Lean syntax, followed by the Frey node and an actual
+graph. Code-first authoring and Features lead into Validation. The comparison
+with LeanBlueprint is in the historical section. The abstract model is backup.
 
 The opening begins with the Madrid AI slide, then sphere packing and its
 Blueprint, FLT, and a dated reflection on mathematical direction. Anthropic's
@@ -18,10 +19,10 @@ excerpts from its Prove2Me account. Navier–Stokes and its supplied image remai
 available in backup.
 
 1. **Rehearse the switches, not live proof typing.** Pre-open the Manual page,
-   node panel, and two summaries. Stop after one reference/hover, one graph
-   preview, and the corollary's readiness change. The corollary remains unproved.
+   Frey node, and graph. Stop after one reference/hover and one graph preview.
+   The before/after panels and readiness demonstration are now optional.
 2. **Check readability on the actual projector.** The overview, diagnostics,
-   authoring, and CLI examples now use at least 20px text at 1280×720, without
+   theorem, and attribute examples now use at least 20px text at 1280×720, without
    horizontal clipping. The complete source remains on one slide. A browser
    screenshot cannot establish back-row readability in the room.
 3. **Keep the whole generated directory together.** The rehearsed local demo
@@ -40,18 +41,25 @@ If the slot is 40 minutes, aim for 33 minutes of talk and 7 for discussion:
 | Title and opening | 5 | Blueprints before and after formalization |
 | Historical context | 3 | Established coordination model |
 | Verso, including its demo | 7 | Roles/directives can register specialized objects |
-| VBP, including node and progress demos | 15 | One object supports readers and tools |
+| VBP, including node and graph demos | 15 | Features and validation on reference ports |
 | Roadmap and closing | 3 | The speaker's five ordered priorities |
 
 Keep FLT to the opening's coordination and reading motivation; use the
 Navier–Stokes backup only if discussion calls for it.
 Do not let the announcements turn into an AI debate before the audience sees
-Verso. The seven-minute demo allocation in DEMO-RUNBOOK.md is included above.
+Verso. The roughly five-minute core demo allocation in DEMO-RUNBOOK.md is included above.
 First cuts if behind: terminal queries, ownership/tag details, external
 migration-review navigation, and all backup material.
 
 ## Evidence and limits
 
+- The core VBP revision has six slides: theorem syntax, Frey node, graph,
+  code-first authoring, Features, Validation. All 26 main slides passed the
+  offline layout scan under a deployment prefix. The graph and highlighted
+  attribute/nested Lean examples passed the interaction checks.
+- The richer theorem's attached Lean block compiles in ForMathDemo/After.lean.
+  The same labels and dependency targets remain. Its statement edges now have
+  manual origin, because the example explicitly illustrates `uses`.
 - The integrated deck and three demo documents build at the repository root.
   Dependency caches and the pinned FLT site were reused; this was not a fresh
   build of all dependencies or an independent audit of the milestone proofs.
