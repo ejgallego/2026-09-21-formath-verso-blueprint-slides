@@ -10,8 +10,9 @@ The active deck is `Slides.lean` in the ForMath repository root; its five-part
 main route is now implemented. Continue here without repeating bootstrap.
 The Verso/VBP feature pass and local demos are also implemented; consult
 `DEMO-RUNBOOK.md`. The audience is expert in Rocq
-and formal proof, unfamiliar with Verso. The speaker's five ordered roadmap
-items in STRUCTURE.md supersede the historical monthly proposal below.
+and formal proof, unfamiliar with Verso. The speaker's six ordered roadmap
+items in STRUCTURE.md supersede the historical proposal below. The current
+timeline spans September–December without per-item delivery dates.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Retain the title and speaker affiliation. Duration remains
 unconfirmed. The instructions below are historical bootstrap context, not a

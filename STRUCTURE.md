@@ -6,7 +6,7 @@ unfamiliar with Verso. Explain the document system, not proof assistants.
 Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
-Five substantive sections, plus backup. The main route has 25 slides including
+Five substantive sections, plus backup. The main route has 23 slides including
 the title; backup has 9. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
@@ -18,11 +18,10 @@ the title; backup has 9. Horizontal sections retain vertical children.
 | Historical context | Blueprint lineage, LeanBlueprint, and why build VBP | The comparison with LeanBlueprint now closes this section. Retain attribution and credit existing capabilities. |
 | Verso | David Thrane Christiansen's introduction; complete source/rendered document; checked proof and resolved references; two-phase build; extension points | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
 | Verso Blueprint | Rich theorem syntax with attached Lean; real Frey node; graph; highlighted attribute authoring; Features; Validation | Show syntax before the node. Keep the Frey example substantial. End with the four Codex-assisted LaTeX ports and the review harness. |
-| What's next | Shared infrastructure; speaker's five ordered roadmap items; closing | No delivery dates. The first item means formalizing VBP's custom database. |
+| What's next | “Towards programmatic blueprints” uses a single list to frame VBP as core infrastructure for research projects; six-item Illuminate timeline | Two slides. Prove2Me, Trellis, and AutoformBot are potential beneficiaries, not claimed integrations. The September–December span is illustrative: items are equally spaced, without individual delivery dates. “1.0 release” accompanies the final item. The first item means formalizing VBP's custom database. |
 
-Roadmap order: **Formalizing VBP's custom database → improved skill → side-by-side
-views → GitHub, Prove2Me, Trellis integrations → direct agentic loop support**.
-This supersedes the earlier month-by-month proposal.
+Roadmap order: **Formal Database Model → Improved Skill → Improved Verso
+Performance → Widget → Side-by-Side analysis → Direct agentic loop support**.
 
 ## Demonstrations
 

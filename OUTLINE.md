@@ -23,7 +23,7 @@ The second theme is an architectural direction, not a claim that a complete infe
 | 2. Historical blueprint content | 4 | Preserve the established motivation and lineage |
 | 3. What is Verso? | 8 | Explain syntax, elaboration, linking, and extensibility |
 | 4. Verso Blueprint | 15 | Cover guidelines, features, examples, and limitations |
-| 5. What's next? | 6 | The speaker's expected sequence, without delivery dates |
+| 5. What's next? | 6 | Programmatic blueprints, then the September–December roadmap |
 
 Preserve the existing horizontal/vertical navigation convention. The section's first substantive slide should carry its opening message; avoid empty section dividers. Put optional depth in vertical children or backup slides. [R8]
 
@@ -122,26 +122,36 @@ A small collaboration sketch may close the section: retrieve context, attempt a 
 
 ## 5. What's next? — 6 minutes
 
-### 5.1 Expected roadmap sequence
+### 5.1 Towards programmatic blueprints
 
-Use the speaker's priorities in this temporal order:
+Adapt the Madrid closing slide to introduce VBP as core infrastructure for
+mathematical research projects. Use one list: a stable mathematical record,
+queryable Lean evidence and project state, and better tools for projects such
+as Prove2Me, Trellis, and AutoformBot. These are possible beneficiaries, not
+integrations to present as already implemented. This bridges the demonstrated
+reader and query surfaces to the proposed roadmap.
 
-1. Formalizing VBP's custom database
+### 5.2 Roadmap
+
+Use the speaker's priorities in this order:
+
+1. Formal Database Model
 2. Improved skill
-3. Side-by-side views
-4. GitHub, Prove2Me, and Trellis integrations
-5. Direct agentic loop support
+3. Improved Verso Performance
+4. Widget
+5. Side-by-Side analysis
+6. Direct agentic loop support
 
-No delivery dates are assigned. This supersedes the earlier monthly timeline.
-The first item means formalizing VBP's custom database, as clarified by the speaker.
+The Illuminate timeline spans September–December 2026 and spaces the six items
+evenly; the positions do not assign individual delivery dates. “1.0 release”
+is aligned with the final item. The first item
+means formalizing VBP's custom database, as clarified by the speaker.
 Distinguish today's source metadata, queries, and public embedding APIs from
 the planned integrated experience.
 
-### 5.2 Closing message
-
-Close by reconnecting the two themes: AI support is more useful when tasks and evidence are explicit; integrated reading, inference, and data access are more useful when they refer to shared, inspectable mathematical objects.
-
-Do not promise that VBP replaces mathematical understanding, formal proof checking, or human review.
+The section now ends on the roadmap, without a separate thanks slide. Do not
+promise that VBP replaces mathematical understanding, formal proof checking,
+or human review.
 
 ## Demo and infrastructure requirements
 
@@ -160,7 +170,7 @@ Use a locally served generated deck for the main demonstration. Keep a clearly l
 | Migration harness and source compare | Put inside VBP examples; use to demonstrate the AI-support thread |
 | Dense data-model listing | Explain after the example or move to backup |
 | Generic agent-only section | Replace with the two cross-cutting themes |
-| General roadmap | Use the five speaker-supplied priorities in order; no invented dates |
+| General roadmap | Use the six speaker-supplied priorities in order, evenly spaced between September and December 2026 |
 | Venue/date/duration | Leave unset until supplied; audience is expert Rocq/formal-proof researchers |
 
 Historical source IDs are inherited from the earlier brief; `SOURCES.md` is not present here. Verify claims against primary sources before finalizing the current-context section. Current build and demo evidence is recorded in `STRUCTURE.md` and the worktree runbook.

@@ -1,6 +1,6 @@
 # ForMath rehearsal review
 
-21 September 2026. Main route: 25 slides including title. Backup: 9 slides.
+21 September 2026. Main route: 23 slides including title. Backup: 9 slides.
 Event: ForMath Seminar, IRIF, Université Paris Cité.
 Preview: http://127.0.0.1:8877/.
 
@@ -42,7 +42,7 @@ If the slot is 40 minutes, aim for 33 minutes of talk and 7 for discussion:
 | Historical context | 3 | Established coordination model |
 | Verso, including its demo | 7 | Roles/directives can register specialized objects |
 | VBP, including node and graph demos | 15 | Features and validation on reference ports |
-| Roadmap and closing | 3 | The speaker's five ordered priorities |
+| Programmatic blueprints and roadmap | 3 | Six priorities across an illustrative September–December timeline |
 
 Keep FLT to the opening's coordination and reading motivation; use the
 Navier–Stokes backup only if discussion calls for it.
@@ -54,8 +54,7 @@ migration-review navigation, and all backup material.
 ## Evidence and limits
 
 - The core VBP revision has six slides: theorem syntax, Frey node, graph,
-  code-first authoring, Features, Validation. All 26 main slides passed the
-  offline layout scan under a deployment prefix. The graph and highlighted
+  code-first authoring, Features, Validation. The graph and highlighted
   attribute/nested Lean examples passed the interaction checks.
 - The richer theorem's attached Lean block compiles in ForMathDemo/After.lean.
   The same labels and dependency targets remain. Its statement edges now have
@@ -78,8 +77,9 @@ migration-review navigation, and all backup material.
 - Offline interaction acceptance also passes under a `/formath/` deployment
   prefix: zero external asset requests, page exceptions, or HTTP error responses.
   This does not test every popup, graph control, or external link.
-- The exact title is now “Verso Blueprint: Reimagining Blueprints for the AI Era”.
-  The separate “Thanks, Questions?” slide is retained.
+- The exact title is “Verso Blueprint: Reimagining Blueprints for the AI Era”.
+  The main route ends on the roadmap; the separate “Thanks, Questions?” slide
+  has been removed.
 
 Repeat the checks from the repository root. The first browser command manages
 its own temporary server and tests the deployment prefix; the second uses the
