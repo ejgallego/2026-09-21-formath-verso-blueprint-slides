@@ -628,14 +628,15 @@
   box-sizing: border-box;
   flex: 1;
   min-width: 0;
-  padding: 0.68em 0.82em 0.72em;
+  min-height: 28vh;
+  padding: 0.85em 1em;
 }
 
 .reveal .whats-next-intro + .r-hstack > .r-vstack:nth-child(2) {
   border-left-color: #2563eb;
 }
 
-.reveal .whats-next-intro + .r-hstack > .r-vstack p:first-child {
+.reveal .whats-next-intro + .r-hstack > .r-vstack > p:first-child {
   color: #0f172a;
   font-size: 0.82em;
   font-weight: 700;
@@ -644,8 +645,8 @@
 }
 
 .reveal .whats-next-intro + .r-hstack > .r-vstack ul {
-  font-size: 0.72em;
-  line-height: 1.42;
+  font-size: 0.84em;
+  line-height: 1.48;
   padding-left: 1em;
 }
 
@@ -660,6 +661,19 @@
   font-weight: 500;
   margin-top: 0.8em;
   padding-top: 0.55em;
+}
+
+.reveal .roadmap-timeline {
+  margin: 2vh auto 0;
+  text-align: center;
+}
+
+.reveal .roadmap-timeline svg {
+  display: block;
+  height: 58vh;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
 }
 
 .reveal .thanks-overlay {

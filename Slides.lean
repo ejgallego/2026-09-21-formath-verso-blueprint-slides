@@ -648,43 +648,101 @@ Transition to the expected roadmap sequence. Today's source metadata and
 node reuse provide useful building blocks for those later integrations.
 :::
 
-# What's Next?
+# Towards programmatic blueprints
 
 %%%
 vertical := some true
 %%%
 
-Develop VBP as shared infrastructure for mathematical reading,
-formalization, and AI-assisted work.
-
-The next steps connect its data model, authoring tools, review interfaces,
-and project workflows.
-
-## Expected Roadmap Sequence
-
-1. *Formalizing VBP's custom database*
-2. *Improved skill*
-3. *Side-by-side views*
-4. *GitHub, Prove2Me, and Trellis integrations*
-5. *Direct agentic loop support*
-
-Expected order, with timing to be determined.
-
-:::notes
-These are the speaker's priorities in temporal order. No delivery dates are
-assigned. Present the already available source metadata, CLI, and embedding
-APIs as foundations; distinguish those from the planned integrated experience.
+:::class "whats-next-intro"
+Blueprints can be readable mathematical documents and programmatic project data.
 :::
 
-## Shared Mathematical Context
+::::hstack
 
-A blueprint gives readers and tools a common account of the mathematics.
+:::vstack
 
-Formal evidence, source correspondence, and project state stay inspectable.
+*For mathematicians*
 
-Let us know how Verso Blueprint could help with your work.
+- statements and proof ideas
+- dependencies and sources
+- formal evidence in context
 
-## Thanks, Questions?
+:::
+
+:::vstack
+
+*For programs*
+
+- stable labels and explicit relations
+- queries over project state
+- shared context for widgets and agents
+
+:::
+
+::::
+
+:::class "whats-next-close"
+The document and the data describe the same mathematics.
+:::
+
+:::notes
+Adapted from the final “What's Next” slide of the Madrid presentation. The
+left side describes the mathematical reading task; the right side describes
+the structured data that tools can use. Stable labels, source associations,
+queries, and derived project state are already demonstrable in this checkout.
+The integrated widget and direct agent loop remain roadmap work.
+:::
+
+## Roadmap · September–December 2026
+
+:::class "roadmap-timeline"
+```diagram (background := "#ffffff")
+open Illuminate Lean in
+let ink := rgb!"#1e293b"
+let teal := rgb!"#007da5"
+let blue := rgb!"#2563eb"
+let muted := rgb!"#64748b"
+let txt (s : String) (size : Float := 16) (bold := false) (color := ink) : Diagram SVG :=
+  Diagram.text s { fontSize := size, fontFamily := "sans-serif", color, bold }
+let item (x y : Float) (first second : String) : Diagram SVG :=
+  Diagram.vsep 4 [txt first 16 true, txt second 16 true]
+    |>.translate x y
+let axis : Diagram SVG :=
+  Diagram.line ⟨-460, 0⟩ ⟨460, 0⟩ { color := muted, width := 2 }
+let marks : Diagram SVG :=
+  (Diagram.circle 7 (fill := teal) |>.translate (-430) 0)
+    |>.compose (Diagram.circle 7 (fill := blue) |>.translate (-258) 0)
+    |>.compose (Diagram.circle 7 (fill := teal) |>.translate (-86) 0)
+    |>.compose (Diagram.circle 7 (fill := blue) |>.translate 86 0)
+    |>.compose (Diagram.circle 7 (fill := teal) |>.translate 258 0)
+    |>.compose (Diagram.circle 7 (fill := blue) |>.translate 430 0)
+let stems : Diagram SVG :=
+  Diagram.line ⟨-430, 8⟩ ⟨-430, 39⟩ { color := teal, width := 1.5 }
+    |>.compose (Diagram.line ⟨-258, -8⟩ ⟨-258, -39⟩ { color := blue, width := 1.5 })
+    |>.compose (Diagram.line ⟨-86, 8⟩ ⟨-86, 39⟩ { color := teal, width := 1.5 })
+    |>.compose (Diagram.line ⟨86, -8⟩ ⟨86, -39⟩ { color := blue, width := 1.5 })
+    |>.compose (Diagram.line ⟨258, 8⟩ ⟨258, 39⟩ { color := teal, width := 1.5 })
+    |>.compose (Diagram.line ⟨430, -8⟩ ⟨430, -39⟩ { color := blue, width := 1.5 })
+axis.compose stems |>.compose marks
+  |>.compose (item (-430) 77 "Formal Database" "Model")
+  |>.compose (item (-258) (-77) "Improved" "Skill")
+  |>.compose (item (-86) 77 "Improved Verso" "Performance")
+  |>.compose (txt "Widget" 16 true |>.translate 86 (-77))
+  |>.compose (item 258 77 "Side-by-Side" "analysis")
+  |>.compose (item 430 (-77) "Direct agentic" "loop support")
+  |>.compose (txt "Sep 2026" 14 true muted |>.translate (-430) (-165))
+  |>.compose (txt "Dec 2026" 14 true muted |>.translate 430 (-165))
+  |>.scale 0.9
+```
+:::
+
+:::notes
+The six priorities are evenly spaced in expected order across September to
+December 2026. Their positions do not assign delivery months or deadlines.
+The first item means formalizing VBP's custom database. The widget and direct
+agent loop are proposed work, not capabilities claimed by this timeline.
+:::
 
 # Backup: Architecture
 

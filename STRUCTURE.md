@@ -6,7 +6,7 @@ unfamiliar with Verso. Explain the document system, not proof assistants.
 Active source: [Slides.lean](Slides.lean), in the ForMath repository root.
 Confirmed event: ForMath Seminar, IRIF, Université Paris Cité, Monday,
 21 September 2026. Speaker: Emilio Jesús Gallego Arias, Lean FRO.
-Five substantive sections, plus backup. The main route has 30 slides including
+Five substantive sections, plus backup. The main route has 28 slides including
 the title; backup has 10. Horizontal sections retain vertical children.
 40 minutes remains a provisional budget: rehearse and cut optional demos.
 
@@ -18,11 +18,10 @@ the title; backup has 10. Horizontal sections retain vertical children.
 | Historical context | Blueprint lineage, LeanBlueprint, coordination | Retain attribution and the distinction between sphere eversion origins and later Liquid Tensor use. |
 | Verso | Language boundary and document kinds; complete compiled document; checked code and enforced diagnostic; document/Lean references; extensions | Rehearse the source-to-rendered-document demonstration. No Lean tutorial. |
 | Verso Blueprint | Why another implementation; real Frey node; model diagram; small graph; proof progress and summary; prose/code authoring; dependency tracks; sources; public queries; AI review; boundaries | Rehearse the three timed demonstrations in the runbook. The rich node anatomy panel is backup detail. A recorded migration defect/correction remains optional future detail work. |
-| What's next | Shared infrastructure; speaker's five ordered roadmap items; closing | No delivery dates. The first item means formalizing VBP's custom database. |
+| What's next | “Towards programmatic blueprints” adapted from the Madrid closing slide; six-item Illuminate timeline | Two slides. The September–December span is illustrative: items are equally spaced, without individual delivery dates. The first item means formalizing VBP's custom database. |
 
-Roadmap order: **Formalizing VBP's custom database → improved skill → side-by-side
-views → GitHub, Prove2Me, Trellis integrations → direct agentic loop support**.
-This supersedes the earlier month-by-month proposal.
+Roadmap order: **Formal Database Model → Improved Skill → Improved Verso
+Performance → Widget → Side-by-Side analysis → Direct agentic loop support**.
 
 ## Demonstrations
 
