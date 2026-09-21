@@ -14,6 +14,8 @@ scholarly presentation; the repository license does not relicense them.
 | `static/images/math_inc_2.png` | Screenshot from [Math Inc., Sphere Packing](https://www.math.inc/sphere-packing). |
 | `static/images/sp_index.png`, `static/images/sp_graph.png` | Screenshots from the [Sphere Packing in Lean Blueprint](https://thefundamentaltheor3m.github.io/Sphere-Packing-Lean/blueprint/). |
 | `static/videos/flt-progress.mp4`, `static/images/flt-progress-poster.png`, `static/images/flt-plan.png` | Anthropic's progress animation and Prove2Me plan graph from [Formalizing Fermat's Last Theorem](https://www.anthropic.com/research/formalizing-fermats-last-theorem), supplied for this talk. The poster is a frame from the animation. |
+| `static/videos/verso-documentation-dsl.mp4`, `static/images/verso-dsl-poster.png` | Local 360p copy and title-frame poster of David Thrane Christiansen's [Lean Together 2024 talk, “Verso: Documentation as a DSL”](https://www.youtube.com/watch?v=dv_vmVs3SQQ), used for the Verso introduction. |
+| `static/webshots/verso-equality-transport.png` | Local browser capture of this deck's generated Verso Manual demonstration page, used to show source and rendered document side by side. |
 | `static/images/navier-stokes.webp` | Illustration of inward spiral and axial stretching from [OpenAI's Navier–Stokes announcement](https://openai.com/index/navier-stokes-solution/), supplied for this talk. |
 | `static/images/lte1.png`, `static/images/lte2.png` | Screenshots of the Liquid Tensor Experiment Blueprint, generated with [LeanBlueprint](https://github.com/PatrickMassot/leanblueprint). |
 | `static/lean-logo.png`, `static/lean-logo-large.png` | Lean logo, used descriptively. Lean and its logo are associated with Lean FRO and the Lean project. |

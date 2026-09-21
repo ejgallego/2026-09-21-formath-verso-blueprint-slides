@@ -194,6 +194,10 @@ def main : IO UInt32 := do
   IO.FS.writeBinFile (outputDir / "flt-progress.mp4") fltVideoBytes
   let fltPosterBytes ← IO.FS.readBinFile "static/images/flt-progress-poster.png"
   IO.FS.writeBinFile (outputDir / "flt-progress-poster.png") fltPosterBytes
+  let versoVideoBytes ← IO.FS.readBinFile "static/videos/verso-documentation-dsl.mp4"
+  IO.FS.writeBinFile (outputDir / "verso-documentation-dsl.mp4") versoVideoBytes
+  let versoPosterBytes ← IO.FS.readBinFile "static/images/verso-dsl-poster.png"
+  IO.FS.writeBinFile (outputDir / "verso-dsl-poster.png") versoPosterBytes
 
   let htmlPath := outputDir / "index.html"
   let html ← IO.FS.readFile htmlPath

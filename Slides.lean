@@ -268,108 +268,183 @@ LeanArchitect is another example of using a blueprint to coordinate people
 and AI tools: https://arxiv.org/abs/2601.22554.
 :::
 
-# What Is Verso?
+# Verso: Documentation as a Lean DSL
 
 %%%
 vertical := some true
 %%%
 
-Verso is an extensible document system implemented in Lean.
-
-```code lean
-import VersoManual
-open Verso.Genre
-#doc (Manual) "A mathematical document" =>
+```html
+<video class="verso-talk-video" src="verso-documentation-dsl.mp4" poster="verso-dsl-poster.png" controls preload="metadata" aria-label="David Thrane Christiansen: Verso: Documentation as a DSL"></video>
 ```
 
-Above `#doc`: Lean imports and declarations.
-After `=>`: document markup, with extensions supplied by those imports.
+[Verso: written in Lean, checked by Lean](https://verso.lean-lang.org/)
 
-The document kind, here `Manual`, determines its structure and rendering.
+[David Thrane Christiansen, Lean Together 2024](https://www.youtube.com/watch?v=dv_vmVs3SQQ)
+
+Verso addresses recurring markup-language problems:
+
+- *Extensibility*: imported Lean modules add syntax and elaboration.
+- *Integration*: prose, Lean code, and tools share one build and environment.
+- *Semantics*: elaboration produces structured data before rendering.
 
 :::notes
-The audience knows Rocq and formal proof. Explain the language boundary, not
-proof assistants. Blueprint extends Manual; this presentation uses Slides.
+Use the first few seconds of David Thrane Christiansen's 33-minute Lean Together
+talk as a direct introduction. Verso is a document language embedded in Lean,
+not a renderer bolted onto Lean source. The next slides make this concrete.
+The local video avoids depending on venue internet; the links remain useful for
+the full talk and project website.
 :::
 
 ## A Complete Verso Document
 
-:::class "feature-source"
-````code lean
-import VersoManual
-open Verso.Genre Verso.Genre.Manual
-open Verso.Genre.Manual.InlineLean
+:::::class "verso-complete-document"
+::::hstack
 
-#doc (Manual) "Equality transport" =>
-# Applying a function
-%%%
-tag := "transport"
-%%%
-If $`x = y`, then $`g(x) = g(y)`.
-The Lean declaration is {name}`congrArg`.
+:::vstack
 
-```lean
-#check congrArg
+```lean -panel
+#check fun (g : Nat → Nat) (x y : Nat) (h : x = y) =>
+  congrArg g h
 ```
-Return to {ref "transport"}[applying a function].
-````
-:::
+
+A `#doc (Manual) ... =>` command switches from Lean to document markup.
 
 [Open the rendered document](demo/verso/Applying-a-function/)
+
+:::
+
+:::class "verso-document-shot"
+{image (width := "100%") "static/webshots/verso-equality-transport.png"}[Rendered Verso Manual document showing its table of contents, heading, mathematical text, and linked Lean declaration]
+:::
+
+::::
+:::::
 
 :::notes
 The file starts in Lean. The #doc command introduces a document whose markup
 can call extensions supplied by the imports. Manual is one document kind.
-Open the rendered page, follow the document reference, then hover congrArg.
-The reader sees prose, but this name still has its declaration and type.
-Return to the next slide: what does the build check?
+Show the rendered page on the right, follow the document reference, then hover
+congrArg. The reader sees prose, but this name still has its declaration and
+type. The source uses the Lean highlighter, rather than a generic code block.
 :::
 
-## Elaboration And Diagnostics
+## Checked Code And Resolved Links
 
-The embedded code is elaborated during the document build.
+:::::hstack
+
+:::vstack
+
+*A Lean proof inside the document is elaborated during the build.*
 
 ```lean -panel -stretch
 example (g : Nat → Nat) (x y : Nat) (h : x = y) :
     g x = g y := congrArg g h
 ```
 
-This block requires an error; an unexpected success fails the document build.
+An expected error can also be part of the document's build contract.
 
-```lean +error -panel -stretch
-example (x y : Nat) : x = y := rfl
-```
-
-:::notes
-The first example elaborates. The second is deliberately false in general,
-and its error is expected. Both belong to the document's build contract.
-The mathematical prose remains informal. This is the boundary between a
-checked document extension and verification of the surrounding exposition.
 :::
 
-## Links With Mathematical Context
+:::vstack
 
-A Lean name resolves in the elaboration environment: {name}`congrArg`.
+*Markup resolves against more than one environment.*
 
 ```code verso
 The Lean declaration is {name}`congrArg`.
 Return to {ref "transport"}[applying a function].
 ```
 
-A document reference resolves an authored target.
-A Lean reference carries information about a declaration.
+`{name}` resolves a Lean declaration.
 
-[Rendered reference and declaration](demo/verso/Applying-a-function/)
+`{ref}` resolves an authored document target.
 
-:::notes
-Recall the reference and hover just shown. A document target belongs to the
-document structure; congrArg resolves in Lean's elaboration environment.
-VBP will add a third kind of identity: the mathematical object in a blueprint.
 :::
 
-## From Document Extensions To Blueprint Objects
+:::::
 
-Imports supply roles, directives, elaboration, and rendering.
+:::notes
+Keep the distinction: Lean checks the proof at build time; the two markup
+roles resolve against different structured environments. The generic document
+link follows an authored target, while the Lean name retains its declaration
+information. VBP will add a third identity: the mathematical object.
+:::
+
+## Two Phases Of A Verso Build
+
+```diagram (background := "#ffffff")
+open Illuminate Lean in
+let ink := rgb!"#1e293b"
+let teal := rgb!"#007da5"
+let muted := rgb!"#64748b"
+let txt (s : String) (size : Float := 13) (bold := false) : Diagram SVG :=
+  Diagram.text s { fontSize := size, fontFamily := "sans-serif", color := ink, bold }
+let box (name : Name) (label : String) (fill : Color) : Diagram SVG :=
+  txt label
+    |>.padXY 12 9
+    |>.filledFrame (fill := fill) (stroke := { color := muted, width := 1.2 })
+    |>.namedWithAnchors name
+let chapter := box `chapter "Chapter.olean\nroles and directives" (rgb!"#f8fafc")
+  |>.translate (-420) 115
+let glossary := box `glossary "Glossary.olean\ntargets and references" (rgb!"#f8fafc")
+  |>.translate (-420) 0
+let extension := box `extension "Extension.olean\ncustom elaborators" (rgb!"#f8fafc")
+  |>.translate (-420) (-115)
+let environment := box `environment "Document environment\nenvironment extensions" (rgb!"#ecfeff")
+let build := box `build "Verso document pass\ncollect, resolve, render" (rgb!"#e0f2fe")
+  |>.translate 270 0
+let output := box `output "Rendered document\nHTML, PDF, or slides" (rgb!"#f0fdf4")
+  |>.translate 535 0
+let ah : Arrowhead := { type := .stealth }
+chapter.compose glossary |>.compose extension |>.compose environment |>.compose build |>.compose output
+  |>.connect `chapter.east `environment.west (arrowhead := ah)
+    (stroke := { color := muted, width := 1.1, dash := .dashed })
+  |>.connect `glossary.east `environment.west (arrowhead := ah)
+    (stroke := { color := muted, width := 1.1, dash := .dashed })
+  |>.connect `extension.east `environment.west (arrowhead := ah)
+    (stroke := { color := muted, width := 1.1, dash := .dashed })
+  |>.connect `environment.east `build.west (arrowhead := ah)
+    (stroke := { color := teal, width := 1.6 })
+  |>.connect `build.east `output.west (arrowhead := ah)
+    (stroke := { color := teal, width := 1.6 })
+  |>.scale 0.82
+```
+
+*Phase 1 — Lean elaboration:* modules contribute document data through
+environment extensions, persisted in `.olean` files.
+
+*Phase 2 — document generation:* Verso collects the final environment,
+resolves references, and renders the selected genre.
+
+:::notes
+This is the core architecture. Each module contributes independently when Lean
+elaborates it; the document does not need a global hand-maintained registry.
+The final generation pass starts with all these contributions, resolves the
+references it can see, and renders a Manual page, a PDF, or this slide deck.
+The diagram deliberately distinguishes compilation from document generation.
+:::
+
+## Extension Points: Roles, Directives, And Code Blocks
+
+:::::class "verso-extension-points"
+::::hstack
+
+:::vstack
+
+*Roles* are inline.
+
+```code verso
+The Lean declaration is {name}`congrArg`.
+```
+
+They can resolve a target, register a reference, or render an interactive
+inline object.
+
+:::
+
+:::vstack
+
+*Directives* are block-level.
 
 ```code verso
 :::theorem "left_inverse_injective"
@@ -377,14 +452,34 @@ A function admitting a left inverse is injective.
 :::
 ```
 
-The Blueprint extension registers a mathematical object under this label.
+They can introduce structure, metadata, and rich rendered blocks.
 
-Its statement, proof, attachments, and relationships can contribute from
-different parts of the document or imported modules.
+:::
+
+:::vstack
+
+*Code blocks* elaborate Lean.
+
+```lean -panel
+example : 1 + 1 = 2 := rfl
+```
+
+They can type-check code, expose proof states, and contribute semantic data.
+
+:::
+
+::::
+:::::
+
+The extension author defines what each elaboration does: *emit typed data*,
+*report diagnostics*, *render a node*, or *combine these effects*.
 
 :::notes
-Verso provides the document framework. VBP extends the Manual genre with the
-Blueprint model. The slide genre can reuse the resulting Blueprint objects.
+The important point is programmable meaning. Roles operate inside prose;
+directives own blocks; code blocks call Lean. Each extension has an elaborator,
+so it decides the semantics of its syntax rather than merely formatting text.
+Blueprint is our next example: its theorem directive records a mathematical
+object that later slides, graphs, and tools can consume.
 :::
 
 # A Theorem In Verso Blueprint

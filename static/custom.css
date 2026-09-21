@@ -194,6 +194,59 @@
   max-width: 100%;
 }
 
+.reveal .slides section .verso-talk-video {
+  background: #ffffff;
+  display: block;
+  height: 36vh;
+  margin: 0.25em auto 0.35em;
+  max-width: 100%;
+}
+
+.reveal .verso-document-shot {
+  align-self: stretch;
+  margin: 0;
+  text-align: center;
+}
+
+.reveal .verso-document-shot img {
+  border: 1px solid #dbe5ee;
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.1);
+  height: 46vh;
+  max-width: 100%;
+  object-fit: contain;
+  width: auto !important;
+}
+
+.reveal .verso-complete-document .r-hstack {
+  align-items: start;
+  gap: 1em;
+}
+
+.reveal .verso-complete-document .r-hstack > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.reveal .verso-extension-points .r-hstack {
+  align-items: start;
+  gap: 0.55em;
+}
+
+.reveal .verso-extension-points .r-vstack {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.reveal .verso-extension-points pre {
+  font-size: 0.46em;
+  min-width: 0;
+}
+
+.reveal .verso-extension-points pre code {
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
 .reveal p.flt-plan-image {
   margin: 0.1em 0;
   text-align: center;
