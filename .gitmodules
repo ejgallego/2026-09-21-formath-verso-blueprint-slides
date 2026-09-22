@@ -1,0 +1,6 @@
+[submodule "examples/verso-flt"]
+	path = examples/verso-flt
+	url = https://github.com/ejgallego/verso-flt.git
+[submodule "deps/verso-blueprint"]
+	path = deps/verso-blueprint
+	url = https://github.com/leanprover/verso-blueprint.git

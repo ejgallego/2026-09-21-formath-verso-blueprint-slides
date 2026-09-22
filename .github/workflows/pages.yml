@@ -1,0 +1,56 @@
+name: Build and deploy slides
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: recursive
+      - uses: actions/configure-pages@v6
+      - name: Install elan
+        run: |
+          curl https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh -sSf | sh -s -- -y
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Build public artifact
+        run: scripts/build-pages.sh
+      - name: Check asset packaging
+        run: python3 -m unittest discover -s scripts -p 'test_*.py'
+      - name: Install browser test dependencies
+        run: |
+          python3 -m venv /tmp/formath-browser-tests
+          /tmp/formath-browser-tests/bin/pip install playwright
+      - name: Rehearse offline under a deployment prefix
+        run: /tmp/formath-browser-tests/bin/python scripts/rehearse-offline.py --output /tmp/formath-review
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: _slides
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

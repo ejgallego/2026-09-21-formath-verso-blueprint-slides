@@ -1,0 +1,2 @@
+# Preserve checksum-verified upstream distributions, including license CRLFs.
+static/vendor/* -text whitespace=-blank-at-eol,-blank-at-eof

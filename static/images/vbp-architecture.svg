@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Verso Blueprints architecture</title>
+  <desc id="desc">Sources feed a semantic blueprint model, which renders human and tool-facing outputs.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#0891b2"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-20%" width="120%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="720" fill="#f8fafc"/>
+  <text x="640" y="72" text-anchor="middle" font-family="Source Sans 3, Source Sans Pro, Arial, sans-serif" font-size="40" font-weight="600" fill="#1e293b">VBP: semantic model + document layer</text>
+
+  <g font-family="Source Sans 3, Source Sans Pro, Arial, sans-serif">
+    <g filter="url(#shadow)">
+      <rect x="430" y="190" width="420" height="190" rx="18" fill="#0073A3"/>
+      <text x="640" y="252" text-anchor="middle" font-size="32" font-weight="650" fill="#ffffff">Semantic Blueprint Model</text>
+      <text x="640" y="300" text-anchor="middle" font-size="23" fill="#e0f2fe">labeled hybrid informal/formal objects</text>
+      <text x="640" y="337" text-anchor="middle" font-size="23" fill="#e0f2fe">dependencies, status, ownership, links</text>
+    </g>
+
+    <g font-size="23" font-weight="600" fill="#1e293b">
+      <g filter="url(#shadow)">
+        <rect x="80" y="145" width="250" height="70" rx="12" fill="#ffffff" stroke="#dbe5e8" stroke-width="2"/>
+        <text x="205" y="188" text-anchor="middle">Verso nodes</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="80" y="245" width="250" height="70" rx="12" fill="#ffffff" stroke="#dbe5e8" stroke-width="2"/>
+        <text x="205" y="288" text-anchor="middle">Lean declarations</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="80" y="345" width="250" height="70" rx="12" fill="#ffffff" stroke="#dbe5e8" stroke-width="2"/>
+        <text x="205" y="388" text-anchor="middle">TeX / source text</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="80" y="445" width="250" height="70" rx="12" fill="#ffffff" stroke="#dbe5e8" stroke-width="2"/>
+        <text x="205" y="488" text-anchor="middle">Project metadata</text>
+      </g>
+    </g>
+
+    <g stroke="#0891b2" stroke-width="5" fill="none" marker-end="url(#arrow)">
+      <path d="M330 180 C365 180,390 210,430 235"/>
+      <path d="M330 280 C370 280,390 280,430 285"/>
+      <path d="M330 380 C365 380,390 350,430 335"/>
+      <path d="M330 480 C375 470,400 390,430 360"/>
+    </g>
+
+    <g font-size="23" font-weight="600" fill="#1e293b">
+      <g filter="url(#shadow)">
+        <rect x="950" y="145" width="250" height="70" rx="12" fill="#ffffff" stroke="#dbe5e8" stroke-width="2"/>
+        <text x="1075" y="188" text-anchor="middle">Readable pages</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="950" y="245" width="250" height="70" rx="12" fill="#ffffff" stroke="#dbe5e8" stroke-width="2"/>
+        <text x="1075" y="288" text-anchor="middle">Graphs + summaries</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="950" y="345" width="250" height="70" rx="12" fill="#ffffff" stroke="#dbe5e8" stroke-width="2"/>
+        <text x="1075" y="388" text-anchor="middle">Previews</text>
+      </g>
+      <g filter="url(#shadow)">
+        <rect x="950" y="445" width="250" height="70" rx="12" fill="#ffffff" stroke="#dbe5e8" stroke-width="2"/>
+        <text x="1075" y="488" text-anchor="middle">Agent work queues</text>
+      </g>
+    </g>
+
+    <g stroke="#0891b2" stroke-width="5" fill="none" marker-end="url(#arrow)">
+      <path d="M850 235 C895 210,910 180,950 180"/>
+      <path d="M850 285 C900 280,910 280,950 280"/>
+      <path d="M850 335 C895 350,910 380,950 380"/>
+      <path d="M850 360 C895 400,910 465,950 480"/>
+    </g>
+
+    <text x="205" y="585" text-anchor="middle" font-size="24" font-weight="650" fill="#0e7490">inputs</text>
+    <text x="640" y="585" text-anchor="middle" font-size="24" font-weight="650" fill="#0e7490">one semantic source of truth</text>
+    <text x="1075" y="585" text-anchor="middle" font-size="24" font-weight="650" fill="#0e7490">outputs</text>
+  </g>
+</svg>
